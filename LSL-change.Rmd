@@ -1,0 +1,243 @@
+---
+title: "LSL change"
+author: "Tara Jagadeesh"
+date: "8/25/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Setup
+```{r}
+#Load packages
+library(tidyverse) #Data wrangling
+library(reshape2) #Reshape dataframes
+library(kableExtra) #Kable tables
+
+
+#Load data
+SL <- read_csv("ServiceLineMaterialInventoryReports.csv")
+
+```
+
+# Find the # change in unknown/known LSL between 2018 and 2019
+```{r}
+#Filter data
+LSL <- SL %>% 
+  select(FacilityId, 
+         County, 
+         FacilityName, 
+         Year = ReportingYear, 
+         Total = TotalServiceConnections, 
+         Lead = ServicesLead, 
+         Unknown = ServicesUnknownMaterial,
+         UnknownNotLead = ServicesUnknownNotLead) %>% 
+  filter(Year == 2018 | Year == 2019)
+
+LSL_long <- LSL %>% #Convert data to tidy format
+  gather("Variable", "Value", -FacilityId, -County, -FacilityName, -Year) 
+
+SL_long <- SL %>% 
+  select(-ReportedDate, -WholesaleConnections, -RetailConnections) %>% 
+  filter(ReportingYear == 2018 | ReportingYear == 2019)
+  
+#Summary tables
+
+# Convert data so that there is a 2018 column
+LSL_2018 <- LSL_long %>% 
+  filter(Year == 2018) %>% 
+  select(FacilityId, County, FacilityName, Variable, "Year_2018" = Value)
+
+# Convert data so that there is a 2019 column
+LSL_2019 <- LSL_long %>% 
+  filter(Year == 2019) %>% 
+  select(FacilityId, County, FacilityName, Variable, "Year_2019" = Value)
+
+# Merge columns together
+LSL_merged <- merge(LSL_2019,LSL_2018, by = c("FacilityId", "County", "FacilityName", "Variable")) 
+
+# Create a summary table of the change in LSLs from 2018 to 2019
+LSL_summary <- LSL_merged %>% #
+  group_by(FacilityName, Variable) %>% 
+  mutate(change = (Year_2019 - Year_2018)) %>% 
+  arrange(FacilityName)
+
+write.csv(LSL_summary, "LSL_2019_summary.csv") #Export to csv
+
+# Create a summary table that flags utilities
+LSL_flagged <- LSL_summary %>% 
+  select(FacilityId, County, FacilityName, Variable, change) %>% 
+  filter(Variable == "Unknown" | Variable == "UnknownNotLead") %>% 
+  dcast(FacilityId + County + FacilityName ~ Variable, fun.aggregate = sum, value.var = "change") %>% 
+  mutate(Flagged = ifelse(Unknown < 0 & UnknownNotLead > 0, "Yes", "No" ), #Flag for dec in unknown and inc in unknownnotlead
+         Difference = Unknown + UnknownNotLead, #Find the difference 
+         Flagged2 = ifelse(Flagged == "Yes" & Difference == 0, "Yes", "No"))
+
+write.csv(LSL_flagged, "LSL_2019_flagged.csv") #Export to csv
+
+
+```
+
+
+# Find the % change
+```{r}
+#% Change
+
+# Calculate what % each category is of the total
+LSL_percent <- LSL %>% 
+  mutate(percent_total = round((Total/Total) * 100, digits = 1),
+         percent_lead = round((Lead/Total) * 100, digits = 1),
+         percent_unknown = round((Unknown/Total) * 100, digits = 1),
+         percent_unknownnotlead = round((UnknownNotLead/Total) * 100, digits = 1)) %>% 
+  select(-percent_total, -Lead, -Unknown, -UnknownNotLead)
+
+LSL_perc_long <- LSL_percent %>% #Convert data to tidy format
+  gather("Variable", "Value", -FacilityId, -County, -FacilityName, -Year) 
+
+
+#Summary tables
+
+# Convert data so that there is a 2018 column
+LSL_perc_2018 <- LSL_perc_long %>% 
+  filter(Year == 2018) %>% 
+  select(FacilityId, County, FacilityName, Variable, "Year_2018" = Value)
+
+# Convert data so that there is a 2019 column
+LSL_perc_2019 <- LSL_perc_long %>% 
+  filter(Year == 2019) %>% 
+  select(FacilityId, County, FacilityName, Variable, "Year_2019" = Value)
+
+# Merge columns together
+LSL_perc_merged <- merge(LSL_perc_2019, LSL_perc_2018, by = c("FacilityId", "County", "FacilityName", "Variable")) 
+
+# Create a summary table of the change in LSL percentages from 2018 to 2019
+LSL_perc_summary <- LSL_perc_merged %>% #
+  group_by(FacilityName, Variable) %>% 
+  mutate(change = (Year_2019 - Year_2018)) %>% 
+  arrange(FacilityName)
+
+write.csv(LSL_perc_summary, "LSL_2019_perc_summary.csv") #Export to csv
+
+# Create a summary table that flags utilities
+LSL_perc_flagged <- LSL_perc_summary %>% 
+  select(FacilityId, County, FacilityName, Variable, change) %>% 
+  filter(Variable == "percent_unknown" | Variable == "percent_unknownnotlead") %>% 
+  dcast(FacilityId + County + FacilityName ~ Variable, fun.aggregate = sum, value.var = "change") %>% 
+  mutate(Flagged = ifelse(percent_unknown < 0 & percent_unknownnotlead > 0, "Yes", "No" ),
+         Difference = round(percent_unknown + percent_unknownnotlead, digits = 1), #Find the difference 
+         Flagged2 = ifelse(Flagged == "Yes" & Difference == 0, "Yes", "No"))
+
+write.csv(LSL_flagged, "LSL_2019_flagged.csv") #Export to csv
+
+
+```
+
+
+# Descriptive stats
+```{r}
+
+#Number change
+# How many utilities have decrease in Unknown and increase in UnknownNotLead?
+flagged <- table(LSL_flagged$Flagged) 
+flagged["Yes"] #142
+(flagged["Yes"]/ (flagged["Yes"] + flagged["No"]))* 100 #8.2%
+
+# How many utilities have an EXACTLY EQUAL decrease in Unknown and increase in UnknownNotLead?
+flagged2 <- table(LSL_flagged$Flagged2) 
+flagged2["Yes"] #53
+
+#Percent change
+# How many utilities have decrease in % Unknown and increase in % UnknownNotLead?
+flagged_perc <- table(LSL_perc_flagged$Flagged) 
+flagged_perc["Yes"] #141
+(flagged_perc["Yes"]/ (flagged_perc["Yes"] + flagged_perc["No"]))* 100 #8.1%
+
+# How many utilities have an EXACTLY EQUAL decrease in % Unknown and increase in % UnknownNotLead?
+flagged2_perc <- table(LSL_perc_flagged$Flagged2) 
+flagged2_perc["Yes"] #51
+
+#Comparing the two
+# Which utilities? 
+n <- unique(LSL_flagged$FacilityName[LSL_flagged$Flagged=="Yes"])
+n1 <- unique(LSL_flagged$FacilityName[LSL_flagged$Flagged2=="Yes"])
+
+p <- unique(LSL_perc_flagged$FacilityName[LSL_perc_flagged$Flagged=="Yes"])
+p1 <- unique(LSL_perc_flagged$FacilityName[LSL_perc_flagged$Flagged2=="Yes"])
+
+setdiff(n, p)
+setdiff(n1, p1)
+
+# Which counties?
+unique(LSL_flagged$County[LSL_flagged$Flagged=="Yes"]) #63
+unique(LSL_flagged$County[LSL_flagged$Flagged2=="Yes"]) #32
+
+
+
+```
+
+
+# Summary tables
+```{r}
+#Dataframe 
+# Join data from several dfs together
+
+#  Get the 2019 totals of each utility (to see how large of an impact it has)
+LSL_2019_total <- LSL %>% 
+  filter(Year == "2019") %>% 
+  select(FacilityId, County, FacilityName, Total)
+
+#  Get percent_unknown and percent_unknownnotlead data  
+LSL_perc_cut <- LSL_perc_flagged %>%  
+  select(FacilityId, County, FacilityName, percent_unknown, percent_unknownnotlead)
+
+#  Join both to the flagged data from the # change analysis
+LSL_final_summary <- LSL_flagged %>% 
+  merge(LSL_perc_cut, by = c("FacilityId", "County", "FacilityName")) %>% 
+  merge(LSL_2019_total, by = c("FacilityId", "County", "FacilityName")) %>% 
+  select(County, FacilityName, Total, percent_unknownnotlead, Flagged, Flagged2) %>%
+  filter(Flagged == "Yes" | Flagged2 == "Yes") %>% 
+  arrange(County, desc(Total), desc(Flagged2), desc(percent_unknownnotlead)) 
+
+#Kable table
+
+colorme <- which(LSL_final_summary$Flagged2=="Yes")
+
+LSL_summary_table <- LSL_final_summary %>% 
+  select(-County) %>% 
+  kable(booktabs = T, 
+        col.names = c("Utility Name", 
+                      "Total Service Lines (2019)", 
+                      "Change in percentage of total lines that are Unknown Not Lead", 
+                      "Decrease in Unknown lines and increase in Unknown Not Lead lines?",
+                      "Equal decrease in Unknown lines and increase in Unknown Not Lead lines?"), 
+        digits = 1,  
+        caption = "Table 1",
+        align = c("l", "c", "c", "c", "c")) %>% 
+  kable_styling(full_width = F) %>% 
+  pack_rows(index = table(LSL_final_summary$County)) %>% 
+  column_spec(1, width = "20em") %>% 
+  column_spec(2, width = "10em") %>% 
+  column_spec(3, width = "10em") %>% 
+  column_spec(4, width = "10em") %>% 
+  column_spec(5, width = "10em") %>% 
+  row_spec(colorme, background = "#fff3d6")
+LSL_summary_table 
+
+```
+
+
+# Plots of the change
+```{r}
+
+# Cook County
+LSL_change <- LSL_long %>% 
+  filter(FacilityName == "Illinois American - Champaign (PWS)") %>% 
+  group_by(Year) %>% 
+  ggplot(aes(x = Variable, y = Value)) + 
+  geom_col(aes(fill = factor(Year)), position = "dodge") 
+LSL_change
+```
+
+
