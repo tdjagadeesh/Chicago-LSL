@@ -1,20 +1,33 @@
 ---
-title: "LSL change"
-author: "Tara Jagadeesh"
-date: "8/25/2020"
-output: html_document
+title: "Changes in Lead Service Line Reporting by Illinois Water Utilities (2018-2019) "
+author: "Tara Jagadeesh, Justin Williams"
+date: "9/9/2020"
+output:
+  pdf_document: default
+  html_document: default
 ---
+
+## Summary
+This report compares data from the Public Water Supply Service Line Material Inventory by the Illinois EPA from 2018 to 2019. During this analysis, we identified several water utilities which reported a suspicious decrease in UnknownMaterial service lines and a simultaneous increase in UnknownNotLead service lines. Outlined below are these trends and a table of the flagged utilities. These results suggest that, for the purposes of outreach and policy-making, the 2018 dataset may be more reliable until we have a better understanding of the inventory procedure for each flagged utility.   
+
+## Trends
+
+### Service Line Changes 
+Overall, some categories of service lines have remained largely the same from 2018 to 2019 while others have changed (Table 1). On average, the total number of service lines reported has not significantly changed. Neither have the categories of Lead, CopperLeadSolder, CopperNonLeadSolder, CastDuctileIronTransite, and Galvanized. For two types of service lines, however, the number reported has increased: UnknownNotLead and Plastic. Finally, there has been a decrease in the reported number of UnknownMaterial lines. Given that the total number of service lines has, on average, remained constant, these results suggest that utilities may be reclassifying the UnknownMaterial lines for the 2019 reporting year.  
+&nbsp;
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Setup
-```{r}
+```{r, echo = FALSE, message = FALSE, results = FALSE, warning = FALSE, include = FALSE}
+#Setup 
+
 #Load packages
 library(tidyverse) #Data wrangling
 library(reshape2) #Reshape dataframes
 library(kableExtra) #Kable tables
+library(scales)
 
 
 #Load data
@@ -22,222 +35,369 @@ SL <- read_csv("ServiceLineMaterialInventoryReports.csv")
 
 ```
 
-# Find the # change in unknown/known LSL between 2018 and 2019
-```{r}
-#Filter data
-LSL <- SL %>% 
+\textbf{Table 1: Service Line Changes (2018 - 2019)}  
+The average number of lines reported for each service line category was compared from 2018 to 2019 using two-tailed paired t-tests ($\alpha$ = 0.05). There was a significant change in UnknownNotLead and Plastic lines, with number of lines reported as higher in 2019 than 2018. The was also a significant change in UnknownMaterial lines, with numbers of lines reported as lower in 2019 than 2018. 
+&nbsp;
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+
+#Step 1: Look at the change in classifications between 2018 and 2019
+
+################################# Data wrangling ################################# 
+#Filter the original data to include columns and years of interest
+SL_long <- SL %>% 
+  select(-ReportedDate, -WholesaleConnections, -RetailConnections) %>% 
+  filter(ReportingYear == 2019 | ReportingYear == 2018) 
+
+#Transform data to wide form (separate columns by year)
+#   Create a df for 2018
+SL_wide_2018 <- SL %>% 
+  select(-ReportedDate, -WholesaleConnections, -RetailConnections) %>% 
+  filter(ReportingYear == 2018) %>% 
+  select(FacilityId, 
+         County,
+         FacilityName, 
+         Total_2018 = TotalServiceConnections, 
+         Lead_2018 = ServicesLead, 
+         CopperLeadSolder_2018 = ServicesCopperLeadSolder, 
+         CopperNonLeadSolder_2018 = ServicesCopperNonLeadSolder, 
+         CastDuctileIronTransite_2018 = ServicesCastDuctileIronTransite, 
+         Galvanized_2018 = ServicesGalvanized, 
+         Plastic_2018 = ServicesPlastic, 
+         Unknown_2018 = ServicesUnknownMaterial, 
+         UnknownNotLead_2018 = ServicesUnknownNotLead)
+
+#   Create a df for 2010
+SL_wide_2019 <- SL %>% 
+  select(-ReportedDate, -WholesaleConnections, -RetailConnections) %>% 
+  filter(ReportingYear == 2019) %>% 
+  select(FacilityId, 
+         County, 
+         FacilityName,
+         Total_2019 = TotalServiceConnections, 
+         Lead_2019 = ServicesLead, 
+         CopperLeadSolder_2019 = ServicesCopperLeadSolder, 
+         CopperNonLeadSolder_2019 = ServicesCopperNonLeadSolder, 
+         CastDuctileIronTransite_2019 = ServicesCastDuctileIronTransite, 
+         Galvanized_2019 = ServicesGalvanized, 
+         Plastic_2019 = ServicesPlastic, 
+         Unknown_2019 = ServicesUnknownMaterial, 
+         UnknownNotLead_2019 = ServicesUnknownNotLead)
+
+#   Join the 2018 and 2019 dfs together
+SL_wide <- merge(SL_wide_2018, SL_wide_2019, by = c("FacilityId", "County", "FacilityName")) 
+
+
+################################# Statistics ################################# 
+
+#Find the means of each category by year
+mean_table <- SL_long %>%
+  group_by(ReportingYear) %>% 
+  summarize(
+    Total = round(mean(TotalServiceConnections), digits = 0),
+    UnknownMaterial = round(mean(ServicesUnknownMaterial), digits = 0),
+    UnknownNotLead = round(mean(ServicesUnknownNotLead), digits = 0),
+    Lead = round(mean(ServicesLead), digits = 0),
+    CopperLeadSolder = round(mean(ServicesCopperLeadSolder), digits = 0),
+    CopperNonLeadSolder = round(mean(ServicesCopperNonLeadSolder), digits = 0),
+    CastDuctileIronTransite = round(mean(ServicesCastDuctileIronTransite), digits = 0),
+    Galvanized = round(mean(ServicesGalvanized), digits = 0),
+    Plastic = round(mean(ServicesPlastic), digits = 0)) %>%
+  gather("Variable", "Value", -ReportingYear) %>% 
+  spread(ReportingYear, Value) %>% 
+  select(ServiceLine = Variable, "Mean_2018" = "2018", "Mean_2019" = "2019")
+
+#Find the SDs of each category by year
+sd_table <- SL_long %>%
+  group_by(ReportingYear) %>% 
+  summarize(
+    Total = round(sd(TotalServiceConnections), digits = 0),
+    UnknownMaterial = round(sd(ServicesUnknownMaterial), digits = 0),
+    UnknownNotLead = round(sd(ServicesUnknownNotLead), digits = 0),
+    Lead = round(sd(ServicesLead), digits = 0),
+    CopperLeadSolder = round(sd(ServicesCopperLeadSolder), digits = 0),
+    CopperNonLeadSolder = round(sd(ServicesCopperNonLeadSolder), digits = 0),
+    CastDuctileIronTransite = round(sd(ServicesCastDuctileIronTransite), digits = 0),
+    Galvanized = round(sd(ServicesGalvanized), digits = 0),
+    Plastic = round(sd(ServicesPlastic), digits = 0)) %>%
+  gather("Variable", "Value", -ReportingYear) %>% 
+  spread(ReportingYear, Value) %>% 
+  select(ServiceLine = Variable, "SD_2018" = "2018", "SD_2019" = "2019")
+
+  
+#Perform paired T test to determine if there are any significant differences in categories between the two years 
+diff_total <- t.test(SL_wide$Total_2018, SL_wide$Total_2019, paired=TRUE) # p = 0.8586
+diff_L <- t.test(SL_wide$Lead_2018, SL_wide$Lead_2019, paired=TRUE) # p = 0.1392
+diff_U <- t.test(SL_wide$Unknown_2018, SL_wide$Unknown_2019, paired=TRUE) # p = 0.0007782
+diff_UNL <- t.test(SL_wide$UnknownNotLead_2018, SL_wide$UnknownNotLead_2019, paired=TRUE) # p = 0.01372
+diff_CLS <- t.test(SL_wide$CopperLeadSolder_2018, SL_wide$CopperLeadSolder_2019, paired=TRUE) # p = 0.1127
+diff_CNLS <- t.test(SL_wide$CopperNonLeadSolder_2018, SL_wide$CopperNonLeadSolder_2019, paired=TRUE) # p = 0.8935
+diff_CDIT <- t.test(SL_wide$CastDuctileIronTransite_2018, SL_wide$CastDuctileIronTransite_2019, paired=TRUE) # p =  0.2432
+diff_G <- t.test(SL_wide$Galvanized_2018, SL_wide$Galvanized_2019, paired=TRUE) # p = 0.9652
+diff_P <- t.test(SL_wide$Plastic_2018, SL_wide$Plastic_2019, paired=TRUE) # p = 0.007796
+#   Dec in unknown, inc in unknown not lead, inc in plastic
+
+#Create a df of the results from the T tests
+t_df <- data.frame (ServiceLine  = c("Total", 
+                                      "UnknownMaterial", 
+                                      "UnknownNotLead",
+                                      "Lead", 
+                                      "CopperLeadSolder", 
+                                      "CopperNonLeadSolder",
+                                      "CastDuctileIronTransite",
+                                      "Galvanized", 
+                                      "Plastic" ),
+                    t_value      = c(round(diff_total$statistic, digits = 2),
+                                      round(diff_U$statistic, digits = 2),
+                                      round(diff_UNL$statistic, digits = 2),
+                                      round(diff_L$statistic, digits = 2),
+                                      round(diff_CLS$statistic,digits = 2),
+                                      round(diff_CNLS$statistic,digits = 2),
+                                      round(diff_CDIT$statistic,digits = 2),
+                                      round(diff_G$statistic,digits = 2),
+                                      round(diff_P$statistic,digits = 2)),
+                    p_value      = c(round(diff_total$p.value, digits = 2),
+                                      round(diff_U$p.value, digits = 2),
+                                      round(diff_UNL$p.value, digits = 2),
+                                      round(diff_L$p.value, digits = 2),
+                                      round(diff_CLS$p.value,digits = 2),
+                                      round(diff_CNLS$p.value,digits = 2),
+                                      round(diff_CDIT$p.value,digits = 2),
+                                      round(diff_G$p.value,digits = 2),
+                                      round(diff_P$p.value,digits = 2)))
+
+################################# Summary Table ################################# 
+
+#Create a finalized summary table of the statistics
+stats_table <- merge(mean_table, sd_table, by = "ServiceLine") %>% 
+  merge(t_df) %>% 
+  arrange(factor(ServiceLine, levels = c("Total", 
+                                         "Lead", 
+                                         "CopperLeadSolder", 
+                                         "CopperNonLeadSolder", 
+                                         "CastDuctileIronTransite", 
+                                         "Galvanized", 
+                                         "Plastic", 
+                                         "UnknownMaterial", 
+                                         "UnknownNotLead"))) %>% 
+  select("Service Line" = ServiceLine, 
+         Mean = Mean_2018, 
+         SD = SD_2018, 
+         Mean = Mean_2019, 
+         SD = SD_2019, 
+         t = t_value, 
+         p = p_value) %>% 
+  kable(booktabs = T, align = c("l", "c", "c", "c", "c", "c", "c")) %>% 
+  kable_styling(full_width = F, position = "left") %>% 
+  add_header_above(c(" " = 1, 
+                     "2018 (n = 1751)" = 2, 
+                     "2019 (n = 1752)" = 2, 
+                     " " = 2))
+stats_table
+```
+
+
+
+```{r, echo = FALSE, message = FALSE, results = FALSE, warning = FALSE, include = FALSE}
+#Find the % reclassified between 2018 and 2019
+ 
+################################# Data wrangling ################################# 
+
+#Flag data for utilities that do NOT show a decrease in UK and increase in UNL
+LSL_dummy <- SL_wide %>% 
   select(FacilityId, 
          County, 
          FacilityName, 
-         Year = ReportingYear, 
-         Total = TotalServiceConnections, 
-         Lead = ServicesLead, 
-         Unknown = ServicesUnknownMaterial,
-         UnknownNotLead = ServicesUnknownNotLead) %>% 
-  filter(Year == 2018 | Year == 2019)
+         Total_2018, 
+         Total_2019,
+         Lead_2018,
+         Lead_2019,
+         CopperLeadSolder_2018,
+         CopperLeadSolder_2019,
+         CopperNonLeadSolder_2018,
+         CopperNonLeadSolder_2019,
+         CastDuctileIronTransite_2018,
+         CastDuctileIronTransite_2019,
+         Galvanized_2018,
+         Galvanized_2019,
+         Plastic_2018,
+         Plastic_2019,
+         Unknown_2018,
+         Unknown_2019,
+         UnknownNotLead_2018,
+         UnknownNotLead_2019) %>% 
+  mutate(dummy_dec_UK = ifelse(Unknown_2018 > Unknown_2019, 0, 1), 
+         dummy_inc_UNL = ifelse(UnknownNotLead_2018 < UnknownNotLead_2019, 0, 1),
+         dummy_sum = dummy_dec_UK + dummy_inc_UNL)
+        
 
-LSL_long <- LSL %>% #Convert data to tidy format
-  gather("Variable", "Value", -FacilityId, -County, -FacilityName, -Year) 
+LSL_flagged_change <- LSL_dummy %>% 
+  filter(dummy_sum == 0) %>% 
+  select(FacilityId, 
+         County, 
+         FacilityName, 
+         Total_2018, 
+         Total_2019,
+         Unknown_2018,
+         Unknown_2019,
+         UnknownNotLead_2018,
+         UnknownNotLead_2019) %>% 
+  mutate(perc_UNL_2018 = round(UnknownNotLead_2018/Total_2018*100, digits = 0),
+         perc_UNL_2019 = round(UnknownNotLead_2019/Total_2019*100, digits = 0),
+         UK_change = Unknown_2018 - Unknown_2019,
+         UNL_change = UnknownNotLead_2019 - UnknownNotLead_2018,
+         perc_reclass = round(UNL_change/UK_change*100, digits = 0)) %>% 
+  arrange(desc(perc_UNL_2019), desc(perc_reclass), desc(Total_2019))
+```
 
-SL_long <- SL %>% 
-  select(-ReportedDate, -WholesaleConnections, -RetailConnections) %>% 
-  filter(ReportingYear == 2018 | ReportingYear == 2019)
+
+### Flagged Utilities
+To understand this potential reclassification and its implications for lead service line data, we compared the decrease in UnknownMaterial lines to the increase in UnknownNotLead lines and found the following:  
+
+* Of the 1742 water utilities catalogued by IEPA across both years, 142 (8.2%) reported a decrease in UnknownMaterial lines and an increase in UnknownNotLead lines.
+
+* Across the 142 flagged utilities, the median percent of reclassification from UnknownMaterial lines to UnknownNotLead lines was 100%.
+
+* 58 of those utilities (3.3% of the total) reported exactly the same decrease in number of UnknownMaterial lines and increase in number of UnknownNotLead lines. This suggests that some utilities may be reclassifying all of their UnknownMaterial lines as UnknownNotLead. 
+
+* 24 of the flagged utilities classified all of their service lines as UnknownNotLead in 2019. In 2018, however, none of the flagged utilities had classified all of their lines as UnknownNotLead. Given this suspicious shift, the potential consequences of lead service lines in the communities served by these utilities may be very high if policy is to be informed by 2019 data.
+
+* The flagged utilities spanned 63 out of the 102 counties of Illinois (61.8%). Using the 2019 data may thus have widespread impacts for communities across the entire state. 
+
+&nbsp;
   
-#Summary tables
+```{r, echo = FALSE, message = FALSE, results = FALSE, warning = FALSE, include = FALSE}
 
-# Convert data so that there is a 2018 column
-LSL_2018 <- LSL_long %>% 
-  filter(Year == 2018) %>% 
-  select(FacilityId, County, FacilityName, Variable, "Year_2018" = Value)
-
-# Convert data so that there is a 2019 column
-LSL_2019 <- LSL_long %>% 
-  filter(Year == 2019) %>% 
-  select(FacilityId, County, FacilityName, Variable, "Year_2019" = Value)
-
-# Merge columns together
-LSL_merged <- merge(LSL_2019,LSL_2018, by = c("FacilityId", "County", "FacilityName", "Variable")) 
-
-# Create a summary table of the change in LSLs from 2018 to 2019
-LSL_summary <- LSL_merged %>% #
-  group_by(FacilityName, Variable) %>% 
-  mutate(change = (Year_2019 - Year_2018)) %>% 
-  arrange(FacilityName)
-
-write.csv(LSL_summary, "LSL_2019_summary.csv") #Export to csv
-
-# Create a summary table that flags utilities
-LSL_flagged <- LSL_summary %>% 
-  select(FacilityId, County, FacilityName, Variable, change) %>% 
-  filter(Variable == "Unknown" | Variable == "UnknownNotLead") %>% 
-  dcast(FacilityId + County + FacilityName ~ Variable, fun.aggregate = sum, value.var = "change") %>% 
-  mutate(Flagged = ifelse(Unknown < 0 & UnknownNotLead > 0, "Yes", "No" ), #Flag for dec in unknown and inc in unknownnotlead
-         Difference = Unknown + UnknownNotLead, #Find the difference 
-         Flagged2 = ifelse(Flagged == "Yes" & Difference == 0, "Yes", "No"))
-
-write.csv(LSL_flagged, "LSL_2019_flagged.csv") #Export to csv
-
-
-```
-
-
-# Find the % change
-```{r}
-#% Change
-
-# Calculate what % each category is of the total
-LSL_percent <- LSL %>% 
-  mutate(percent_total = round((Total/Total) * 100, digits = 1),
-         percent_lead = round((Lead/Total) * 100, digits = 1),
-         percent_unknown = round((Unknown/Total) * 100, digits = 1),
-         percent_unknownnotlead = round((UnknownNotLead/Total) * 100, digits = 1)) %>% 
-  select(-percent_total, -Lead, -Unknown, -UnknownNotLead)
-
-LSL_perc_long <- LSL_percent %>% #Convert data to tidy format
-  gather("Variable", "Value", -FacilityId, -County, -FacilityName, -Year) 
-
-
-#Summary tables
-
-# Convert data so that there is a 2018 column
-LSL_perc_2018 <- LSL_perc_long %>% 
-  filter(Year == 2018) %>% 
-  select(FacilityId, County, FacilityName, Variable, "Year_2018" = Value)
-
-# Convert data so that there is a 2019 column
-LSL_perc_2019 <- LSL_perc_long %>% 
-  filter(Year == 2019) %>% 
-  select(FacilityId, County, FacilityName, Variable, "Year_2019" = Value)
-
-# Merge columns together
-LSL_perc_merged <- merge(LSL_perc_2019, LSL_perc_2018, by = c("FacilityId", "County", "FacilityName", "Variable")) 
-
-# Create a summary table of the change in LSL percentages from 2018 to 2019
-LSL_perc_summary <- LSL_perc_merged %>% #
-  group_by(FacilityName, Variable) %>% 
-  mutate(change = (Year_2019 - Year_2018)) %>% 
-  arrange(FacilityName)
-
-write.csv(LSL_perc_summary, "LSL_2019_perc_summary.csv") #Export to csv
-
-# Create a summary table that flags utilities
-LSL_perc_flagged <- LSL_perc_summary %>% 
-  select(FacilityId, County, FacilityName, Variable, change) %>% 
-  filter(Variable == "percent_unknown" | Variable == "percent_unknownnotlead") %>% 
-  dcast(FacilityId + County + FacilityName ~ Variable, fun.aggregate = sum, value.var = "change") %>% 
-  mutate(Flagged = ifelse(percent_unknown < 0 & percent_unknownnotlead > 0, "Yes", "No" ),
-         Difference = round(percent_unknown + percent_unknownnotlead, digits = 1), #Find the difference 
-         Flagged2 = ifelse(Flagged == "Yes" & Difference == 0, "Yes", "No"))
-
-write.csv(LSL_flagged, "LSL_2019_flagged.csv") #Export to csv
-
-
-```
-
-
-# Descriptive stats
-```{r}
-
-#Number change
+################################# Summary Stats ################################# 
 # How many utilities have decrease in Unknown and increase in UnknownNotLead?
-flagged <- table(LSL_flagged$Flagged) 
-flagged["Yes"] #142
-(flagged["Yes"]/ (flagged["Yes"] + flagged["No"]))* 100 #8.2%
+nrow(unique(LSL_flagged_change)) #142
+nrow(unique(LSL_dummy)) #1742
+nrow(unique(LSL_flagged_change))/nrow(unique(LSL_dummy))*100 #8.2%
 
-# How many utilities have an EXACTLY EQUAL decrease in Unknown and increase in UnknownNotLead?
-flagged2 <- table(LSL_flagged$Flagged2) 
-flagged2["Yes"] #53
+# How many utilities have 100% reclassified? 
+length(LSL_flagged_change$FacilityName[LSL_flagged_change$perc_reclass==100]) #58
+length(LSL_flagged_change$FacilityName[LSL_flagged_change$perc_reclass==100])/nrow(unique(LSL_dummy))*100 #3.3%
 
-#Percent change
-# How many utilities have decrease in % Unknown and increase in % UnknownNotLead?
-flagged_perc <- table(LSL_perc_flagged$Flagged) 
-flagged_perc["Yes"] #141
-(flagged_perc["Yes"]/ (flagged_perc["Yes"] + flagged_perc["No"]))* 100 #8.1%
+# Which counties are flagged?
+length(unique(LSL_flagged_change$County)) #63 
+length(unique(LSL_dummy$County)) #102 total
+length(unique(LSL_flagged_change$County))/length(unique(LSL_dummy$County))*100 #61.8%
 
-# How many utilities have an EXACTLY EQUAL decrease in % Unknown and increase in % UnknownNotLead?
-flagged2_perc <- table(LSL_perc_flagged$Flagged2) 
-flagged2_perc["Yes"] #51
+################################# Summary Table ################################# 
 
-#Comparing the two
-# Which utilities? 
-n <- unique(LSL_flagged$FacilityName[LSL_flagged$Flagged=="Yes"])
-n1 <- unique(LSL_flagged$FacilityName[LSL_flagged$Flagged2=="Yes"])
+flagged_stats_summary <- LSL_flagged_change %>% 
+  summarize(n = length(perc_reclass),
+    median_percUNL = median(perc_reclass),
+    sd_percUNL = sd(perc_reclass),
+    min_percUNL = min(perc_reclass),
+    max_percUNL = max(perc_reclass))
 
-p <- unique(LSL_perc_flagged$FacilityName[LSL_perc_flagged$Flagged=="Yes"])
-p1 <- unique(LSL_perc_flagged$FacilityName[LSL_perc_flagged$Flagged2=="Yes"])
-
-setdiff(n, p)
-setdiff(n1, p1)
-
-# Which counties?
-unique(LSL_flagged$County[LSL_flagged$Flagged=="Yes"]) #63
-unique(LSL_flagged$County[LSL_flagged$Flagged2=="Yes"]) #32
-
-
-
-```
-
-
-# Summary tables
-```{r}
-#Dataframe 
-# Join data from several dfs together
-
-#  Get the 2019 totals of each utility (to see how large of an impact it has)
-LSL_2019_total <- LSL %>% 
-  filter(Year == "2019") %>% 
-  select(FacilityId, County, FacilityName, Total)
-
-#  Get percent_unknown and percent_unknownnotlead data  
-LSL_perc_cut <- LSL_perc_flagged %>%  
-  select(FacilityId, County, FacilityName, percent_unknown, percent_unknownnotlead)
-
-#  Join both to the flagged data from the # change analysis
-LSL_final_summary <- LSL_flagged %>% 
-  merge(LSL_perc_cut, by = c("FacilityId", "County", "FacilityName")) %>% 
-  merge(LSL_2019_total, by = c("FacilityId", "County", "FacilityName")) %>% 
-  select(County, FacilityName, Total, percent_unknownnotlead, Flagged, Flagged2) %>%
-  filter(Flagged == "Yes" | Flagged2 == "Yes") %>% 
-  arrange(County, desc(Total), desc(Flagged2), desc(percent_unknownnotlead)) 
-
-#Kable table
-
-colorme <- which(LSL_final_summary$Flagged2=="Yes")
-
-LSL_summary_table <- LSL_final_summary %>% 
-  select(-County) %>% 
-  kable(booktabs = T, 
-        col.names = c("Utility Name", 
-                      "Total Service Lines (2019)", 
-                      "Change in percentage of total lines that are Unknown Not Lead", 
-                      "Decrease in Unknown lines and increase in Unknown Not Lead lines?",
-                      "Equal decrease in Unknown lines and increase in Unknown Not Lead lines?"), 
-        digits = 1,  
-        caption = "Table 1",
+flagged_stats_table <- flagged_stats_summary %>% 
+  kable(booktabs = T,
+        col.names = c("Observations", 
+                      "Median", 
+                      "S.D.", 
+                      "Min",
+                      "Max"), 
+        digits = 1,
         align = c("l", "c", "c", "c", "c")) %>% 
-  kable_styling(full_width = F) %>% 
-  pack_rows(index = table(LSL_final_summary$County)) %>% 
-  column_spec(1, width = "20em") %>% 
-  column_spec(2, width = "10em") %>% 
-  column_spec(3, width = "10em") %>% 
-  column_spec(4, width = "10em") %>% 
-  column_spec(5, width = "10em") %>% 
-  row_spec(colorme, background = "#fff3d6")
-LSL_summary_table 
+  kable_styling(full_width = F, position = "left")
 
+
+```
+  
+
+\textbf{Table 2: Flagged Water Utilities}  
+142 of 1742 utilities were flagged for reporting decreases in UnknownMaterial lines and increases in UnknownNotLead lines between 2018 and 2019. The flagged utilities are outlined below with the percent of UnknownMaterial lines that were reclassified to UnknownNotLead the following year. (* Utilities for which reclassification was over 100% due to either an increase in total lines or an additional reclassification from other categories.)
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+
+################################# Summary Table ################################# 
+
+LSL_flagged_table <- LSL_flagged_change %>% 
+  select(County, FacilityName, Total_2018, Total_2019, perc_UNL_2018, perc_UNL_2019, perc_reclass) %>% 
+  mutate(perc_UNL_2018 = paste(perc_UNL_2018,"%",sep = ""),
+         perc_UNL_2019 = paste(perc_UNL_2019,"%",sep = "")) %>% 
+  mutate(perc_reclass = ifelse(LSL_flagged_change$perc_reclass > 100,
+                               paste(LSL_flagged_change$perc_reclass, "% *", sep = ""),
+                               paste(LSL_flagged_change$perc_reclass, "%", sep = ""))) %>% 
+  kable(longtable = T, 
+        booktabs = T, 
+        digits = 0,
+        col.names = c("County",
+                      "Utility Name", 
+                      "Total Service Lines (2018)", 
+                      "Total Service Lines (2019)",
+                      "Percent of Lines Designated UnknownNotLead (2018)", 
+                      "Percent of Lines Designated UnknownNotLead (2019)",
+                      "Percent of Lines Reclassified from UnknownMaterial to UnknownNotLead"),
+        align = c("l", "l", "c", "c", "c", "c","c")) %>% 
+  kable_styling(full_width = F,
+                latex_options = c("hold_position", "repeat_header", "striped"),
+                font_size = 6) %>% 
+  column_spec(1, width = "7em") %>% 
+  column_spec(2, width = "22em") %>% 
+  column_spec(3, width = "5em") %>% 
+  column_spec(4, width = "5em") %>% 
+  column_spec(5, width = "5em") %>% 
+  column_spec(6, width = "5em") %>% 
+  column_spec(7, width = "5em")
+LSL_flagged_table 
 ```
 
 
-# Plots of the change
-```{r}
+```{r, echo = FALSE, message = FALSE, results = FALSE, warning = FALSE, include = FALSE}
+#Additional Analysis
 
-# Cook County
-LSL_change <- LSL_long %>% 
-  filter(FacilityName == "Illinois American - Champaign (PWS)") %>% 
-  group_by(Year) %>% 
-  ggplot(aes(x = Variable, y = Value)) + 
-  geom_col(aes(fill = factor(Year)), position = "dodge") 
-LSL_change
+################################# Tables ################################# 
+#Top 50 utilities by % reclassified and % UNL in 2019
+# Find top 50 utilities by % reclass
+top_50_reclass <- LSL_flagged_change %>% 
+  select(County, FacilityName, Total_2018, Total_2019, perc_UNL_2018, perc_UNL_2019, perc_reclass) %>%
+  arrange(desc(perc_reclass), desc(perc_UNL_2019)) %>% 
+  head(50)
+
+# Find top 50 utilities by % UNL
+top_50_UNL <- LSL_flagged_change %>% 
+  select(County, FacilityName, Total_2018, Total_2019, perc_UNL_2018, perc_UNL_2019, perc_reclass) %>%
+  arrange(desc(perc_UNL_2019), desc(perc_reclass)) %>% 
+  head(50)
+
+# Find the overlap
+top_50_overlap <- intersect(top_50_reclass, top_50_UNL) %>% 
+  arrange(desc(Total_2019))
+
+# Export to csv
+write.csv(top_50_overlap, "LSL_2019_top_flagged_utilities.csv") 
+
+#Filter flagged utilities for those with perc_UNL_2019 greater than 30 and perc_reclass greater than 50
+LSL_flagged_table_filtered <- LSL_flagged_change %>% 
+  select(County, FacilityName, Total_2018, Total_2019, perc_UNL_2018, perc_UNL_2019, perc_reclass) %>% 
+  filter(perc_UNL_2019 >= 30 & perc_reclass >= 50) 
+  mutate(perc_UNL_2018 = paste(perc_UNL_2018,"%",sep = ""),
+         perc_UNL_2019 = paste(perc_UNL_2019,"%",sep = "")) %>% 
+  mutate(perc_reclass = ifelse(LSL_flagged_change$perc_reclass > 100,
+                               paste(LSL_flagged_change$perc_reclass, "% *", sep = ""),
+                               paste(LSL_flagged_change$perc_reclass, "%", sep = ""))) %>% 
+  kable(longtable = T, 
+        booktabs = T, 
+        digits = 0,
+        col.names = c("County",
+                      "Utility Name", 
+                      "Total Service Lines (2018)", 
+                      "Total Service Lines (2019)",
+                      "Percent of Lines Designated UnknownNotLead (2018)", 
+                      "Percent of Lines Designated UnknownNotLead (2019)",
+                      "Percent of Lines Reclassified from UnknownMaterial to UnknownNotLead"),
+        align = c("l", "l", "c", "c", "c", "c","c")) %>% 
+  kable_styling(full_width = F,
+                latex_options = c("hold_position", "repeat_header", "striped"),
+                font_size = 6) %>% 
+  column_spec(1, width = "7em") %>% 
+  column_spec(2, width = "22em") %>% 
+  column_spec(3, width = "5em") %>% 
+  column_spec(4, width = "5em") %>% 
+  column_spec(5, width = "5em") %>% 
+  column_spec(6, width = "5em") %>% 
+  column_spec(7, width = "5em")
+LSL_flagged_table_filtered 
 ```
-
-
