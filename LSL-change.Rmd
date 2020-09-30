@@ -372,32 +372,6 @@ write.csv(top_50_overlap, "LSL_2019_top_flagged_utilities.csv")
 #Filter flagged utilities for those with perc_UNL_2019 greater than 30 and perc_reclass greater than 50
 LSL_flagged_table_filtered <- LSL_flagged_change %>% 
   select(County, FacilityName, Total_2018, Total_2019, perc_UNL_2018, perc_UNL_2019, perc_reclass) %>% 
-  filter(perc_UNL_2019 >= 30 & perc_reclass >= 50) 
-  mutate(perc_UNL_2018 = paste(perc_UNL_2018,"%",sep = ""),
-         perc_UNL_2019 = paste(perc_UNL_2019,"%",sep = "")) %>% 
-  mutate(perc_reclass = ifelse(LSL_flagged_change$perc_reclass > 100,
-                               paste(LSL_flagged_change$perc_reclass, "% *", sep = ""),
-                               paste(LSL_flagged_change$perc_reclass, "%", sep = ""))) %>% 
-  kable(longtable = T, 
-        booktabs = T, 
-        digits = 0,
-        col.names = c("County",
-                      "Utility Name", 
-                      "Total Service Lines (2018)", 
-                      "Total Service Lines (2019)",
-                      "Percent of Lines Designated UnknownNotLead (2018)", 
-                      "Percent of Lines Designated UnknownNotLead (2019)",
-                      "Percent of Lines Reclassified from UnknownMaterial to UnknownNotLead"),
-        align = c("l", "l", "c", "c", "c", "c","c")) %>% 
-  kable_styling(full_width = F,
-                latex_options = c("hold_position", "repeat_header", "striped"),
-                font_size = 6) %>% 
-  column_spec(1, width = "7em") %>% 
-  column_spec(2, width = "22em") %>% 
-  column_spec(3, width = "5em") %>% 
-  column_spec(4, width = "5em") %>% 
-  column_spec(5, width = "5em") %>% 
-  column_spec(6, width = "5em") %>% 
-  column_spec(7, width = "5em")
+  filter(perc_UNL_2019 >= 30 & perc_reclass >= 50)
 LSL_flagged_table_filtered 
 ```

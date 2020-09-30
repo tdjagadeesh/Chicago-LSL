@@ -1,0 +1,1049 @@
+﻿FacilityId,County,Place,Class,FacilityName,ReportedDate,ReportingYear,TotalServiceConnections,WholesaleConnections,RetailConnections,ServicesLead,ServicesUnknownMaterial,ServicesCopperLeadSolder,ServicesGalvanized,ServicesUnknownNotLead,ServicesCopperNonLeadSolder,ServicesCastDuctileIronTransite,ServicesPlastic
+IL0950050,Knox,Abingdon,city,Abingdon (PWS),5/16/19 13:19,2018,1407,0,1407,495,87,10,50,0,700,0,65
+IL0430050,DuPage,Addison,village,Addison (PWS),4/4/19 13:34,2018,9838,0,9838,487,0,0,0,0,9351,0,0
+IL1950050,Whiteside,Albany,village,Albany (PWS),4/10/19 10:21,2018,396,0,396,0,0,390,6,0,0,0,0
+IL0270050,Clinton,Albers,village,Albers (PWS),4/26/19 13:55,2018,503,1,502,0,502,0,0,0,0,0,1
+IL0470050,Edwards,Albion,city,Albion (PWS),3/15/19 11:05,2018,1374,4,1370,0,0,0,0,0,892,0,482
+IL1310050,Mercer,Aledo,city,Aledo (PWS),4/13/19 9:42,2018,1835,0,1835,0,723,0,0,0,1038,0,74
+IL1874000,Warren,Alexis,village,Alexis (PWS),4/29/19 8:23,2018,415,0,415,10,0,298,0,7,0,0,100
+IL1110050,McHenry,Algonquin,village,Algonquin (PWS),3/22/19 13:10,2018,11014,0,11014,232,0,3099,0,0,7683,0,0
+IL1190050,Madison,Alhambra,village,Alhambra (PWS),4/26/19 15:26,2018,318,0,318,0,0,131,2,0,11,0,174
+IL1850050,Wabash,Allendale,village,Allendale (PWS),5/30/19 15:40,2018,200,0,200,0,98,0,13,0,3,0,86
+IL1834020,Vermilion,Allerton,village,Allerton (PWS),3/29/19 23:48,2018,130,0,130,0,130,0,0,0,0,0,0
+IL1210050,Marion,Alma,village,Alma (PWS),8/2/19 9:28,2018,179,0,179,0,0,0,0,0,140,0,39
+IL0730050,Henry,Alpha,village,Alpha (PWS),4/10/19 12:15,2018,362,0,362,0,148,0,1,0,169,0,44
+IL0310030,Cook,Alsip,village,Alsip (PWS),4/15/19 19:04,2018,5589,2,5587,0,0,1562,0,4009,15,2,1
+IL0490050,Effingham,Altamont,city,Altamont (PWS),4/16/19 9:18,2018,1417,0,1417,0,1211,0,0,0,66,1,139
+IL0950100,Knox,Altona,village,Altona (PWS),5/6/19 13:07,2018,241,0,241,0,0,50,0,0,0,0,191
+IL1830050,Vermilion,Alvan,village,Alvin (PWS),3/21/19 10:58,2018,122,0,122,0,107,0,0,0,4,0,11
+IL1030050,Lee,Amboy,city,Amboy (PWS),3/19/19 11:33,2018,936,0,936,34,746,11,2,0,109,0,34
+IL1130050,McLean,Anchor,village,Anchor (PWS),5/21/19 11:00,2018,78,0,78,0,3,13,10,0,0,0,52
+IL1610050,Rock Island,Andalusia,village,Andalusia (PWS),3/28/19 21:42,2018,481,0,481,0,50,0,0,0,400,0,31
+IL0730100,Henry,Andover,village,Andover (PWS),4/14/19 22:01,2018,254,0,254,0,27,52,0,0,12,0,163
+IL1810050,Union,Anna,city,Anna (PWS),4/10/19 15:09,2018,2116,0,2116,1,1678,83,52,0,28,0,274
+IL0730150,Henry,Annawan,town,Annawan (PWS),1/9/19 8:05,2018,440,0,440,0,0,0,0,0,438,0,2
+IL0970050,Lake,Antioch,village,Antioch (PWS),4/9/19 19:13,2018,4659,0,4659,198,0,0,0,0,4459,0,2
+IL0850050,Jo Daviess,Apple River,village,Apple River (PWS),4/5/19 11:10,2018,189,0,189,0,91,64,0,0,0,0,34
+IL0410050,Douglas,Arcola,city,Arcola (PWS),5/21/19 11:38,2018,1403,2,1401,95,0,150,50,28,290,0,790
+IL0170050,Cass,Arenzville,village,Arenzville (PWS),4/12/19 13:55,2018,192,0,192,0,25,105,0,0,0,0,62
+IL1150050,Macon,Argenta,village,Argenta (PWS),4/29/19 14:16,2018,439,0,439,0,0,0,0,0,434,5,0
+IL0110050,Bureau,Arlington,village,Arlington (PWS),5/9/19 6:25,2018,68,0,68,0,11,0,0,0,11,0,46
+IL0314030,Cook,Arlington Heights,village,Arlington Heights (PWS),3/27/19 7:22,2018,23244,0,23244,6513,0,0,0,0,16731,0,0
+IL1790050,Tazewell,Armington,village,Armington (PWS),4/11/2019 9:51:53 AM,2018,167,0,167,0,0,130,7,0,0,0,30
+IL1130100,McLean,Arrowsmith,village,Arrowsmith (PWS),3/20/19 14:21,2018,125,0,125,0,0,124,0,0,0,0,1
+IL1394040,Moultrie,Arthur,village,Arthur (PWS),4/12/19 8:23,2018,1131,0,1131,0,859,0,0,0,221,0,51
+IL0750050,Iroquois,Ashkum,village,Ashkum (PWS),3/18/19 8:13,2018,343,0,343,0,48,0,0,0,288,0,7
+IL0170100,Cass,Ashland,village,Ashland (PWS),4/4/19 9:21,2018,619,0,619,0,0,0,0,605,0,0,14
+IL1890100,Washington,Ashley,city,Ashley (PWS),4/11/19 10:59,2018,358,0,358,0,0,0,0,5,25,0,328
+IL0290050,Coles,Ashmore,village,Ashmore (PWS),5/30/19 9:45,2018,365,0,365,3,162,83,1,0,74,0,42
+IL1030100,Lee,Ashton,village,Ashton (PWS),5/28/19 12:01,2018,418,0,418,0,120,73,150,0,75,0,0
+IL0210050,Christian,Assumption,city,Assumption (PWS),4/18/19 10:08,2018,567,0,567,55,270,0,7,0,227,0,8
+IL0570050,Fulton,Astoria,town,Astoria (PWS),4/5/19 11:27,2018,601,3,598,2,37,0,80,0,68,0,414
+IL1290050,Menard,Athens,city,Athens (PWS),3/13/19 15:57,2018,1787,1,1786,0,0,170,135,0,1382,0,100
+IL0730200,Henry,Atkinson,town,Atkinson (PWS),4/15/19 13:36,2018,480,0,480,0,80,0,50,0,150,0,200
+IL1070050,Logan,Atlanta,city,Atlanta (PWS),4/9/19 14:05,2018,800,0,800,0,800,0,0,0,0,0,0
+IL0414060,Douglas,Atwood,village,Atwood (PWS),3/26/19 15:04,2018,540,0,540,0,125,0,0,0,376,0,39
+IL1670050,Sangamon,Auburn,city,Auburn (PWS),3/25/2019 8:55:29 AM,2018,1914,0,1914,0,0,0,0,1914,0,0,0
+IL0670050,Hancock,Augusta,village,Augusta (PWS),4/2/19 14:06,2018,314,0,314,0,114,0,0,0,100,0,100
+IL0894070,Kane,Aurora,city,Aurora (PWS),4/8/19 14:58,2018,49177,0,49177,19912,130,0,137,0,28735,259,4
+IL0770050,Jackson,Ava,city,Ava (PWS),4/15/19 10:29,2018,506,0,506,0,0,0,0,506,0,0,0
+IL0270100,Clinton,Aviston,village,Aviston (PWS),5/3/19 16:20,2018,974,0,974,0,0,0,0,0,806,0,168
+IL0570100,Fulton,Avon,village,Avon (PWS),3/25/19 9:02,2018,388,4,384,0,0,0,0,0,234,4,150
+IL1570050,Randolph,Baldwin,village,Baldwin (PWS),4/11/19 11:05,2018,273,0,273,0,0,57,5,0,0,0,211
+IL0970100,Lake,Bannockburn,village,Bannockburn (PWS),3/19/19 15:09,2018,213,0,213,2,0,6,12,0,192,0,1
+IL1090050,McDonough,Bardolph,village,Bardolph (PWS),1/5/19 13:01,2018,98,0,98,0,98,0,0,0,0,0,0
+IL0974080,Lake,Barrington,village,Barrington (PWS),4/8/19 17:08,2018,4547,0,4547,1006,848,0,0,0,2693,0,0
+IL1490050,Pike,Barry,city,Barry (PWS),4/9/19 11:03,2018,719,719,0,23,100,0,120,0,275,0,201
+IL0270150,Clinton,Bartelso,village,Bartelso (PWS),4/15/19 11:40,2018,235,0,235,0,85,0,10,0,120,0,20
+IL0314120,Cook,Bartlett,village,Bartlett (PWS),4/15/19 9:38,2018,13602,1,13601,58,231,5025,0,0,8288,0,0
+IL0894130,Kane,Batavia,city,Batavia (PWS),3/18/19 11:29,2018,9330,0,9330,520,200,240,90,40,8232,0,8
+IL0130050,Calhoun,Batchtown,village,Batchtown (PWS),5/9/19 17:45,2018,160,0,160,0,0,160,0,0,0,0,0
+IL1490100,Pike,Baylis,village,Baylis (PWS),4/15/19 14:58,2018,82,0,82,0,0,0,0,0,82,0,0
+IL0970190,Lake,Beach Park,village,Beach Park (PWS),4/5/19 10:35,2018,2888,0,2888,0,0,0,0,0,2628,0,260
+IL0170150,Cass,Beardstown,city,Beardstown (PWS),4/8/19 14:50,2018,2105,0,2105,700,700,0,700,0,0,0,5
+IL0270200,Clinton,Beckemeyer,village,Beckemeyer (PWS),3/18/19 12:31,2018,471,0,471,0,0,0,0,0,465,0,6
+IL0310120,Cook,Bedford Park,village,Bedford Park (PWS),3/14/19 14:13,2018,490,2,488,0,0,0,0,0,215,275,0
+IL1970050,Will,Beecher,village,Beecher (PWS),5/22/19 19:21,2018,2231,0,2231,479,0,278,0,0,1459,2,13
+IL0490100,Effingham,Beecher City,village,Beecher City (PWS),4/8/19 10:57,2018,294,0,294,0,0,0,0,0,183,0,111
+IL0870050,Johnson,Belknap,village,Belknap (PWS),5/4/19 10:32,2018,325,0,325,0,169,4,0,145,7,0,0
+IL0810050,Jefferson,Belle Rive,village,Belle Rive (PWS),3/27/19 16:03,2018,844,0,844,0,0,0,0,820,0,0,24
+IL1130150,McLean,Bellflower,village,Bellflower (PWS),4/16/19 21:02,2018,180,0,180,0,180,0,0,0,0,0,0
+IL1850100,Wabash,Bellmont,village,Bellmont (PWS),3/27/19 16:15,2018,135,0,135,0,55,0,60,0,0,0,20
+IL0310150,Cook,Bellwood,village,Bellwood (PWS),4/29/19 9:15,2018,6234,0,6234,4825,35,1064,0,0,0,310,0
+IL0070050,Boone,Belvidere,city,Belvidere (PWS),3/13/19 14:56,2018,7528,1,7527,6,4033,0,0,0,3343,0,146
+IL1470050,Piatt,Bement,village,Bement (PWS),4/15/19 18:56,2018,811,0,811,0,801,0,0,0,10,0,0
+IL1170050,Macoupin,Benld,city,Benld (PWS),4/11/19 9:20,2018,821,1,820,0,821,0,0,0,0,0,0
+IL0434140,DuPage,Bensenville,village,Bensenville (PWS),4/15/19 8:44,2018,5065,0,5065,1,3181,0,1,0,1313,569,0
+IL2030050,Woodford,Benson,village,Benson (PWS),4/2/19 9:31,2018,215,215,0,0,191,0,2,0,13,0,9
+IL0550050,Franklin,Benton,city,Benton (PWS),4/29/19 10:00,2018,3869,0,3869,0,1000,531,1000,0,1171,0,167
+IL0310180,Cook,Berkeley,village,Berkeley (PWS),4/10/19 11:09,2018,1871,0,1871,363,401,0,42,0,1062,3,0
+IL0310210,Cook,Berwyn,city,Berwyn (PWS),8/30/19 10:11,2018,3865,0,3865,3170,0,0,0,0,695,0,0
+IL1190150,Madison,Bethalto,village,Bethalto (PWS),5/28/19 13:47,2018,6179,2,6177,0,0,0,1000,0,4000,0,1179
+IL1390100,Moultrie,Bethany,village,Bethany (PWS),3/20/19 8:13,2018,620,0,620,0,0,0,0,620,0,0,0
+IL0710050,Henderson,Biggsville,village,Biggsville (PWS),3/25/19 9:00,2018,155,0,155,0,0,0,0,0,105,0,50
+IL0730250,Henry,Bishop Hill,village,Bishop Hill (PWS),5/25/19 6:34,2018,80,0,80,0,20,0,0,0,20,0,40
+IL1090100,McDonough,Blandinsville,village,Blandinsville (PWS),4/11/19 11:56,2018,449,0,449,0,0,0,3,186,207,0,53
+IL0430100,DuPage,Bloomingdale,village,Bloomingdale (PWS),4/11/19 7:30,2018,6917,0,6917,0,0,3836,0,0,3081,0,0
+IL1130200,McLean,Bloomington,city,Bloomington (PWS),4/11/19 16:46,2018,31385,11,31374,8,30526,6,143,0,694,0,8
+IL0310240,Cook,Blue Island,city,Blue Island (PWS),5/16/19 14:34,2018,5721,0,5721,5314,0,6,0,0,401,0,0
+IL1150100,Macon,Blue Mound,village,Blue Mound (PWS),6/13/19 12:55,2018,488,0,488,0,214,0,0,0,247,0,27
+IL1710100,Scott,Bluffs,village,Bluffs (PWS),4/2/19 10:33,2018,278,0,278,0,0,0,0,0,258,0,20
+IL0810100,Jefferson,Bluford,village,Bluford (PWS),4/15/19 12:11,2018,642,0,642,0,142,0,0,0,0,0,500
+IL1974151,Will,Bolingbrook,village,Illinois American - West Suburban (PWS),4/10/19 13:42,2018,22297,1,22296,0,21398,0,0,0,899,0,0
+IL0470100,Edwards,Bone Gap,village,Bone Gap (PWS),3/27/19 16:19,2018,149,0,149,0,149,0,0,0,0,0,0
+IL0810150,Jefferson,Bonnie,village,Bonnie (PWS),4/15/19 12:14,2018,245,0,245,0,52,26,1,0,29,0,137
+IL0670200,Hancock,Bowen,village,Bowen (PWS),4/12/19 15:15,2018,270,0,270,0,23,0,0,0,230,0,17
+IL0630050,Grundy,Braceville,village,Braceville (PWS),5/23/19 7:55,2018,316,0,316,0,316,0,0,0,0,0,0
+IL1750050,Stark,Bradford,village,Bradford (PWS),4/5/19 12:32,2018,360,0,360,0,356,0,0,0,0,0,4
+IL1970150,Will,Braidwood,city,Braidwood (PWS),4/15/19 10:27,2018,2146,0,2146,0,0,0,0,18,2125,0,3
+IL0270250,Clinton,Breese,city,Breese (PWS),4/15/19 14:14,2018,2206,5,2201,0,1071,0,0,1135,0,0,0
+IL1010100,Lawrence,Bridgeport,city,Bridgeport (PWS),3/28/19 19:40,2018,1243,3,1240,0,915,0,0,0,5,0,323
+IL0310270,Cook,Bridgeview,village,Bridgeview (PWS),4/27/19 8:31,2018,4230,0,4230,0,0,0,0,452,3683,95,0
+IL1174160,Macoupin,Brighton,village,Brighton (PWS),4/29/19 10:19,2018,2061,1,2060,0,25,0,0,1904,125,0,7
+IL1430150,Peoria,Brimfield,village,Brimfield (PWS),5/2/19 10:54,2018,344,0,344,0,90,0,0,0,164,0,90
+IL0190050,Champaign,Broadlands,village,Broadlands (PWS),4/30/19 12:54,2018,170,0,170,0,0,0,10,0,160,0,0
+IL0310300,Cook,Broadview,village,Broadview (PWS),4/22/19 9:30,2018,2950,0,2950,60,2390,0,0,0,500,0,0
+IL1070100,Logan,Broadwell,village,Broadwell (PWS),4/29/19 13:42,2018,74,0,74,0,0,64,0,0,0,0,10
+IL0450050,Edgar,Brocton,village,Brocton (PWS),3/18/19 12:44,2018,139,0,139,0,72,0,0,0,42,0,25
+IL0310330,Cook,Brookfield,village,Brookfield (PWS),4/8/19 16:50,2018,6400,4,6396,5782,118,375,0,0,125,0,0
+IL1270050,Massac,Brookport,city,Brookport (PWS),3/28/19 19:42,2018,395,0,395,0,370,0,0,0,0,0,25
+IL0650100,Hamilton,Broughton,village,Broughton (PWS),4/10/19 15:43,2018,101,0,101,0,82,5,0,0,0,0,14
+IL1690050,Schuyler,Browning,village,Browning (PWS),4/5/19 11:30,2018,81,1,80,0,0,0,0,0,0,0,81
+IL0510100,Fayette,Brownstown,village,Brownstown (PWS),4/9/19 9:11,2018,347,0,347,0,0,0,0,0,325,0,22
+IL0130100,Calhoun,Brussels,village,Brussels (PWS),5/9/19 17:46,2018,98,0,98,0,0,98,0,0,0,0,0
+IL0570200,Fulton,Bryant,village,Bryant (PWS),4/29/19 11:25,2018,115,0,115,0,0,0,0,0,15,0,100
+IL0910250,Kankakee,Buckingham,village,Buckingham (PWS),9/6/19 10:23,2018,100,0,100,0,99,0,1,0,0,0,0
+IL0750150,Iroquois,Buckley,village,Buckley (PWS),4/15/19 18:52,2018,290,0,290,0,285,0,0,0,5,0,0
+IL0550100,Franklin,Buckner,village,Buckner (PWS),4/5/19 10:29,2018,279,0,279,0,82,12,0,0,84,0,101
+IL0314180,Cook,Buffalo Grove,village,Buffalo Grove (PWS),4/26/19 14:14,2018,11976,0,11976,1,3,4619,1,0,7352,0,0
+IL1170100,Macoupin,Bunker Hill,city,Bunker Hill (PWS),4/29/19 8:21,2018,950,0,950,0,50,500,50,0,0,0,350
+IL0110150,Bureau,Bureau Junction,village,Bureau Junction (PWS),4/15/19 13:39,2018,122,0,122,0,77,0,2,0,17,0,26
+IL0890150,Kane,Burlington,village,Burlington (PWS),4/26/19 13:14,2018,187,0,187,0,0,0,0,0,187,0,0
+IL0310360,Cook,Burnham,village,Burnham (PWS),5/21/19 17:47,2018,1222,0,1222,0,0,708,0,0,514,0,0
+IL1930010,White,Burnt Prairie,village,Burnt Prairie (PWS),3/28/19 19:46,2018,220,0,220,0,0,0,0,65,35,0,120
+IL0434190,DuPage,Burr Ridge,village,Burr Ridge (PWS),3/14/19 11:08,2018,4215,0,4215,0,0,0,0,0,4073,140,2
+IL1990050,Williamson,Bush,village,Bush (PWS),3/28/19 19:49,2018,170,0,170,0,130,0,0,0,0,0,40
+IL1090150,McDonough,Bushnell,city,Bushnell (PWS),4/14/19 15:54,2018,1386,0,1386,69,0,0,138,0,900,2,277
+IL1350050,Montgomery,Butler,village,Butler (PWS),4/11/19 9:20,2018,118,0,118,0,118,0,0,0,0,0,0
+IL1410100,Ogle,Byron,city,Byron (PWS),5/28/19 13:15,2018,1859,0,1859,0,0,0,68,0,449,0,1342
+IL0534200,Ford,Cabery,village,Cabery (PWS),5/23/19 10:41,2018,130,0,130,0,0,0,0,0,0,0,130
+IL1630200,St. Clair,Cahokia,village,Cahokia (PWS),4/10/19 16:50,2018,1700,0,1700,0,200,0,0,0,0,0,1500
+IL1590050,Richland,Calhoun,village,Calhoun (PWS),3/28/19 19:51,2018,84,0,84,0,74,0,0,0,0,0,10
+IL0310390,Cook,Calumet City,city,Calumet City (PWS),4/30/19 15:29,2018,9682,3,9679,4420,1399,3026,835,0,0,0,2
+IL0310420,Cook,Calumet Park,village,Calumet Park (PWS),4/29/19 8:45,2018,2241,0,2241,2000,241,0,0,0,0,0,0
+IL0410100,Douglas,Camargo,village,Camargo (PWS),4/9/19 7:55,2018,316,0,316,0,0,0,38,5,267,0,6
+IL1990100,Williamson,Cambria,village,Cambria (PWS),5/1/19 11:57,2018,967,0,967,0,0,0,0,0,721,0,246
+IL0730300,Henry,Cambridge,village,Cambridge (PWS),3/14/19 9:46,2018,898,0,898,195,178,0,1,0,503,2,19
+IL0010050,Adams,Camp Point,village,Camp Point (PWS),4/15/19 15:00,2018,555,0,555,0,0,0,0,0,510,0,45
+IL0770100,Jackson,Campbell Hill,village,Campbell Hill (PWS),3/29/19 16:33,2018,260,0,260,0,260,0,0,0,0,0,0
+IL1050050,Livingston,Campus,village,Campus (PWS),5/8/19 14:56,2018,71,0,71,0,0,0,0,0,60,0,11
+IL0570250,Fulton,Canton,city,Canton (PWS),4/29/19 11:44,2018,5875,0,5875,200,1250,0,350,2575,500,0,1000
+IL0070100,Boone,Capron,village,Capron (PWS),3/15/19 11:49,2018,448,0,448,18,36,8,15,0,329,0,42
+IL1610100,Rock Island,Carbon Cliff,village,Carbon Cliff (PWS),5/22/19 14:29,2018,695,0,695,0,694,0,1,0,0,0,0
+IL0630100,Grundy,Carbon Hill,village,Carbon Hill (PWS),3/21/19 12:49,2018,156,0,156,0,0,16,7,0,0,0,133
+IL0770150,Jackson,Carbondale,city,Carbondale (PWS),5/28/19 14:21,2018,8104,19,8085,0,0,0,0,0,7841,17,246
+IL1170150,Macoupin,Carlinville,city,Carlinville (PWS),4/15/19 12:27,2018,2932,2,2930,500,1382,500,50,0,0,0,500
+IL1130250,McLean,Carlock,village,Carlock (PWS),4/30/19 10:15,2018,242,0,242,0,0,189,0,0,52,0,1
+IL0270300,Clinton,Carlyle,city,Carlyle (PWS),5/1/19 12:45,2018,1680,6,1674,12,1387,0,37,0,212,0,32
+IL1930100,White,Carmi,city,Carmi (PWS),4/5/19 9:00,2018,3148,3,3145,0,1866,248,210,0,0,142,682
+IL0430200,DuPage,Carol Stream,village,Carol Stream (PWS),4/12/19 12:34,2018,11104,0,11104,0,1427,0,0,0,9677,0,0
+IL0890200,Kane,Carpentersville,village,Carpentersville (PWS),4/1/19 7:56,2018,10545,1,10544,194,416,0,3,0,9931,1,0
+IL1650050,Saline,Carrier Mills,village,Carrier Mills (PWS),5/23/19 15:42,2018,987,0,987,0,103,0,40,0,20,0,824
+IL0610050,Greene,Carrollton,city,Carrollton (PWS),4/2/19 10:00,2018,1169,1,1168,0,205,0,748,0,17,0,199
+IL1990150,Williamson,Carterville,city,Carterville (PWS),3/14/19 11:00,2018,3770,0,3770,0,0,0,0,0,3002,0,768
+IL0670250,Hancock,Carthage,city,Carthage (PWS),4/2/19 14:07,2018,1275,0,1275,0,127,0,0,0,765,0,383
+IL1110100,McHenry,Cary,village,Cary (PWS),3/22/19 14:42,2018,6444,0,6444,18,154,2551,6,0,3707,8,0
+IL0230050,Clark,Casey,city,Casey (PWS),4/15/19 11:12,2018,1648,0,1648,0,1161,0,210,0,220,0,57
+IL1630250,St. Clair,Caseyville,village,Caseyville (PWS),4/14/19 20:11,2018,5665,0,5665,0,2895,0,900,0,1800,0,70
+IL1830150,Vermilion,Catlin,village,Catlin (PWS),4/10/19 13:17,2018,952,0,952,0,0,0,2,0,556,0,394
+IL0690050,Hardin,Cave-In-Rock,village,Cave-In-Rock (PWS),3/29/19 16:36,2018,170,0,170,0,148,0,0,0,10,0,12
+IL0995040,LaSalle,Cedar Point,village,Cedar Point Water Company (PWS),3/19/19 20:49,2018,142,0,142,2,78,0,0,0,57,0,5
+IL1770050,Stephenson,Cedarville,village,Cedarville (PWS),4/3/19 8:30,2018,331,0,331,0,0,0,0,0,327,0,4
+IL1214220,Marion,Centralia,city,Centralia (PWS),3/19/19 7:46,2018,5885,10,5875,0,0,0,0,0,4789,0,1096
+IL1470100,Piatt,Cerro Gordo,village,Cerro Gordo (PWS),4/11/19 15:09,2018,633,0,633,0,500,0,10,0,115,0,8
+IL0150050,Carroll,Chadwick,village,Chadwick (PWS),4/1/19 18:47,2018,265,0,265,0,40,0,0,0,225,0,0
+IL0170200,Cass,Chandlerville,village,Chandlerville (PWS),4/5/19 10:33,2018,282,0,282,0,49,222,0,0,0,0,11
+IL1970200,Will,Channahon,village,Channahon (PWS),3/15/19 13:13,2018,3343,0,3343,0,0,0,0,0,3343,0,0
+IL1370050,Morgan,Chapin,village,Chapin (PWS),4/3/19 10:42,2018,295,1,294,0,73,0,0,0,202,0,20
+IL0290100,Coles,Charleston,city,Charleston (PWS),4/12/19 15:07,2018,6844,2,6842,0,6307,0,0,537,0,0,0
+IL1670300,Sangamon,Chatham,village,Chatham (PWS),4/15/19 15:04,2018,5865,1,5864,0,0,2241,0,0,3624,0,0
+IL1050100,Livingston,Chatsworth,town,Chatsworth (PWS),4/9/19 13:50,2018,600,0,600,15,20,0,50,30,485,0,0
+IL0754240,Iroquois,Chebanse,village,Chebanse (PWS),5/22/19 21:21,2018,423,0,423,0,10,65,55,73,100,0,120
+IL1130300,McLean,Chenoa,city,Chenoa (PWS),4/12/19 11:35,2018,765,0,765,46,50,0,5,0,510,0,154
+IL0110200,Bureau,Cherry,village,Cherry (PWS),5/24/19 0:00,2018,254,0,254,0,0,0,50,0,200,0,4
+IL2010050,Winnebago,Cherry Valley,village,Cherry Valley (PWS),5/21/19 10:28,2018,2228,1,2227,0,126,2029,0,0,23,0,50
+IL1570100,Randolph,Chester,city,Chester (PWS),4/29/19 11:32,2018,2578,2,2576,0,253,0,264,0,1547,252,262
+IL1170200,Macoupin,Chesterfield,village,Chesterfield (PWS),4/11/19 16:28,2018,250,0,250,0,225,0,0,0,0,0,25
+IL0316000,Cook,Chicago,city,Chicago (PWS),4/15/19 18:14,2018,520673,962,519711,392614,120760,0,0,3478,0,3821,0
+IL0310450,Cook,Chicago Heights,city,Chicago Heights (PWS),4/29/19 8:30,2018,9004,4,9000,3604,2000,0,0,1000,2400,0,0
+IL0310480,Cook,Chicago Ridge,village,Chicago Ridge (PWS),5/30/19 12:12,2018,2871,0,2871,0,0,130,214,9,2109,372,37
+IL1430200,Peoria,Chillicothe,city,Chillicothe (PWS),3/26/19 11:53,2018,2672,0,2672,0,2672,0,0,0,0,0,0
+IL0450100,Edgar,Chrisman,city,Chrisman (PWS),4/26/19 13:27,2018,615,0,615,0,0,550,0,0,50,0,15
+IL0550150,Franklin,Christopher,city,Christopher (PWS),4/16/19 9:22,2018,1411,1,1410,0,450,0,21,0,900,0,40
+IL0310510,Cook,Cicero,town,Cicero (PWS),4/6/19 9:17,2018,15175,0,15175,14872,303,0,0,0,0,0,0
+IL1470150,Piatt,Cisco,village,Cisco (PWS),4/9/19 8:06,2018,128,0,128,0,86,0,2,0,40,0,0
+IL1910050,Wayne,Cisne,village,Cisne (PWS),3/29/19 16:40,2018,328,0,328,0,150,0,0,0,76,0,102
+IL0750200,Iroquois,Cissna Park,village,Cissna Park (PWS),4/2/19 14:58,2018,440,0,440,0,278,0,0,0,140,0,22
+IL1590100,Richland,Claremont,village,Claremont (PWS),3/29/19 16:41,2018,74,0,74,0,12,0,0,0,30,0,32
+IL0430250,DuPage,Clarendon Hills,village,Clarendon Hills (PWS),4/23/19 7:41,2018,2820,0,2820,62,539,0,0,0,2212,7,0
+IL0250050,Clay,Clay City,village,Clay City (PWS),4/10/19 12:32,2018,469,0,469,0,0,0,0,0,445,0,24
+IL0010100,Adams,Clayton,village,Clayton (PWS),4/12/19 15:16,2018,320,0,320,0,0,0,0,0,320,0,0
+IL0750250,Iroquois,Clifton,village,Clifton (PWS),3/18/19 8:20,2018,572,0,572,0,197,0,25,0,300,0,50
+IL0390050,DeWitt,Clinton,city,Clinton (PWS),4/29/19 7:29,2018,3270,0,3270,0,0,900,310,1100,901,0,59
+IL0630200,Grundy,Coal City,village,Coal City (PWS),3/21/19 13:44,2018,2283,0,2283,980,0,0,25,0,1108,0,170
+IL1614260,Rock Island,Coal Valley,village,Coal Valley (PWS),3/19/19 7:34,2018,1380,0,1380,0,1378,0,0,0,0,0,2
+IL1350100,Montgomery,Coalton,village,Coalton (PWS),4/29/19 20:24,2018,162,0,162,0,0,0,0,0,140,0,22
+IL1810150,Union,Cobden,village,Cobden (PWS),4/17/19 9:43,2018,639,0,639,0,0,45,20,329,13,0,232
+IL1350150,Montgomery,Coffeen,city,Coffeen (PWS),4/26/19 14:01,2018,306,0,306,0,303,0,0,0,0,0,3
+IL1090200,McDonough,Colchester,city,Colchester (PWS),4/11/19 16:35,2018,777,0,777,0,596,0,0,0,118,0,63
+IL1130350,McLean,Colfax,village,Colfax (PWS),4/26/19 12:31,2018,489,0,489,0,0,0,0,0,489,0,0
+IL1194280,Madison,Collinsville,city,Collinsville (PWS),5/2/19 9:17,2018,12665,0,12665,60,0,0,170,0,12200,0,235
+IL1990200,Williamson,Colp,village,Colp (PWS),3/29/19 16:46,2018,390,1,389,0,365,0,0,0,0,0,25
+IL1330050,Monroe,Columbia,city,Columbia (PWS),4/16/19 11:29,2018,4122,1,4121,0,3658,0,0,0,266,0,198
+IL1030150,Lee,Compton,village,Compton (PWS),4/8/19 9:46,2018,110,0,110,0,0,0,0,84,25,0,1
+IL1370100,Morgan,Concord,village,Concord (PWS),4/2/19 10:35,2018,122,0,122,0,0,0,0,0,0,0,122
+IL2030100,Woodford,Congerville,village,Congerville (PWS),4/14/19 21:20,2018,214,0,214,0,0,0,0,0,167,0,47
+IL1130400,McLean,Cooksville,village,Cooksville (PWS),6/3/19 10:20,2018,120,0,120,0,0,0,0,0,120,0,0
+IL1610150,Rock Island,Cordova,village,Cordova (PWS),4/10/19 8:54,2018,325,0,325,0,1,0,0,0,323,0,1
+IL1050150,Livingston,Cornell,village,Cornell (PWS),5/17/19 9:52,2018,246,0,246,0,0,1,11,141,0,0,93
+IL0370051,DeKalb,Cortland,town,Cortland (PWS),4/2/19 13:23,2018,1510,0,1510,0,0,0,0,0,1480,0,30
+IL1570150,Randolph,Coulterville,village,Coulterville (PWS),3/15/19 9:18,2018,507,0,507,0,400,52,0,0,0,0,55
+IL0310540,Cook,Country Club Hills,city,Country Club Hills (PWS),4/26/19 12:58,2018,5766,0,5766,0,0,1003,1307,0,3456,0,0
+IL0310570,Cook,Countryside,city,Countryside (PWS),5/20/19 12:31,2018,1593,3,1590,0,0,1590,0,0,0,3,0
+IL1730050,Shelby,Cowden,village,Cowden (PWS),4/15/19 20:01,2018,280,0,280,0,260,0,5,0,0,0,15
+IL1990250,Williamson,Crainville,village,Crainville (PWS),5/6/19 10:55,2018,757,0,757,0,0,10,10,0,0,0,737
+IL1990300,Williamson,Creal Springs,city,Creal Springs (PWS),3/29/19 16:48,2018,324,0,324,0,292,0,0,0,0,0,32
+IL0750300,Iroquois,Crescent City,village,Crescent City (PWS),4/15/19 18:52,2018,322,0,322,0,317,0,0,0,5,0,0
+IL1970250,Will,Crest Hill,city,Crest Hill (PWS),4/11/19 8:06,2018,6427,1,6426,0,2485,0,0,0,3941,1,0
+IL1410150,Ogle,Creston,village,Creston (PWS),3/20/19 10:12,2018,218,0,218,0,218,0,0,0,0,0,0
+IL0310600,Cook,Crestwood,village,Crestwood (PWS),4/29/19 10:02,2018,3387,0,3387,0,0,141,45,0,3198,0,3
+IL1970300,Will,Crete,village,Crete (PWS),3/14/19 15:56,2018,2953,0,2953,273,0,2014,0,0,666,0,0
+IL1790100,Tazewell,Creve Coeur,village,Creve Coeur (PWS),4/16/19 15:03,2018,2375,0,2375,0,0,0,0,100,2000,75,200
+IL1930150,White,Crossville,village,Crossville (PWS),4/5/19 13:43,2018,662,0,662,0,0,0,0,174,163,0,325
+IL1110150,McHenry,Crystal Lake,city,Crystal Lake (PWS),4/15/19 7:23,2018,13689,3,13686,1459,0,0,0,0,12227,3,0
+IL0570300,Fulton,Cuba,city,Cuba (PWS),4/14/19 15:56,2018,575,0,575,0,0,0,0,0,460,3,112
+IL1050200,Livingston,Cullom,village,Cullom (PWS),5/28/19 11:27,2018,291,0,291,0,0,0,0,0,270,0,21
+IL1450050,Perry,Cutler,village,Cutler (PWS),3/29/19 16:49,2018,202,0,202,0,174,0,0,0,0,0,28
+IL0650150,Hamilton,Dahlgren,village,Dahlgren (PWS),4/1/19 10:36,2018,373,0,373,0,290,1,0,0,15,0,67
+IL1770100,Stephenson,Dakota,village,Dakota (PWS),3/22/19 6:34,2018,200,0,200,0,200,0,0,0,0,0,0
+IL0674300,Hancock,Dallas City,city,Dallas City-Wtp (PWS),4/2/19 14:01,2018,500,0,500,100,200,0,0,0,100,0,100
+IL1390150,Moultrie,Dalton City,village,Dalton City (PWS),4/8/19 9:43,2018,250,0,250,0,43,0,0,0,200,0,7
+IL0110250,Bureau,Dalzell,village,Dalzell (PWS),4/15/19 13:40,2018,299,0,299,0,0,0,0,0,284,0,15
+IL0275200,Clinton,Damiansville,village,Damiansville (PWS),4/26/19 13:50,2018,263,0,263,0,263,0,0,0,0,0,0
+IL0750350,Iroquois,Danforth,village,Danforth (PWS),4/15/19 18:53,2018,220,0,220,0,215,0,0,0,5,0,0
+IL1130450,McLean,Danvers,village,Danvers (PWS),3/25/19 14:24,2018,478,0,478,0,150,0,0,0,278,0,50
+IL0430270,DuPage,Darien,city,Darien (PWS),4/10/19 10:02,2018,9500,3,9497,0,174,0,0,0,9321,0,5
+IL1770150,Stephenson,Davis,village,Davis (PWS),3/28/19 5:36,2018,240,0,240,0,0,0,0,20,220,0,0
+IL1410030,Ogle,Davis Junction,village,Davis Junction (PWS),4/3/19 11:19,2018,672,0,672,0,0,0,0,0,670,0,2
+IL1670400,Sangamon,Dawson,village,Dawson (PWS),6/27/19 10:39,2018,825,0,825,0,825,0,0,0,0,0,0
+IL1470200,Piatt,De Land,village,De Land (PWS),4/11/19 14:31,2018,210,0,210,0,143,0,0,0,66,0,1
+IL0110300,Bureau,De Pue,village,De Pue (PWS),5/14/19 9:02,2018,669,0,669,169,0,0,90,0,410,0,0
+IL0770200,Jackson,De Soto,village,De Soto (PWS),4/30/19 13:46,2018,861,0,861,0,861,0,0,0,0,0,0
+IL0390100,DeWitt,De Witt,village,De Witt (PWS),7/24/19 15:28,2018,72,0,72,0,72,0,0,0,0,0,0
+IL1150150,Macon,Decatur,city,Decatur (PWS),4/9/19 9:53,2018,29203,3,29200,5012,52,0,0,0,23753,386,0
+IL1794320,Tazewell,Deer Creek,village,Deer Creek (PWS),3/26/19 11:15,2018,307,0,307,0,268,2,2,0,0,0,35
+IL0974340,Lake,Deerfield,village,Deerfield (PWS),4/29/19 11:09,2018,6786,3,6783,950,0,4333,0,0,1500,3,0
+IL0370100,DeKalb,DeKalb,city,De Kalb (PWS),3/21/19 15:48,2018,10696,0,10696,241,1407,8952,0,0,0,96,0
+IL1790150,Tazewell,Delavan,city,Delavan (PWS),4/11/19 10:37,2018,847,0,847,211,0,255,42,0,0,0,339
+IL0310630,Cook,Des Plaines,city,Des Plaines (PWS),4/15/19 11:32,2018,16412,1,16411,280,10604,5164,0,0,0,303,61
+IL0630250,Grundy,Diamond,village,Diamond (PWS),5/24/19 13:51,2018,898,0,898,0,0,0,0,0,673,0,225
+IL0490150,Effingham,Dieterich,village,Dieterich (PWS),3/18/19 11:46,2018,386,1,385,0,0,0,0,0,290,0,96
+IL1670450,Sangamon,Divernon,village,Divernon (PWS),1/2/19 11:28,2018,554,0,554,0,0,549,0,0,5,0,0
+IL0310660,Cook,Dixmoor,village,Dixmoor (PWS),9/18/19 14:55,2018,655,0,655,488,0,0,0,0,167,0,0
+IL1030200,Lee,Dixon,city,Dixon (PWS),4/4/19 8:48,2018,5732,0,5732,0,391,0,878,0,4239,0,224
+IL0310690,Cook,Dolton,village,Dolton (PWS),4/10/19 9:15,2018,8938,0,8938,6178,400,990,590,0,780,0,0
+IL1810200,Union,Dongola,village,Dongola (PWS),4/4/19 10:55,2018,380,0,380,0,130,100,50,0,0,0,100
+IL0054360,Bond,Donnellson,village,Donnellson (PWS),4/12/19 11:22,2018,126,0,126,0,0,15,19,75,0,0,17
+IL0750400,Iroquois,Donovan,village,Donovan (PWS),5/8/19 20:54,2018,140,0,140,0,140,0,0,0,0,0,0
+IL1170250,Macoupin,Dorchester,village,Dorchester (PWS),3/27/19 10:58,2018,210,0,210,0,0,20,0,40,0,0,150
+IL0110350,Bureau,Dover,village,Dover (PWS),5/23/19 19:53,2018,65,2,63,0,65,0,0,0,0,0,0
+IL0770250,Jackson,Dowell,village,Dowell (PWS),4/1/19 10:37,2018,498,0,498,0,390,0,0,0,0,0,108
+IL0430300,DuPage,Downers Grove,village,Downers Grove (PWS),4/12/19 11:14,2018,16867,0,16867,83,3851,0,0,11582,1328,22,1
+IL1130500,McLean,Downs,village,Downs (PWS),5/10/19 8:33,2018,412,0,412,0,0,0,0,0,410,0,2
+IL1890150,Washington,Du Bois,village,Dubois (PWS),4/11/19 11:07,2018,132,0,132,0,0,0,0,0,0,0,132
+IL1450100,Perry,Du Quoin,city,Duquoin (PWS),5/23/19 9:16,2018,3002,2,3000,0,3002,0,0,0,0,0,0
+IL1430250,Peoria,Dunlap,village,Dunlap (PWS),3/28/19 14:11,2018,590,0,590,0,0,0,0,0,559,0,31
+IL1630350,St. Clair,Dupo,village,Dupo (PWS),4/4/19 15:40,2018,2163,0,2163,0,1317,0,18,0,366,2,460
+IL2010100,Winnebago,Durand,village,Durand (PWS),3/13/19 17:25,2018,557,0,557,0,0,0,0,0,547,0,10
+IL1050250,Livingston,Dwight,village,Dwight (PWS),4/15/19 11:03,2018,1794,2,1792,0,1641,46,0,0,67,0,40
+IL1170300,Macoupin,Eagarville,village,Eagarville (PWS),3/27/19 11:03,2018,51,0,51,0,0,0,0,0,0,0,51
+IL0990150,LaSalle,Earlville,city,Earlville (PWS),4/11/19 11:50,2018,694,0,694,0,155,0,7,0,507,0,25
+IL1190200,Madison,East Alton,village,East Alton (PWS),3/15/19 6:52,2018,2891,0,2891,0,0,0,493,686,1601,0,111
+IL0850100,Jo Daviess,East Dubuque,city,East Dubuque (PWS),3/19/19 10:22,2018,964,0,964,12,510,430,0,0,0,4,8
+IL0890250,Kane,East Dundee,village,East Dundee (PWS),4/11/19 10:55,2018,1400,0,1400,226,810,0,0,0,358,5,1
+IL0950150,Knox,East Galesburg,village,East Galesburg (PWS),5/9/19 13:08,2018,364,0,364,0,0,0,0,0,364,0,0
+IL0310750,Cook,East Hazel Crest,village,East Hazel Crest (PWS),5/2/19 14:35,2018,498,0,498,130,0,368,0,0,0,0,0
+IL1610250,Rock Island,East Moline,city,East Moline (PWS),3/18/19 11:38,2018,6400,6400,0,49,6351,0,0,0,0,0,0
+IL1790200,Tazewell,East Peoria,city,East Peoria (PWS),3/15/19 13:53,2018,7843,7843,0,250,0,0,0,0,7300,0,293
+IL1250100,Mason,Easton,village,Easton (PWS),4/1/19 7:53,2018,202,0,202,0,0,0,3,0,199,0,0
+IL0490200,Effingham,Edgewood,village,Edgewood (PWS),4/10/19 9:35,2018,268,0,268,0,0,0,0,0,0,0,268
+IL0210150,Christian,Edinburg,village,Edinburg (PWS),3/25/19 8:39,2018,608,0,608,0,35,100,40,0,400,0,33
+IL1190250,Madison,Edwardsville,city,Edwardsville (PWS),4/11/19 8:41,2018,9588,3,9585,0,3239,5123,146,0,0,3,1077
+IL0490250,Effingham,Effingham,city,Effingham (PWS),2/7/19 10:35,2018,5372,7,5365,23,5324,0,0,0,15,0,10
+IL2030150,Woodford,El Paso,city,El Paso (PWS),5/5/19 15:01,2018,1171,0,1171,0,51,0,0,0,1100,0,20
+IL0890300,Kane,Elburn,village,Elburn (PWS),5/7/19 11:44,2018,2254,0,2254,1,23,0,0,0,2229,0,1
+IL1655030,Saline,Eldorado,city,Eldorado (PWS),3/14/19 10:09,2018,1993,0,1993,0,1613,0,0,0,250,0,130
+IL0610100,Greene,Eldred,village,Eldred (PWS),4/11/19 18:21,2018,132,0,132,0,47,0,0,0,73,0,12
+IL0894380,Kane,Elgin,city,Elgin - Mclean St (PWS),4/12/19 17:04,2018,33179,12,33167,11035,7451,0,2,0,14493,198,0
+IL0850150,Jo Daviess,Elizabeth,village,Elizabeth (PWS),3/21/19 7:32,2018,402,0,402,0,347,35,0,0,0,2,18
+IL0690100,Hardin,Elizabethtown,village,Elizabethtown (PWS),4/1/19 10:39,2018,189,0,189,0,58,0,42,0,74,0,15
+IL0314400,Cook,Elk Grove Village,village,Elk Grove Village (PWS),5/2/19 14:04,2018,12535,0,12535,0,0,0,0,216,12319,0,0
+IL1070150,Logan,Elkhart,village,Elkhart (PWS),4/9/19 14:16,2018,250,0,250,0,250,0,0,0,0,0,0
+IL0770300,Jackson,Elkville,village,Elkville (PWS),4/1/19 10:40,2018,475,0,475,0,265,0,0,0,0,0,210
+IL0530050,Ford,Elliott,village,Elliott (PWS),4/16/19 17:59,2018,140,0,140,0,40,35,50,0,10,0,5
+IL1570200,Randolph,Ellis Grove,village,Ellis Grove (PWS),4/15/19 9:04,2018,274,0,274,0,0,0,0,274,0,0,0
+IL1130550,McLean,Ellsworth,village,Ellsworth (PWS),6/3/19 10:22,2018,97,0,97,0,0,0,0,0,97,0,0
+IL1430300,Peoria,Elmwood,city,Elmwood (PWS),4/4/19 9:32,2018,833,0,833,9,0,110,98,431,66,0,119
+IL0310780,Cook,Elmwood Park,village,Elmwood Park (PWS),4/10/19 16:19,2018,6515,0,6515,6399,0,0,25,0,91,0,0
+IL0670010,Hancock,Elvaston,village,Elvaston (PWS),3/26/19 14:43,2018,85,0,85,0,27,0,0,0,1,0,57
+IL1970350,Will,Elwood,village,Elwood (PWS),4/29/19 8:51,2018,985,0,985,0,20,0,0,0,965,0,0
+IL1070200,Logan,Emden,village,Emden (PWS),3/19/19 17:43,2018,244,0,244,0,0,0,0,0,233,0,11
+IL1050300,Livingston,Emington,village,Emington (PWS),3/14/19 9:53,2018,45,0,45,0,0,0,0,0,0,0,45
+IL1990350,Williamson,Energy,village,Energy (PWS),3/24/19 9:09,2018,549,0,549,0,0,0,0,0,531,0,18
+IL1930200,White,Enfield,village,Enfield (PWS),4/9/19 9:50,2018,799,0,799,0,656,0,0,0,0,0,143
+IL0590050,Gallatin,Equality,village,Equality-Wtp (PWS),3/29/19 10:15,2018,416,0,416,0,281,0,0,0,50,0,85
+IL1950200,Whiteside,Erie,village,Erie (PWS),4/10/19 10:33,2018,503,0,503,5,0,0,15,0,470,0,13
+IL2030200,Woodford,Eureka,city,Eureka-Wtp (PWS),4/4/19 9:46,2018,2125,0,2125,61,100,106,465,531,612,0,250
+IL0310810,Cook,Evanston,city,Evanston (PWS),4/10/19 13:23,2018,14597,7,14590,11654,0,1133,196,0,1226,388,0
+IL1570250,Randolph,Evansville,village,Evansville-Wtp (PWS),4/4/19 12:39,2018,441,0,441,0,377,0,1,0,63,0,0
+IL0310840,Cook,Evergreen Park,village,Evergreen Park (PWS),4/8/19 13:17,2018,7010,0,7010,6666,0,67,0,0,153,70,54
+IL1050350,Livingston,Fairbury,city,Fairbury-Wtp (PWS),3/13/19 15:16,2018,1736,0,1736,11,620,100,149,0,806,0,50
+IL1910100,Wayne,Fairfield,city,Fairfield (PWS),4/14/19 20:06,2018,3005,5,3000,9,0,0,10,50,2921,0,15
+IL1830250,Vermilion,Fairmount,village,Fairmount (PWS),4/26/19 20:57,2018,295,0,295,0,0,0,0,0,295,0,0
+IL0570450,Fulton,Fairview,village,Fairview (PWS),4/11/19 10:30,2018,240,0,240,0,100,0,120,0,0,0,20
+IL0510150,Fayette,Farina,village,Farina (PWS),4/11/19 8:48,2018,259,0,259,0,0,0,0,0,136,0,123
+IL0390150,DeWitt,Farmer City,city,Farmer City (PWS),4/13/19 19:31,2018,990,0,990,12,120,0,30,0,450,0,378
+IL1350200,Montgomery,Farmersville,village,Farmersville (PWS),4/15/19 12:12,2018,367,0,367,0,0,0,6,46,227,0,88
+IL0570500,Fulton,Farmington,city,Illinois American - Farmington (PWS),3/21/19 13:53,2018,1039,0,1039,0,974,0,1,0,39,0,25
+IL1630550,St. Clair,Fayetteville,village,Fayetteville (PWS),3/25/19 14:53,2018,139,1,138,0,1,0,0,0,128,0,10
+IL0830150,Jersey,Fieldon,village,Fieldon (PWS),5/9/19 17:47,2018,140,0,140,0,0,140,0,0,0,0,0
+IL1350250,Montgomery,Fillmore,village,Fillmore (PWS),4/11/19 9:21,2018,192,0,192,0,192,0,0,0,0,0,0
+IL1730100,Shelby,Findlay,village,Findlay (PWS),4/12/19 9:47,2018,375,0,375,0,0,0,0,0,370,0,5
+IL0190150,Champaign,Fisher,village,Illinois American - Fisher (PWS),4/12/19 8:30,2018,888,0,888,0,888,0,0,0,0,0,0
+IL1830300,Vermilion,Fithian,village,Fithian (PWS),4/26/19 20:58,2018,220,0,220,0,0,0,0,0,220,0,0
+IL1050400,Livingston,Flanagan,village,Flanagan (PWS),4/16/19 12:14,2018,520,0,520,15,80,0,200,0,75,0,150
+IL0330050,Crawford,Flat Rock,village,Flat Rock (PWS),3/20/19 15:04,2018,185,0,185,0,0,0,0,0,183,0,2
+IL0250100,Clay,Flora,city,Flora (PWS),3/22/19 8:42,2018,2752,2,2750,0,736,1515,44,0,420,0,37
+IL0310870,Cook,Flossmoor,village,Flossmoor (PWS),5/8/19 15:59,2018,3746,1,3745,119,3340,154,133,0,0,0,0
+IL1250010,Mason,Forest City,village,Forest City (PWS),3/18/19 10:21,2018,105,0,105,0,0,0,0,0,0,0,105
+IL0310900,Cook,Forest Park,village,Forest Park (PWS),3/29/19 10:10,2018,3427,0,3427,2755,0,0,0,0,516,156,0
+IL0310930,Cook,Forest View,village,Forest View (PWS),4/8/19 12:44,2018,298,0,298,166,41,88,3,0,0,0,0
+IL1050450,Livingston,Forrest,village,Forrest (PWS),4/12/19 11:32,2018,492,0,492,0,0,0,152,0,290,0,50
+IL1410200,Ogle,Forreston,village,Forreston (PWS),4/30/19 14:10,2018,754,0,754,252,0,241,3,0,10,0,248
+IL1150200,Macon,Forsyth,village,Forsyth (PWS),3/27/19 14:38,2018,1309,0,1309,0,0,775,0,0,534,0,0
+IL0970200,Lake,Fox Lake,village,Fox Lake (PWS),1/18/19 13:10,2018,2585,0,2585,2,1676,0,12,0,893,0,2
+IL0975550,Lake,Fox Lake Hills,CDP,LCPWD - Fox Lake Hills Subdivision (PWS),4/11/19 8:31,2018,848,0,848,0,0,0,0,0,848,0,0
+IL1110200,McHenry,Fox River Grove,village,Fox River Grove (PWS),3/19/19 8:54,2018,1724,0,1724,0,0,609,0,0,1115,0,0
+IL1970400,Will,Frankfort,village,Frankfort (PWS),4/5/19 9:47,2018,11086,0,11086,0,11086,0,0,0,0,0,0
+IL1370150,Morgan,Franklin,village,Franklin (PWS),3/25/19 9:54,2018,373,1,372,0,0,0,0,49,189,0,135
+IL1030250,Lee,Franklin Grove,village,Franklin Grove (PWS),7/19/19 10:04,2018,371,0,371,0,120,0,100,0,100,0,51
+IL0310960,Cook,Franklin Park,village,Franklin Park (PWS),5/6/19 12:17,2018,5898,0,5898,3235,0,0,23,0,2633,7,0
+IL1630600,St. Clair,Freeburg,village,Freeburg (PWS),4/10/19 9:22,2018,2071,1,2070,0,986,0,0,0,1085,0,0
+IL1994420,Williamson,Freeman Spur,village,Freeman Spur (PWS),4/1/19 10:52,2018,131,0,131,0,35,0,0,0,40,0,56
+IL1770200,Stephenson,Freeport,city,Freeport (PWS),4/8/19 11:10,2018,13382,0,13382,2934,676,8829,76,2,0,462,403
+IL1950250,Whiteside,Fulton,city,Fulton (PWS),4/10/19 10:32,2018,1700,0,1700,5,0,0,15,0,1650,0,30
+IL1650150,Saline,Galatia,village,Galatia (PWS),3/28/19 15:02,2018,454,452,2,0,0,0,0,0,0,0,454
+IL0850200,Jo Daviess,Galena,city,Galena (PWS),3/29/19 12:16,2018,2025,0,2025,1,1113,281,0,0,539,0,91
+IL0950200,Knox,Galesburg,city,Galesburg (PWS),4/8/19 11:40,2018,12243,7,12236,1871,399,0,132,0,5763,68,4010
+IL0730450,Henry,Galva,city,Galva (PWS),5/10/19 13:33,2018,1292,0,1292,99,427,0,10,0,620,0,136
+IL0630400,Grundy,Gardner,village,Gardner (PWS),5/8/19 14:56,2018,589,0,589,0,0,0,0,0,500,0,89
+IL0410010,Douglas,Garrett,village,Garrett (PWS),3/13/19 19:44,2018,65,0,65,0,0,0,0,0,65,0,0
+IL0730500,Henry,Geneseo,city,Geneseo (PWS),3/27/19 13:27,2018,3851,2,3849,0,2633,1111,0,0,102,0,5
+IL0890350,Kane,Geneva,city,Geneva (PWS),4/4/19 14:14,2018,8314,0,8314,196,2020,0,39,0,6058,0,1
+IL0370150,DeKalb,Genoa,city,Genoa (PWS),3/28/19 15:21,2018,1963,0,1963,33,713,0,5,0,1209,0,3
+IL1830350,Vermilion,Georgetown,city,Georgetown (PWS),3/13/19 14:41,2018,1616,2,1614,0,0,0,0,0,1611,0,5
+IL1770250,Stephenson,German Valley,village,German Valley (PWS),6/3/19 5:01,2018,191,0,191,0,0,0,0,0,42,1,148
+IL0270350,Clinton,Germantown,village,Germantown (PWS),3/28/19 14:32,2018,625,0,625,0,0,0,0,0,615,0,10
+IL0530100,Ford,Gibson City,unknown,Gibson City (PWS),5/9/19 12:42,2018,1605,0,1605,0,799,0,95,0,708,0,3
+IL0190250,Champaign,Gifford,village,Gifford (PWS),3/19/19 9:51,2018,381,0,381,0,127,0,0,0,101,0,153
+IL0890400,Kane,Gilberts,village,Gilberts (PWS),4/30/19 8:24,2018,2028,0,2028,0,0,0,0,0,2028,0,0
+IL1170400,Macoupin,Gillespie,city,Gillespie (PWS),4/4/19 18:14,2018,1736,7,1729,106,0,970,150,100,250,0,160
+IL0750450,Iroquois,Gilman,city,Gilman (PWS),4/15/19 18:38,2018,816,0,816,31,488,0,0,0,240,0,57
+IL1170450,Macoupin,Girard,city,Girard (PWS),3/19/19 16:21,2018,975,0,975,0,0,0,0,5,955,0,15
+IL0710020,Henderson,Gladstone,village,Gladstone (PWS),4/26/19 13:59,2018,250,0,250,0,0,0,0,0,0,0,250
+IL1430350,Peoria,Glasford,village,Illinois American - Glasford (PWS),3/22/19 13:36,2018,493,0,493,0,0,60,60,0,60,13,300
+IL1190300,Madison,Glen Carbon,village,Glen Carbon (PWS),3/13/19 14:11,2018,5320,0,5320,0,750,2934,50,0,386,0,1200
+IL0430450,DuPage,Glen Ellyn,village,Glen Ellyn (PWS),4/15/19 16:30,2018,8432,0,8432,88,4479,0,15,1212,2623,14,1
+IL0310990,Cook,Glencoe,village,Glencoe (PWS),4/8/19 13:38,2018,3160,0,3160,662,77,0,0,0,2372,46,3
+IL0430400,DuPage,Glendale Heights,village,Glendale Heights (PWS),3/27/19 15:01,2018,8835,0,8835,0,0,7182,0,0,1647,6,0
+IL0311020,Cook,Glenview,village,Glenview (PWS),4/15/19 8:50,2018,16198,2,16196,5113,120,4781,4,36,6142,2,0
+IL0311050,Cook,Glenwood,village,Glenwood (PWS),5/29/19 13:06,2018,2884,0,2884,9,0,0,0,236,2639,0,0
+IL1510100,Pope,Golconda,city,Golconda (PWS),4/1/19 10:56,2018,406,0,406,0,291,0,0,0,0,0,115
+IL0010250,Adams,Golden,village,Golden (PWS),4/12/19 15:17,2018,310,0,310,0,0,0,0,0,233,0,77
+IL0311080,Cook,Golf,village,Golf (PWS),4/10/19 10:47,2018,176,0,176,119,0,36,0,11,10,0,0
+IL1090250,McDonough,Good Hope,village,Good Hope (PWS),4/14/19 16:00,2018,192,0,192,0,0,0,0,0,134,2,56
+IL2034450,Woodford,Goodfield,village,Goodfield (PWS),4/14/19 21:22,2018,413,1,412,0,318,0,0,0,92,0,3
+IL0870200,Johnson,Goreville,village,Goreville (PWS),4/16/19 9:54,2018,572,0,572,0,496,20,3,0,2,0,51
+IL0770350,Jackson,Gorham,village,Gorham (PWS),4/15/19 10:31,2018,740,0,740,0,0,0,0,740,0,0,0
+IL0990200,LaSalle,Grand Ridge,village,Grand Ridge (PWS),4/15/19 13:41,2018,240,0,240,0,20,0,0,0,120,0,100
+IL0770400,Jackson,Grand Tower,city,Grand Tower (PWS),4/15/19 10:34,2018,323,0,323,0,0,0,0,323,0,0,0
+IL1670500,Sangamon,Grandview,village,Grandview (PWS),3/22/19 13:59,2018,736,0,736,0,607,81,37,0,0,0,11
+IL0975600,Lake,Grandwood Park,CDP,LCPWD - Grandwood Park Subdivision (PWS),4/11/19 8:31,2018,1915,0,1915,0,0,0,0,0,1915,0,0
+IL1190350,Madison,Grantfork,village,Grantfork (PWS),5/8/19 7:43,2018,716,0,716,0,716,0,0,0,0,0,0
+IL1550050,Putnam,Granville,village,Granville (PWS),4/15/19 13:42,2018,699,0,699,0,3,0,11,0,660,0,25
+IL0970250,Lake,Grayslake,village,Grayslake (PWS),4/4/19 10:01,2018,7090,0,7090,370,0,0,0,0,6720,0,0
+IL1934460,White,Grayville,city,Grayville (PWS),3/14/19 15:31,2018,868,1,867,0,40,0,250,0,445,1,132
+IL0970040,Lake,Green Oaks,village,Green Oaks (PWS),3/19/19 15:11,2018,490,0,490,0,0,0,0,0,490,0,0
+IL1790250,Tazewell,Green Valley,village,Green Valley (PWS),3/26/19 12:43,2018,295,0,295,0,0,0,0,40,200,0,55
+IL0610150,Greene,Greenfield,city,Greenfield (PWS),7/24/19 8:20,2018,603,0,603,0,0,0,0,0,603,0,0
+IL0350050,Cumberland,Greenup,village,Greenup (PWS),6/5/19 9:29,2018,768,0,768,0,734,0,0,0,6,0,28
+IL1290100,Menard,Greenview,village,Greenview (PWS),3/14/19 11:17,2018,372,0,372,10,50,90,85,0,5,0,132
+IL0050050,Bond,Greenville,city,Greenville-Wtp (PWS),3/18/19 9:18,2018,2674,5,2669,0,529,0,465,0,915,0,765
+IL1130600,McLean,Gridley,village,Gridley (PWS),3/27/19 10:59,2018,637,0,637,0,505,0,0,0,113,2,17
+IL1490300,Pike,Griggsville,city,Griggsville-Wtp (PWS),4/29/19 9:12,2018,580,0,580,0,19,6,130,0,415,0,10
+IL0970350,Lake,Gurnee,village,Gurnee (PWS),4/10/19 11:41,2018,9925,1,9924,0,2086,0,0,0,7669,146,24
+IL0970400,Lake,Hainesville,village,Hainesville (PWS),4/9/19 15:11,2018,843,0,843,0,0,0,0,0,843,0,0
+IL1190450,Madison,Hamel,village,Hamel (PWS),4/2/19 15:43,2018,463,3,460,0,75,0,0,0,68,0,320
+IL0670400,Hancock,Hamilton,city,Hamilton (PWS),3/29/19 10:15,2018,1407,2,1405,34,583,0,14,65,622,0,89
+IL1470250,Piatt,Hammond,village,Hammond (PWS),4/11/19 8:43,2018,240,0,240,0,164,0,13,0,0,0,63
+IL0890450,Kane,Hampshire,village,Hampshire (PWS),4/9/19 8:30,2018,2806,0,2806,0,713,0,0,24,2069,0,0
+IL1610300,Rock Island,Hampton,village,Hampton (PWS),5/2/19 9:34,2018,757,0,757,0,25,0,1,0,729,0,2
+IL0550250,Franklin,Hanaford,village,Hanaford (PWS),3/29/19 15:31,2018,389,0,389,0,0,0,0,389,0,0,0
+IL1430400,Peoria,Hanna City,village,Hanna City (PWS),4/2/19 11:18,2018,613,1,612,0,0,437,1,0,0,0,175
+IL0850250,Jo Daviess,Hanover,village,Hanover (PWS),4/11/19 9:48,2018,430,0,430,0,416,0,0,0,8,1,5
+IL0314480,Cook,Hanover Park,village,Hanover Park (PWS),4/26/19 16:11,2018,10158,0,10158,0,0,0,0,0,10157,1,0
+IL0130200,Calhoun,Hardin,village,Hardin (PWS),4/11/19 16:31,2018,350,0,350,0,300,0,0,0,30,0,20
+IL1030300,Lee,Harmon,village,Harmon (PWS),4/1/19 19:53,2018,75,70,5,0,75,0,0,0,0,0,0
+IL1650200,Saline,Harrisburg,city,Harrisburg (PWS),3/14/19 15:20,2018,4328,0,4328,44,578,2500,500,0,206,0,500
+IL1150210,Macon,Harristown,village,Harristown (PWS),4/8/19 10:09,2018,573,0,573,0,0,0,0,0,0,0,573
+IL1190500,Madison,Hartford,village,Hartford (PWS),4/4/19 13:03,2018,597,0,597,12,0,552,12,0,20,0,1
+IL1070250,Logan,Hartsburg,village,Hartsburg (PWS),3/19/19 17:50,2018,169,0,169,0,0,0,0,130,20,0,19
+IL1110250,McHenry,Harvard,city,Harvard (PWS),4/29/19 11:03,2018,2840,0,2840,1335,0,1478,0,0,0,0,27
+IL1354500,Montgomery,Harvel,village,Harvel (PWS),4/3/19 15:35,2018,144,0,144,0,0,0,0,0,138,0,6
+IL0311110,Cook,Harvey,city,Harvey (PWS),5/21/19 16:50,2018,8505,5,8500,475,7990,40,0,0,0,0,0
+IL0311140,Cook,Harwood Heights,village,Harwood Heights (PWS),5/30/19 11:59,2018,2288,0,2288,207,0,1965,116,0,0,0,0
+IL1250200,Mason,Havana,city,Havana (PWS),5/21/19 16:32,2018,1531,0,1531,1022,19,227,50,0,15,0,198
+IL0970450,Lake,Hawthorn Woods,village,LCPWD - Hawthorn Woods (PWS),4/9/19 17:00,2018,226,0,226,0,4,0,0,0,0,0,222
+IL0311170,Cook,Hazel Crest,village,Hazel Crest (PWS),4/26/19 14:14,2018,4527,0,4527,309,0,3966,0,252,0,0,0
+IL1110300,McHenry,Hebron,village,Hebron (PWS),3/14/19 21:01,2018,540,0,540,5,206,314,10,0,0,0,5
+IL1330150,Monroe,Hecker,village,Hecker (PWS),5/30/19 10:59,2018,225,0,225,0,0,0,0,0,145,0,80
+IL0950250,Knox,Henderson,village,Henderson (PWS),5/9/19 13:20,2018,150,0,150,0,0,0,0,50,30,0,70
+IL1230050,Marshall,Henry,city,Henry (PWS),4/29/19 10:41,2018,1158,0,1158,0,0,0,631,101,0,0,426
+IL1730150,Shelby,Herrick,village,Herrick (PWS),5/29/19 10:05,2018,347,0,347,0,0,0,0,0,0,0,347
+IL1990400,Williamson,Herrin,city,Herrin (PWS),4/3/19 9:58,2018,6101,0,6101,1265,2535,0,135,0,675,0,1491
+IL0910450,Kankakee,Herscher,village,Herscher (PWS),4/10/19 11:32,2018,635,0,635,0,385,0,25,0,100,0,125
+IL1170500,Macoupin,Hettick,village,Hettick (PWS),4/25/19 7:16,2018,113,0,113,0,97,0,0,0,7,0,9
+IL1130650,McLean,Heyworth,village,Heyworth (PWS),3/13/19 18:17,2018,1084,0,1084,0,0,0,12,625,361,6,80
+IL0311200,Cook,Hickory Hills,city,Hickory Hills (PWS),4/10/19 11:54,2018,3928,0,3928,0,0,0,0,0,3928,0,0
+IL1190550,Madison,Highland,city,Highland (PWS),4/10/19 15:07,2018,4732,4,4728,0,0,0,270,101,4258,0,103
+IL0970500,Lake,Highland Park,city,Highland Park (PWS),5/22/19 17:10,2018,10915,8,10907,1016,2263,0,2,0,7407,227,0
+IL0970550,Lake,Highwood,city,Highwood (PWS),3/15/19 14:26,2018,1152,0,1152,18,1123,9,0,0,2,0,0
+IL1410250,Ogle,Hillcrest,village,Hillcrest (PWS),5/8/19 15:19,2018,445,0,445,0,445,0,0,0,0,0,0
+IL1350300,Montgomery,Hillsboro,city,Hillsboro (PWS),4/9/19 14:48,2018,2308,4,2304,46,1630,243,2,285,97,4,1
+IL0311230,Cook,Hillside,village,Hillside (PWS),4/10/19 11:06,2018,2475,0,2475,585,277,0,2,0,1571,40,0
+IL0610200,Greene,Hillview,village,Hillview (PWS),4/11/19 18:19,2018,60,0,60,0,0,0,1,0,0,0,59
+IL0370200,DeKalb,Hinckley,village,Hinckley (PWS),3/19/19 9:13,2018,851,0,851,5,558,0,46,0,226,0,16
+IL0410200,Douglas,Hindsboro,village,Hindsboro (PWS),4/26/19 18:47,2018,147,0,147,0,0,0,0,0,95,0,52
+IL0434520,DuPage,Hinsdale,village,Hinsdale (PWS),4/15/19 21:04,2018,5796,0,5796,46,861,2588,0,0,2282,19,0
+IL0311260,Cook,Hodgkins,village,Hodgkins (PWS),5/2/19 11:12,2018,258,2,256,0,105,0,0,0,152,0,1
+IL0270400,Clinton,Hoffman,village,Hoffman (PWS),4/10/19 9:48,2018,285,0,285,0,284,0,0,0,1,0,0
+IL0311290,Cook,Hoffman Estates,village,Hoffman Estates (PWS),4/9/19 13:41,2018,15657,0,15657,0,0,40,0,0,15307,310,0
+IL0110010,Bureau,Hollowayville,village,Hollowayville (PWS),4/15/19 13:42,2018,40,0,40,0,0,0,0,0,0,0,40
+IL0190300,Champaign,Homer,village,Homer (PWS),3/30/19 0:06,2018,512,0,512,0,389,0,28,0,19,0,76
+IL0311320,Cook,Hometown,city,Hometown (PWS),3/18/19 9:54,2018,1796,0,1796,0,0,0,0,0,1796,0,0
+IL0311350,Cook,Homewood,village,Homewood (PWS),5/21/19 8:57,2018,6764,0,6764,2550,1278,687,283,1279,687,0,0
+IL1830450,Vermilion,Hoopeston,city,Hoopeston (PWS),3/18/19 12:00,2018,2300,0,2300,0,16,0,4,0,2267,6,7
+IL1790300,Tazewell,Hopedale,village,Hopedale (PWS),3/26/19 20:11,2018,380,0,380,0,0,0,18,0,303,0,59
+IL1235150,Marshall,Hopewell,village,Hopewell (PWS),5/9/19 22:23,2018,135,0,135,0,20,5,0,0,75,0,35
+IL0910040,Kankakee,Hopkins Park,village,Hopkins Park (PWS),6/5/19 18:28,2018,212,0,212,0,0,0,0,0,0,0,212
+IL1890200,Washington,Hoyleton,village,Hoyleton (PWS),3/18/19 8:16,2018,231,0,231,0,112,25,3,0,29,0,62
+IL1130700,McLean,Hudson,village,Hudson (PWS),3/28/19 10:19,2018,696,0,696,0,0,0,2,0,692,0,2
+IL1490350,Pike,Hull,village,Hull (PWS),4/12/19 15:18,2018,255,0,255,0,0,0,0,0,122,0,133
+IL0290150,Coles,Humboldt,village,Humboldt (PWS),3/13/19 15:42,2018,233,0,233,0,0,0,0,233,0,0,0
+IL0450150,Edgar,Hume,village,Hume (PWS),3/29/19 23:17,2018,220,0,220,0,0,0,0,0,218,0,2
+IL1110350,McHenry,Huntley,village,Huntley (PWS),3/19/19 7:37,2018,10582,0,10582,10,3,0,8,0,10561,0,0
+IL1990450,Williamson,Hurst,city,Hurst (PWS),4/26/19 14:27,2018,402,0,402,0,0,0,0,0,275,0,127
+IL0330100,Crawford,Hutsonville,village,Hutsonville (PWS),4/26/19 13:34,2018,288,0,288,10,143,0,114,0,0,0,21
+IL1670550,Sangamon,Illiopolis,village,Illiopolis (PWS),3/20/19 14:36,2018,440,0,440,0,0,50,370,0,0,0,20
+IL0311410,Cook,Indian Head Park,village,Indian Head Park (PWS),4/13/19 12:37,2018,958,0,958,0,0,0,0,0,941,16,1
+IL1090300,McDonough,Industry,village,Industry (PWS),4/9/19 13:37,2018,230,0,230,0,5,0,0,0,220,0,5
+IL0250010,Clay,Iola,village,Iola (PWS),3/25/19 6:09,2018,80,0,80,0,0,0,0,0,75,0,5
+IL0570550,Fulton,Ipava,village,Ipava (PWS),4/4/19 9:07,2018,297,0,297,13,75,0,0,0,79,0,130
+IL1350350,Montgomery,Irving,village,Irving (PWS),7/12/19 10:20,2018,211,0,211,0,0,0,0,0,61,0,150
+IL1890250,Washington,Irvington,village,Irvington (PWS),4/26/19 14:40,2018,484,1,483,0,254,0,7,0,13,0,210
+IL0974540,Lake,Island Lake,village,Island Lake (PWS),4/12/19 8:05,2018,3034,0,3034,0,0,37,11,0,2973,0,13
+IL0430500,DuPage,Itasca,village,Itasca (PWS),4/3/19 11:27,2018,2977,0,2977,256,0,0,0,0,2451,270,0
+IL1210150,Marion,Iuka,village,Iuka (PWS),4/8/19 11:39,2018,278,0,278,0,192,0,0,0,28,0,58
+IL0194560,Champaign,Ivesdale,village,Ivesdale (PWS),3/15/19 10:44,2018,135,0,135,0,125,0,0,0,0,0,10
+IL1370200,Morgan,Jacksonville,city,Jacksonville (PWS),4/5/19 9:38,2018,7846,7,7839,53,7731,0,7,0,54,0,1
+IL1910200,Wayne,Jeffersonville,village,Jeffersonville (Geff) (PWS),4/1/19 20:17,2018,179,0,179,0,51,0,50,0,36,0,42
+IL0210200,Christian,Jeisyville,village,Jeisyville (PWS),4/9/19 6:50,2018,61,0,61,0,58,0,0,0,0,0,3
+IL1670600,Sangamon,Jerome,village,Jerome (PWS),7/22/19 13:12,2018,632,0,632,0,0,0,180,0,449,0,3
+IL0830250,Jersey,Jerseyville,city,Jerseyville (PWS),7/30/19 14:16,2018,4329,1,4328,0,0,0,174,0,4069,0,86
+IL0350100,Cumberland,Jewett,village,Jewett (PWS),4/9/19 20:41,2018,140,0,140,0,0,0,0,45,90,0,5
+IL1115080,McHenry,Johnsburg,village,Johnsburg No. 2 (PWS),4/29/19 10:32,2018,425,0,425,0,0,0,0,0,385,0,40
+IL1990500,Williamson,Johnston City,city,Johnston City (PWS),4/3/19 10:43,2018,1400,0,1400,200,500,0,200,0,300,0,200
+IL1970450,Will,Joliet,city,Joliet (PWS),4/15/19 14:50,2018,49726,7,49719,15071,0,10272,1,0,24375.00,7,0
+IL1810250,Union,Jonesboro,city,Jonesboro (PWS),4/15/19 11:35,2018,854,0,854,0,375,0,267,0,31,0,181
+IL1270100,Massac,Joppa,village,Joppa (PWS),4/1/19 20:21,2018,200,0,200,0,190,0,0,0,0,0,10
+IL1310100,Mercer,Joy,village,Joy (PWS),3/19/19 20:08,2018,205,0,205,25,161,0,0,0,15,0,4
+IL1210200,Marion,Junction City,village,Junction City (PWS),4/26/19 14:26,2018,207,0,207,0,129,0,5,0,0,0,73
+IL0130250,Calhoun,Kampsville,village,Kampsville (PWS),5/9/19 17:47,2018,246,0,246,0,0,246,0,0,0,0,0
+IL0610250,Greene,Kane,village,Kane (PWS),4/11/19 16:49,2018,235,0,235,0,0,0,0,0,235,0,0
+IL0450200,Edgar,Kansas,village,Kansas (PWS),3/21/19 8:12,2018,355,0,355,0,316,0,0,0,31,0,8
+IL1530050,Pulaski,Karnak,village,Karnak (PWS),4/1/19 20:23,2018,250,0,250,0,228,0,0,0,0,0,22
+IL1850150,Wabash,Keensburg,village,Keensburg (PWS),4/1/19 20:24,2018,128,0,128,0,103,0,0,0,0,0,25
+IL1310150,Mercer,Keithsburg,city,Keithsburg (PWS),4/2/19 13:21,2018,270,0,270,0,10,250,0,0,0,0,10
+IL0530150,Ford,Kempton,village,Kempton (PWS),4/3/19 19:39,2018,113,0,113,0,15,0,0,0,0,0,98
+IL0311500,Cook,Kenilworth,village,Kenilworth (PWS),4/11/19 12:44,2018,910,0,910,275,192,0,4,0,439,0,0
+IL0390200,DeWitt,Kenney,village,Kenney (PWS),4/29/19 7:34,2018,176,0,176,0,0,0,10,46,90,0,30
+IL0730650,Henry,Kewanee,city,Kewanee (PWS),3/20/19 14:21,2018,5564,0,5564,1275,1225,0,0,0,2664,0,400
+IL0274580,Clinton,Keyesport,village,Keyesport (PWS),3/29/19 10:08,2018,243,0,243,0,18,180,0,0,20,0,25
+IL0210250,Christian,Kincaid,village,Kincaid (PWS),4/9/19 6:59,2018,757,1,756,0,0,0,195,352,189,0,21
+IL1490400,Pike,Kinderhook,village,Kinderhook (PWS),4/12/19 15:20,2018,115,0,115,0,0,0,0,0,115,0,0
+IL0370250,DeKalb,Kingston,village,Kingston (PWS),4/15/19 12:17,2018,325,0,325,0,83,239,3,0,0,0,0
+IL1430450,Peoria,Kingston Mines,village,Kingston Mines (PWS),5/30/19 13:07,2018,139,0,139,0,0,0,0,0,0,0,139
+IL1210300,Marion,Kinmundy,city,Kinmundy (PWS),4/11/19 10:48,2018,430,0,430,0,0,0,0,0,0,0,430
+IL0630450,Grundy,Kinsman,village,Kinsman (PWS),4/11/19 15:25,2018,54,0,54,0,0,0,0,21,33,0,0
+IL0370300,DeKalb,Kirkland,village,Kirkland (PWS),4/9/19 11:42,2018,673,0,673,0,187,0,0,0,483,0,3
+IL1870050,Warren,Kirkwood,village,Kirkwood (PWS),5/9/19 13:16,2018,374,0,374,13,0,0,0,136,127,0,98
+IL0950300,Knox,Knoxville,city,Knoxville (PWS),4/1/19 15:27,2018,1340,0,1340,147,754,0,73,0,255,0,111
+IL1750100,Stark,La Fayette,village,La Fayette (PWS),4/15/2019 9:24:33 PM,2018,71,0,71,0,0,0,0,0,60,0,11
+IL0311530,Cook,La Grange,village,La Grange (PWS),4/10/19 8:23,2018,4860,0,4860,1218,300,2236,106,0,1000,0,0
+IL0311560,Cook,La Grange Park,village,La Grange Park (PWS),4/15/19 14:42,2018,4176,0,4176,3729,0,330,0,0,49,68,0
+IL0670450,Hancock,La Harpe,city,LaHarpe (PWS),4/9/19 10:46,2018,673,0,673,3,13,0,10,0,621,0,26
+IL0110500,Bureau,La Moille,village,La Moille (PWS),3/14/19 8:39,2018,365,0,365,3,274,81,2,0,0,0,5
+IL0010300,Adams,La Prairie,village,La Prairie (PWS),4/12/19 15:20,2018,31,0,31,0,0,0,0,0,0,0,31
+IL1230150,Marshall,La Rose,village,La Rose (PWS),3/14/19 14:29,2018,68,0,68,0,0,0,0,0,0,0,68
+IL1230100,Marshall,Lacon,city,Lacon (PWS),3/25/19 16:31,2018,963,0,963,0,507,10,425,0,0,0,21
+IL0110450,Bureau,Ladd,village,Ladd (PWS),4/15/19 13:43,2018,587,0,587,0,87,0,200,0,175,0,125
+IL0971080,Lake,Lake Barrington,village,Lake Barrington (PWS),3/19/19 8:48,2018,91,0,91,0,0,0,0,0,91,0,0
+IL0970750,Lake,Lake Bluff,village,Lake Bluff (PWS),4/12/19 13:30,2018,2004,0,2004,17,1425,520,2,0,39,1,0
+IL0970800,Lake,Lake Forest,city,Lake Forest (PWS),5/1/19 8:34,2018,6835,0,6835,277,1586,3404,4,97,1315,152,0
+IL1110400,McHenry,Lake in the Hills,village,Lake In The Hills (PWS),4/9/19 8:47,2018,9510,0,9510,0,0,0,0,0,9510,0,0
+IL0970840,Lake,Lake Villa,village,Lake Villa (PWS),4/11/19 6:37,2018,2577,0,2577,0,531,6,2,0,2038,0,0
+IL0970850,Lake,Lake Zurich,village,Lake Zurich (PWS),4/26/19 14:00,2018,6852,0,6852,39,1,0,10,428,6231,136,7
+IL0970270,Lake,Lakemoor,village,Lakemoor (PWS),4/9/19 15:03,2018,963,0,963,0,0,0,0,0,963,0,0
+IL1115760,McHenry,Lakewood,village,Lakewood (PWS),4/12/19 14:15,2018,1072,0,1072,0,0,0,0,0,1072,0,0
+IL0150100,Carroll,Lanark,city,Lanark (PWS),3/18/19 12:38,2018,670,0,670,0,0,0,189,0,418,0,63
+IL0311590,Cook,Lansing,village,Lansing (PWS),5/29/19 15:07,2018,9320,968,8352,2305,1221,0,390,0,5216,185,3
+IL0990300,LaSalle,LaSalle,city,La Salle (PWS),3/25/19 13:43,2018,3576,0,3576,0,0,0,0,3576,0,0,0
+IL1070300,Logan,Latham,village,Latham (PWS),4/9/19 14:12,2018,300,0,300,0,300,0,0,0,0,0,0
+IL1010150,Lawrence,Lawrenceville,city,Lawrenceville (PWS),5/22/19 11:06,2018,2203,2200,3,0,2203,0,0,0,0,0,0
+IL1130750,McLean,Le Roy,city,Le Roy (PWS),3/18/19 15:46,2018,1485,0,1485,49,196,0,307,0,652,0,281
+IL1410300,Ogle,Leaf River,village,Leaf River (PWS),4/29/19 11:53,2018,220,0,220,0,0,0,0,0,220,0,0
+IL1630650,St. Clair,Lebanon,city,Lebanon (PWS),4/2/19 8:58,2018,1864,0,1864,0,1855,0,1,0,5,0,3
+IL1034600,Lee,Lee,village,Lee (PWS),7/24/19 22:46,2018,155,0,155,0,55,0,60,0,40,0,0
+IL0990350,LaSalle,Leland,village,Leland (PWS),4/8/19 23:26,2018,395,0,395,0,395,0,0,0,0,0,0
+IL0311620,Cook,Lemont,village,Lemont (PWS),3/20/19 8:06,2018,6214,1,6213,1,2135,0,0,0,4078,0,0
+IL1770300,Stephenson,Lena,village,Lena (PWS),3/28/19 14:02,2018,1200,0,1200,0,0,0,0,0,1150,0,50
+IL1630700,St. Clair,Lenzburg,village,Lenzburg (PWS),3/25/19 14:50,2018,281,281,0,0,1,0,0,0,269,0,11
+IL0990400,LaSalle,Leonore,village,Illinois American - Leonore (PWS),5/9/19 6:36,2018,79,0,79,0,18,10,0,0,1,0,50
+IL0290200,Coles,Lerna,village,Lerna (PWS),5/3/19 9:00,2018,124,0,124,0,0,0,0,0,0,0,124
+IL0570600,Fulton,Lewistown,city,Lewistown (PWS),4/29/19 11:09,2018,1148,0,1148,30,500,30,30,258,100,0,200
+IL1130800,McLean,Lexington,city,Lexington (PWS),5/13/19 11:26,2018,890,0,890,0,0,0,0,0,860,0,30
+IL0010350,Adams,Liberty,village,Liberty (PWS),4/12/19 15:21,2018,287,0,287,0,0,0,0,0,229,0,58
+IL0970900,Lake,Libertyville,village,Libertyville (PWS),4/12/19 14:15,2018,7454,0,7454,708,0,0,0,0,6746,0,0
+IL0010400,Adams,Lima,village,Lima (PWS),4/12/19 15:21,2018,76,0,76,0,0,0,0,0,0,0,76
+IL0970950,Lake,Lincolnshire,village,Lincolnshire (PWS),4/17/19 9:20,2018,2565,0,2565,0,0,1324,0,0,1005,233,3
+IL0311650,Cook,Lincolnwood,village,Lincolnwood (PWS),4/12/19 15:02,2018,4262,0,4262,1106,706,0,32,0,2418,0,0
+IL0971000,Lake,Lindenhurst,village,Lindenhurst (PWS),5/14/19 10:18,2018,5103,0,5103,0,0,0,0,0,5103,0,0
+IL0430551,DuPage,Lisle,village,Lisle (PWS),3/13/19 14:17,2018,6085,1,6084,0,0,0,0,334,5750,1,0
+IL1350400,Montgomery,Litchfield,city,Litchfield (PWS),4/10/19 14:56,2018,3217,5,3212,0,3216,0,0,0,1,0,0
+IL1870100,Warren,Little York,village,Little York (PWS),4/2/19 13:20,2018,175,0,175,0,0,0,0,0,175,0,0
+IL1190600,Madison,Livingston,village,Livingston (PWS),5/23/19 14:25,2018,369,0,369,0,251,0,2,0,38,0,78
+IL1670700,Sangamon,Loami,village,Loami (PWS),4/4/19 9:55,2018,391,0,391,0,257,4,0,0,0,0,130
+IL1970500,Will,Lockport,city,Lockport (PWS),4/12/19 8:14,2018,8616,0,8616,163,182,2000,0,0,6171,100,0
+IL0750550,Iroquois,Loda,village,Loda (PWS),4/15/19 18:55,2018,167,0,167,0,164,0,0,0,3,0,0
+IL0430600,DuPage,Lombard,village,Lombard (PWS),4/10/19 18:42,2018,15270,0,15270,383,0,9226,478,0,5155,0,28
+IL0574620,Fulton,London Mills,village,London Mills (PWS),4/14/19 16:05,2018,157,0,157,0,0,0,0,0,110,0,47
+IL0970340,Lake,Long Grove,village,Long Grove (PWS),5/24/19 8:03,2018,47,0,47,0,0,0,0,0,47,0,0
+IL0190350,Champaign,Longview,village,Longview (PWS),4/30/19 12:55,2018,83,0,83,0,0,0,0,0,80,0,3
+IL0010450,Adams,Loraine,village,Loraine (PWS),5/30/19 10:06,2018,165,0,165,0,8,0,0,0,99,0,58
+IL0990450,LaSalle,Lostant,village,Lostant (PWS),4/10/19 12:03,2018,230,0,230,0,218,0,2,0,5,0,5
+IL0250200,Clay,Louisville,village,Louisville (PWS),3/25/19 6:10,2018,610,0,610,0,10,0,0,0,300,0,300
+IL2010150,Winnebago,Loves Park,city,Loves Park (PWS),4/2/19 13:48,2018,9978,0,9978,0,0,2847,0,0,7131,0,0
+IL1390250,Moultrie,Lovington,village,Lovington (PWS),4/1/19 11:52,2018,508,1,507,196,22,0,0,0,252,0,38
+IL0190400,Champaign,Ludlow,village,Ludlow (PWS),3/14/19 10:32,2018,186,0,186,0,0,0,20,0,100,0,66
+IL1950300,Whiteside,Lyndon,village,Lyndon (PWS),3/13/19 14:05,2018,248,0,248,0,0,0,0,0,230,0,18
+IL1370250,Morgan,Lynnville,village,Lynnville (PWS),5/6/19 14:56,2018,55,0,55,0,0,20,0,0,23,0,12
+IL0311680,Cook,Lynwood,village,Lynwood (PWS),8/21/19 0:00,2018,2658,0,2658,0,0,0,0,0,2658,0,0
+IL0311710,Cook,Lyons,village,Lyons (PWS),4/18/19 9:17,2018,2704,0,2704,631,25,1734,314,0,0,0,0
+IL0554640,Franklin,Macedonia,village,Macedonia (PWS),4/15/19 12:14,2018,65,0,65,0,65,0,0,0,0,0,0
+IL1790350,Tazewell,Mackinaw,village,Mackinaw (PWS),3/14/19 10:38,2018,1341,0,1341,25,0,0,84,0,435,0,797
+IL1090350,McDonough,Macomb,city,Macomb (PWS),1/11/19 8:45,2018,5860,3,5857,137,5557,0,2,0,133,0,31
+IL1150250,Macon,Macon,city,Macon (PWS),4/11/19 14:38,2018,626,1,625,0,455,0,3,0,161,4,3
+IL1330200,Monroe,Maeystown,village,Maeystown (PWS),3/31/19 10:46,2018,142,0,142,0,135,0,0,0,3,0,4
+IL1550200,Putnam,Magnolia,village,Magnolia (PWS),4/15/19 13:46,2018,111,0,111,0,0,0,0,0,6,0,105
+IL0190450,Champaign,Mahomet,village,Mahomet (PWS),3/15/19 13:46,2018,2408,0,2408,0,0,830,12,0,815,15,736
+IL0110550,Bureau,Malden,village,Malden (PWS),5/9/19 6:29,2018,155,0,155,10,80,15,10,0,0,0,40
+IL0370350,DeKalb,Malta,village,Malta (PWS),3/21/19 9:53,2018,436,0,436,5,0,0,0,0,428,0,3
+IL1710250,Scott,Manchester,village,Manchester (PWS),5/21/19 11:32,2018,120,0,120,0,74,0,2,0,29,0,15
+IL1970550,Will,Manhattan,village,Manhattan (PWS),3/13/19 10:36,2018,2883,0,2883,0,0,0,0,0,2883,0,0
+IL1250300,Mason,Manito,village,Manito (PWS),3/18/19 10:24,2018,736,0,736,0,0,0,110,0,442,0,184
+IL0110600,Bureau,Manlius,village,Manlius (PWS),4/15/19 13:46,2018,170,0,170,8,0,0,0,0,80,0,82
+IL1470300,Piatt,Mansfield,village,Mansfield (PWS),4/13/19 19:37,2018,479,0,479,0,0,0,30,108,212,0,129
+IL0890500,Kane,Maple Park,village,Maple Park (PWS),3/15/19 8:41,2018,524,0,524,0,524,0,0,0,0,0,0
+IL1430500,Peoria,Mapleton,village,Mapleton (PWS),4/2/19 11:00,2018,119,0,119,0,0,1,0,0,0,0,118
+IL0950350,Knox,Maquon,village,Maquon (PWS),5/9/19 13:10,2018,166,0,166,0,0,0,0,0,166,0,0
+IL1110650,McHenry,Marengo,city,Marengo (PWS),5/1/19 15:40,2018,2572,0,2572,215,164,100,125,0,1897,0,71
+IL0570030,Fulton,Marietta,village,Marietta (PWS),4/14/19 16:13,2018,232,0,232,0,0,0,0,0,23,0,209
+IL1190700,Madison,Marine,village,Marine (PWS),4/12/19 9:20,2018,482,0,482,0,254,0,14,0,160,0,54
+IL1990550,Williamson,Marion,city,Marion (PWS),3/19/19 8:33,2018,9940,0,9940,0,9749,0,18,0,46,0,127
+IL1630750,St. Clair,Marissa,village,Marissa (PWS),6/28/19 13:23,2018,844,0,844,0,379,0,23,0,322,0,120
+IL1550250,Putnam,Mark,village,Mark (PWS),3/29/19 10:27,2018,230,0,230,0,0,0,0,0,160,0,70
+IL0311770,Cook,Markham,city,Markham (PWS),5/24/19 13:15,2018,4090,0,4090,1000,0,0,90,0,3000,0,0
+IL1150300,Macon,Maroa,city,Maroa (PWS),4/10/19 14:36,2018,853,0,853,0,504,327,4,0,0,0,18
+IL1790400,Tazewell,Marquette Heights,city,Marquette Heights (PWS),4/23/19 12:06,2018,1166,0,1166,0,0,0,0,0,1111,0,55
+IL0990500,LaSalle,Marseilles,city,Marseilles (PWS),3/14/19 12:59,2018,2198,0,2198,18,2162,0,10,0,5,0,3
+IL0230100,Clark,Marshall,city,Marshall (PWS),5/6/19 14:08,2018,2209,3,2206,0,0,0,992,0,0,0,1217
+IL0230150,Clark,Martinsville,city,Martinsville (PWS),3/14/19 13:09,2018,591,0,591,0,0,0,0,0,589,0,2
+IL0750600,Iroquois,Martinton,village,Martinton (PWS),9/16/19 10:56,2018,147,0,147,0,0,0,0,147,0,0,0
+IL1190750,Madison,Maryville,village,Maryville (PWS),3/26/19 8:26,2018,4297,0,4297,0,200,812,407,0,0,0,2878
+IL1630800,St. Clair,Mascoutah,city,Mascoutah (PWS),4/11/19 14:59,2018,3584,0,3584,17,0,42,0,2264,287,0,974
+IL1250350,Mason,Mason City,city,Mason City (PWS),3/15/19 10:35,2018,1152,0,1152,0,0,0,331,151,667,2,1
+IL1310200,Mercer,Matherville,village,Matherville (PWS),4/2/19 13:20,2018,308,0,308,0,0,280,0,0,10,0,18
+IL0311800,Cook,Matteson,village,Matteson (PWS),6/13/19 14:53,2018,6661,1,6660,631,6030,0,0,0,0,0,0
+IL0290250,Coles,Mattoon,city,Mattoon-PWS,4/15/19 8:49,2018,7927,4,7923,0,7453,3,6,443,8,7,7
+IL0311830,Cook,Maywood,village,Maywood (PWS),9/23/19 11:46,2018,6235,250,5985,3735,0,2000,0,0,500,0,0
+IL0630500,Grundy,Mazon,village,Mazon (PWS),4/15/19 12:04,2018,431,0,431,0,301,0,1,0,96,2,31
+IL0311740,Cook,McCook,village,Mc Cook (PWS),5/23/19 15:32,2018,180,5,175,0,70,0,53,0,52,5,0
+IL1110600,McHenry,McHenry,city,McHenry (PWS),4/12/19 12:57,2018,8013,1,8012,80,7267,659,7,0,0,0,0
+IL1130850,McLean,McLean,village,Mc Lean (PWS),3/14/19 11:37,2018,367,0,367,0,0,0,0,0,367,0,0
+IL0650200,Hamilton,McLeansboro,city,Mc Leansboro (PWS),5/2/19 10:52,2018,1431,0,1431,0,1299,63,26,0,0,0,43
+IL1550150,Putnam,McNabb,village,Mcnabb (PWS),4/15/19 13:47,2018,140,0,140,0,0,0,27,0,0,0,113
+IL0710250,Henderson,Media,village,Media (PWS),6/26/19 11:06,2018,53,0,53,0,0,0,0,0,0,0,53
+IL1170550,Macoupin,Medora,village,Medora (PWS),3/14/19 11:15,2018,243,0,243,0,2,30,0,0,178,2,31
+IL0311860,Cook,Melrose Park,village,Melrose Park (PWS),4/5/19 11:09,2018,5347,0,5347,2674,0,0,0,1069,1604,0,0
+IL0530200,Ford,Melvin,village,Melvin (PWS),3/14/19 8:17,2018,90,0,90,0,50,0,0,0,30,0,10
+IL0010500,Adams,Mendon,village,Mendon (PWS),4/15/19 15:01,2018,435,0,435,0,0,0,5,0,420,0,10
+IL0990550,LaSalle,Mendota,city,Mendota (PWS),4/15/19 13:58,2018,2874,0,2874,5,2869,0,0,0,0,0,0
+IL1370300,Morgan,Meredosia,village,Meredosia (PWS),4/2/19 10:36,2018,500,0,500,0,0,0,0,0,450,0,50
+IL0311890,Cook,Merrionette Park,village,Merrionette Park (PWS),4/15/19 19:15,2018,569,1,568,125,1,410,0,0,32,1,0
+IL2030350,Woodford,Metamora,village,Metamora (PWS),3/20/19 12:45,2018,1726,0,1726,0,73,552,17,0,0,10,1074
+IL0450250,Edgar,Metcalf,village,Metcalf (PWS),3/21/19 21:31,2018,75,0,75,0,0,0,0,0,0,0,75
+IL1270150,Massac,Metropolis,city,Metropolis (PWS),4/11/19 15:32,2018,2756,0,2756,0,0,120,1930,0,0,0,706
+IL1070500,Logan,Middletown,village,Middletown (PWS),4/9/19 14:15,2018,200,0,200,0,200,0,0,0,0,0,0
+IL0311920,Cook,Midlothian,village,Midlothian (PWS),5/23/19 15:05,2018,4951,0,4951,397,1077,0,326,0,3150,0,1
+IL1610400,Rock Island,Milan,village,Milan (PWS),3/25/19 13:46,2018,2737,0,2737,2,2635,94,0,0,0,0,6
+IL0750650,Iroquois,Milford,village,Milford (PWS),4/16/19 6:41,2018,634,0,634,19,615,0,0,0,0,0,0
+IL1930300,White,Mill Shoals,village,Mill Shoals (PWS),3/13/19 20:38,2018,125,0,125,0,52,13,5,0,2,0,53
+IL0150150,Carroll,Milledgeville,village,Milledgeville (PWS),3/15/19 14:51,2018,548,0,548,0,54,0,1,0,477,0,16
+IL1630850,St. Clair,Millstadt,village,Millstadt (PWS),3/25/19 14:55,2018,1888,0,1888,5,5,1302,6,0,170,0,400
+IL1490450,Pike,Milton,village,Milton (PWS),4/12/19 15:22,2018,129,0,129,0,0,0,0,0,65,0,64
+IL0110650,Bureau,Mineral,village,Mineral (PWS),4/29/19 13:03,2018,110,0,110,0,0,30,0,0,70,0,10
+IL1790450,Tazewell,Minier,village,Minier (PWS),3/14/19 10:42,2018,619,0,619,0,0,0,93,0,370,0,156
+IL2030400,Woodford,Minonk,city,Minonk (PWS),3/15/19 11:49,2018,1039,0,1039,0,1026,0,0,0,10,0,3
+IL0630550,Grundy,Minooka,village,Minooka (PWS),5/17/19 14:12,2018,4325,0,4325,0,0,860,0,0,3465,0,0
+IL1170600,Macoupin,Modesto,village,Modesto (PWS),5/20/19 8:21,2018,108,0,108,0,18,0,0,0,0,0,90
+IL1970600,Will,Mokena,village,Mokena (PWS),3/18/19 14:09,2018,71,0,71,0,0,0,0,0,71,0,0
+IL1610450,Rock Island,Moline,city,Moline (PWS),4/13/19 9:11,2018,17076,1,17075,1582,6980,0,1179,0,6846,489,0
+IL0910650,Kankakee,Momence,city,Momence (PWS),3/25/19 11:18,2018,1316,0,1316,192,174,25,650,0,180,20,75
+IL1970650,Will,Monee,village,Monee (PWS),4/5/19 12:22,2018,2026,0,2026,0,5,2011,10,0,0,0,0
+IL1870150,Warren,Monmouth,city,Monmouth (PWS),4/15/19 11:09,2018,4068,0,4068,92,3565,290,1,0,0,0,120
+IL0894690,Kane,Montgomery,village,Montgomery (PWS),5/22/19 8:29,2018,8723,0,8723,110,8587,0,25,0,0,0,1
+IL1470350,Piatt,Monticello,city,Monticello (PWS),3/18/19 10:58,2018,2612,0,2612,0,1229,0,58,0,1083,0,242
+IL0490350,Effingham,Montrose,village,Montrose (PWS),3/21/19 13:51,2018,126,2,124,0,0,0,1,0,16,0,109
+IL0630600,Grundy,Morris,city,Morris (PWS),3/20/19 10:57,2018,5565,0,5565,1169,0,0,0,0,4092,69,235
+IL1950350,Whiteside,Morrison,city,Morrison (PWS),4/16/19 7:26,2018,1956,0,1956,0,266,525,725,0,40,0,400
+IL0210300,Christian,Morrisonville,village,Morrisonville (PWS),4/18/19 11:46,2018,488,0,488,0,55,37,114,0,72,0,210
+IL1790500,Tazewell,Morton,village,Morton (PWS),3/26/19 13:04,2018,5970,0,5970,0,0,0,0,0,2625,30,3315
+IL0311950,Cook,Morton Grove,village,Morton Grove (PWS),4/4/19 9:18,2018,8001,0,8001,1895,1733,0,92,0,4281,0,0
+IL1530100,Pulaski,Mound City,city,Mound City (PWS),4/15/19 10:30,2018,249,0,249,0,0,0,0,249,0,0,0
+IL0090050,Brown,Mound Station,village,Mound Station (PWS),3/13/19 13:47,2018,66,0,66,0,6,0,0,0,50,0,10
+IL1530150,Pulaski,Mounds,city,Mounds (PWS),4/15/19 10:35,2018,497,0,497,0,0,0,0,497,0,0,0
+IL0210350,Christian,Mount Auburn,village,Mount Auburn (PWS),4/11/19 14:41,2018,263,0,263,0,261,0,0,0,2,0,0
+IL1850200,Wabash,Mount Carmel,city,Mount Carmel (PWS),5/3/19 13:47,2018,3246,0,3246,0,3230,0,0,0,7,6,3
+IL0150200,Carroll,Mount Carroll,city,Mount Carroll (PWS),4/15/19 16:25,2018,923,0,923,0,618,0,50,0,152,3,100
+IL1170650,Macoupin,Mount Clare,village,Mount Clare (PWS),3/27/19 11:04,2018,125,0,125,5,25,39,15,0,0,0,41
+IL1910350,Wayne,Mount Erie,village,Mount Erie (PWS),3/26/19 10:10,2018,74,0,74,0,0,0,0,0,0,0,74
+IL1410350,Ogle,Mount Morris,village,Mount Morris (PWS),3/15/19 8:14,2018,1156,0,1156,1,0,310,694,0,35,0,116
+IL1170700,Macoupin,Mount Olive,city,Mount Olive (PWS),3/26/19 11:02,2018,1052,2,1050,0,1052,0,0,0,0,0,0
+IL0311980,Cook,Mount Prospect,village,Mount Prospect (PWS),4/29/19 11:56,2018,11140,0,11140,179,9884,1059,1,4,0,13,0
+IL1070400,Logan,Mount Pulaski,city,Mount Pulaski (PWS),4/3/19 9:56,2018,870,0,870,0,0,0,0,830,0,0,40
+IL0090100,Brown,Mount Sterling,city,Mount Sterling (PWS),3/13/19 13:46,2018,1216,1,1215,0,80,15,130,0,850,0,141
+IL0810300,Jefferson,Mount Vernon,city,Mount Vernon (PWS),6/27/19 9:01,2018,6541,6,6535,15,500,0,800,0,5126,0,100
+IL1150350,Macon,Mount Zion,village,Mount Zion (PWS),5/13/19 15:23,2018,2037,0,2037,0,0,0,0,0,2037,0,0
+IL1730200,Shelby,Moweaqua,village,Moweaqua (PWS),4/18/19 9:13,2018,825,0,825,31,620,20,25,0,118,0,11
+IL1650250,Saline,Muddy,village,Muddy (PWS),4/1/19 20:29,2018,90,0,90,0,75,0,0,0,0,0,15
+IL0050100,Bond,Mulberry Grove,village,Mulberry Grove (PWS),5/28/19 9:13,2018,318,2,316,0,39,0,7,0,50,0,222
+IL0971150,Lake,Mundelein,village,Mundelein (PWS),4/8/19 9:57,2018,10888,10888,0,17,3534,0,19,0,6439,777,102
+IL0770500,Jackson,Murphysboro,city,Murphysboro (PWS),3/27/19 11:15,2018,7390,0,7390,0,0,7000,0,0,0,0,390
+IL0434670,DuPage,Naperville,city,Naperville (PWS),4/12/19 13:13,2018,43226,0,43226,337,135,0,7,0,42372,373,2
+IL0990600,LaSalle,Naplate,village,Naplate (PWS),4/6/19 13:29,2018,243,0,243,0,0,0,0,0,240,0,3
+IL1890300,Washington,Nashville,city,Nashville (PWS),3/14/19 7:59,2018,1726,2,1724,0,0,0,0,817,637,0,272
+IL0810350,Jefferson,Nason,city,Nason (PWS),3/28/19 9:18,2018,120,0,120,0,69,1,0,0,0,0,50
+IL0670500,Hancock,Nauvoo,city,Nauvoo (PWS),4/29/19 10:12,2018,685,0,685,0,650,20,0,0,0,0,15
+IL1490500,Pike,Nebo,village,Nebo (PWS),7/9/19 14:20,2018,148,0,148,0,88,0,0,0,40,0,20
+IL0350150,Cumberland,Neoga,city,Neoga (PWS),4/22/19 14:33,2018,637,0,637,0,0,0,0,574,0,0,63
+IL0110700,Bureau,Neponset,village,Neponset (PWS),4/29/19 12:54,2018,200,0,200,0,0,0,0,0,194,3,3
+IL1631050,St. Clair,New Athens,village,New Athens (PWS),4/15/19 13:27,2018,932,0,932,6,457,100,44,0,300,0,25
+IL0274700,Clinton,New Baden,village,New Baden (PWS),3/28/19 10:18,2018,1490,1,1489,0,560,0,0,0,907,1,22
+IL1670800,Sangamon,New Berlin,village,New Berlin (PWS),3/27/19 13:58,2018,615,1,614,0,3,0,0,0,575,0,37
+IL1310250,Mercer,New Boston,city,New Boston (PWS),4/2/19 13:18,2018,294,0,294,0,2,260,0,0,12,0,20
+IL1490550,Pike,New Canton,town,New Canton (PWS),4/12/19 15:23,2018,164,0,164,0,0,0,0,0,134,0,30
+IL0590150,Gallatin,New Haven,village,New Haven (PWS),4/10/19 15:45,2018,228,0,228,0,33,9,5,0,0,0,181
+IL1070450,Logan,New Holland,village,New Holland (PWS),3/19/19 17:54,2018,133,0,133,0,16,0,0,92,20,0,5
+IL1970700,Will,New Lenox,village,New Lenox (PWS),4/26/19 14:22,2018,9279,0,9279,0,0,0,0,0,9279,0,0
+IL1890350,Washington,New Minden,village,New Minden (PWS),3/18/19 8:26,2018,130,0,130,0,85,5,0,0,16,0,24
+IL0930100,Kendall,Newark,village,Newark (PWS),3/13/19 13:48,2018,388,0,388,0,18,313,0,0,0,17,40
+IL0410250,Douglas,Newman,city,Newman (PWS),3/14/19 7:26,2018,468,0,468,0,0,0,0,0,399,0,69
+IL0790100,Jasper,Newton,city,Newton (PWS),5/1/19 7:25,2018,1784,1,1783,0,1395,0,3,0,291,0,95
+IL0312010,Cook,Niles,village,Niles (PWS),4/9/19 12:47,2018,8872,1,8871,902,6144,0,318,0,1494,1,13
+IL1170750,Macoupin,Nilwood,town,Nilwood (PWS),4/11/19 14:32,2018,505,0,505,0,444,0,0,0,0,0,61
+IL1590150,Richland,Noble,village,Noble (PWS),5/23/19 14:13,2018,523,0,523,0,0,0,0,0,523,0,0
+IL1350450,Montgomery,Nokomis,city,Nokomis (PWS),3/14/19 8:44,2018,1200,0,1200,46,50,25,25,0,750,0,304
+IL1130900,McLean,Normal,town,Normal (PWS),4/10/19 9:31,2018,17863,0,17863,77,2012,0,139,0,14269,821,545
+IL0312040,Cook,Norridge,village,Norridge (PWS),3/13/19 14:42,2018,4900,0,4900,13,3424,0,5,0,1454,4,0
+IL0570750,Fulton,Norris,village,Norris (PWS),5/1/19 2:07,2018,115,0,115,0,0,0,0,0,0,0,115
+IL1930350,White,Norris City,village,Norris City (PWS),4/10/19 15:52,2018,972,863,109,1,805,24,25,0,0,0,117
+IL0890600,Kane,North Aurora,village,North Aurora (PWS),3/25/19 9:13,2018,6101,1,6100,650,151,2000,50,0,3200,50,0
+IL0971250,Lake,North Chicago,city,North Chicago (PWS),4/11/19 12:30,2018,4000,0,4000,0,4000,0,0,0,0,0,0
+IL0550300,Franklin,North City,village,North City (PWS),5/6/19 12:58,2018,367,0,367,0,367,0,0,0,0,0,0
+IL1310300,Mercer,North Henderson,village,North Henderson (PWS),4/12/19 9:23,2018,83,0,83,0,13,0,0,0,20,0,50
+IL1790550,Tazewell,North Pekin,village,North Pekin (PWS),3/13/19 10:30,2018,717,0,717,0,0,0,0,0,403,0,314
+IL0312160,Cook,North Riverside,village,North Riverside (PWS),4/9/19 9:31,2018,2447,0,2447,1591,0,789,0,0,32,35,0
+IL0990650,LaSalle,North Utica,village,North Utica (PWS),4/12/19 15:14,2018,496,0,496,65,0,0,0,0,296,2,133
+IL0312070,Cook,Northbrook,village,Northbrook (PWS),4/15/19 8:18,2018,13004,2,13002,2190,0,621,0,0,9685,508,0
+IL0312100,Cook,Northfield,village,Northfield (PWS),4/16/19 16:14,2018,2041,0,2041,110,0,0,0,0,1931,0,0
+IL0314710,Cook,Northlake,city,Northlake (PWS),4/5/19 10:31,2018,200,0,200,14,0,0,0,0,186,0,0
+IL1631100,St. Clair,O'Fallon,city,O Fallon (PWS),3/19/19 8:45,2018,17874,0,17874,0,1529,9624,0,0,6721,0,0
+IL0430700,DuPage,Oak Brook,village,Oak Brook (PWS),4/9/19 14:46,2018,5250,0,5250,0,0,4583,0,0,667,0,0
+IL0312190,Cook,Oak Forest,city,Oak Forest (PWS),4/18/19 11:56,2018,8488,0,8488,12,0,8347,9,115,0,0,5
+IL0312220,Cook,Oak Lawn,village,Oak Lawn (PWS),4/11/19 10:13,2018,17044,13,17031,5479,1000,9552,0,0,1000,13,0
+IL0312250,Cook,Oak Park,village,Oak Park (PWS),4/22/19 15:01,2018,13725,0,13725,4570,7777,0,762,0,293,323,0
+IL0430750,DuPage,Oakbrook Terrace,city,Oakbrook Terrace (PWS),3/18/19 14:46,2018,555,0,555,0,0,0,0,0,555,0,0
+IL1290150,Menard,Oakford,village,Oakford (PWS),5/10/19 19:43,2018,129,0,129,0,129,0,0,0,0,0,0
+IL0290300,Coles,Oakland,city,Oakland (PWS),5/30/19 9:25,2018,531,0,531,0,56,40,140,0,0,0,295
+IL1830600,Vermilion,Oakwood,village,Util Inc - Oakwood (PWS),6/7/19 11:10,2018,740,0,740,0,0,0,14,0,630,0,96
+IL0330150,Crawford,Oblong,village,Oblong (PWS),3/15/19 9:58,2018,1085,0,1085,0,399,0,119,0,5,0,562
+IL1050550,Livingston,Odell,village,Odell (PWS),3/14/19 9:53,2018,469,0,469,0,0,0,0,0,469,0,0
+IL1210350,Marion,Odin,village,Odin (PWS),4/26/19 14:23,2018,1052,0,1052,0,724,0,6,0,2,0,320
+IL0190500,Champaign,Ogden,village,Ogden (PWS),4/26/19 20:59,2018,320,0,320,0,0,0,0,0,320,0,0
+IL0990700,LaSalle,Oglesby,city,Oglesby (PWS),4/12/19 14:09,2018,1800,0,1800,300,0,0,0,750,750,0,0
+IL0110800,Bureau,Ohio,village,Ohio (PWS),5/23/19 19:54,2018,227,0,227,0,227,0,0,0,0,0,0
+IL1890400,Washington,Okawville,village,Okawville (PWS),4/4/19 10:26,2018,667,0,667,0,0,593,0,0,0,0,74
+IL0590200,Gallatin,Old Shawneetown,village,Old Shawneetown (PWS),4/1/19 20:30,2018,120,0,120,0,120,0,0,0,0,0,0
+IL1530250,Pulaski,Olmsted,village,Olmsted (PWS),4/15/19 10:28,2018,307,0,307,0,0,0,2,301,0,0,4
+IL1590200,Richland,Olney,city,Olney (PWS),4/9/19 7:45,2018,4639,4,4635,0,2990,0,0,0,1080,0,569
+IL0312280,Cook,Olympia Fields,village,Olympia Fields (PWS),5/17/19 13:15,2018,1900,0,1900,195,0,0,0,555,1150,0,0
+IL0590250,Gallatin,Omaha,village,Omaha (PWS),5/1/19 11:37,2018,148,148,0,0,18,0,0,0,50,0,80
+IL0750700,Iroquois,Onarga,village,Onarga (PWS),5/2/19 10:20,2018,532,0,532,4,487,0,0,0,25,0,16
+IL0950400,Knox,Oneida,city,Oneida (PWS),5/9/19 13:14,2018,280,0,280,0,0,0,0,0,253,0,27
+IL0710300,Henderson,Oquawka,village,Oquawka (PWS),4/26/19 13:59,2018,700,0,700,0,700,0,0,0,0,0,0
+IL1770350,Stephenson,Orangeville,village,Orangeville (PWS),3/17/19 18:38,2018,352,0,352,0,0,0,15,0,269,0,68
+IL1150450,Macon,Oreana,village,Oreana (PWS),3/27/19 14:40,2018,315,0,315,0,0,280,0,0,35,0,0
+IL1410400,Ogle,Oregon,city,Oregon (PWS),4/15/19 13:23,2018,1244,0,1244,1,202,0,8,0,682,0,351
+IL0550350,Franklin,Orient,city,Orient (PWS),3/20/19 9:33,2018,163,0,163,0,7,0,0,0,148,0,8
+IL0730700,Henry,Orion,village,Orion (PWS),4/12/19 8:55,2018,800,0,800,0,0,0,100,276,400,4,20
+IL0312310,Cook,Orland Park,village,Orland Park (PWS),4/11/19 13:20,2018,23788,1,23787,0,603,0,0,0,23185,0,0
+IL0930150,Kendall,Oswego,village,Oswego (PWS),3/26/19 8:08,2018,11342,0,11342,4,1194,0,24,0,10108,10,2
+IL0990800,LaSalle,Ottawa,city,Ottawa (PWS),4/12/19 14:08,2018,7259,169,7090,8,0,0,0,6107,1016,0,128
+IL0210400,Christian,Owaneco,village,Owaneco (PWS),3/26/19 13:01,2018,104,1,103,0,0,0,0,0,0,0,104
+IL0312340,Cook,Palatine,village,Palatine (PWS),5/23/19 10:06,2018,18456,0,18456,214,0,18242,0,0,0,0,0
+IL0210450,Christian,Palmer,village,Palmer (PWS),3/16/19 10:00,2018,111,111,0,0,60,0,0,0,0,0,51
+IL1170800,Macoupin,Palmyra,village,Palmyra (PWS),5/6/19 9:16,2018,312,0,312,0,0,35,68,112,4,0,93
+IL0312370,Cook,Palos Heights,city,Palos Heights (PWS),5/2/19 11:01,2018,5250,1,5249,0,0,0,0,0,5248,1,1
+IL0312400,Cook,Palos Hills,city,Palos Hills (PWS),3/20/19 14:29,2018,6602,0,6602,0,0,0,0,0,6602,0,0
+IL0311000,Cook,Palos Park,village,Palos Park (PWS),4/29/19 8:46,2018,1835,0,1835,0,0,0,0,0,1825,9,1
+IL0210500,Christian,Pana,city,Pana (PWS),4/3/19 12:52,2018,2565,0,2565,0,1973,0,4,441,132,1,14
+IL0054720,Bond,Panama,village,Panama (PWS),4/26/19 13:55,2018,197,0,197,0,192,0,0,0,0,0,5
+IL0450300,Edgar,Paris,city,Paris (PWS),4/27/19 13:09,2018,3904,1,3903,50,3217,195,97,0,62,0,283
+IL0971400,Lake,Park City,city,Park City (PWS),4/8/19 14:09,2018,420,319,101,0,0,270,0,0,150,0,0
+IL0314740,Cook,Park Forest,village,Park Forest (PWS),3/13/19 14:43,2018,9260,0,9260,2,7660,107,0,0,1490,0,1
+IL0312460,Cook,Park Ridge,city,Park Ridge (PWS),4/5/19 6:52,2018,12542,518,12024,4900,0,3000,4000,0,642,0,0
+IL1590250,Richland,Parkersburg,village,Parkersburg (PWS),5/23/19 13:24,2018,169,0,169,0,169,0,0,0,0,0,0
+IL1210400,Marion,Patoka,village,Patoka (PWS),4/8/19 11:37,2018,273,0,273,0,149,0,0,0,86,0,38
+IL0610450,Greene,Patterson (Wilmington),village,Patterson (Inc As Wilmington) (PWS),7/29/19 9:41,2018,120,0,120,0,3,1,0,0,0,0,116
+IL1030400,Lee,Paw Paw,village,Paw Paw (PWS),4/4/19 11:19,2018,399,0,399,0,0,0,20,0,304,0,75
+IL1670850,Sangamon,Pawnee,village,Pawnee (PWS),4/12/19 8:34,2018,1243,0,1243,0,0,0,124,0,1055,1,63
+IL0530250,Ford,Paxton,city,Paxton (PWS),3/14/19 10:31,2018,2108,1,2107,0,0,0,500,0,1101,0,507
+IL0010550,Adams,Payson,village,Payson (PWS),4/12/19 15:23,2018,401,0,401,0,0,0,0,0,400,0,1
+IL1490650,Pike,Pearl,village,Pearl (PWS),5/9/19 17:48,2018,64,0,64,0,0,64,0,0,0,0,0
+IL1770400,Stephenson,Pearl City,village,Pearl City (PWS),4/12/19 13:34,2018,325,0,325,0,0,0,0,0,120,0,205
+IL2010250,Winnebago,Pecatonica,village,Pecatonica (PWS),4/9/19 7:49,2018,942,0,942,19,115,450,35,0,303,0,20
+IL1434750,Peoria,Peoria Heights,village,Peoria Heights (PWS),3/14/19 13:30,2018,2776,0,2776,113,2170,0,80,0,337,0,76
+IL1970750,Will,Peotone,village,Aqua Illinois - Peotone (PWS),4/30/19 16:16,2018,1735,0,1735,25,438,0,0,1265,0,7,0
+IL1570350,Randolph,Percy,village,Percy (PWS),4/11/19 21:03,2018,444,0,444,0,0,0,0,0,279,0,165
+IL1490700,Pike,Perry,village,Perry (PWS),4/12/19 15:24,2018,220,0,220,0,0,0,0,0,130,0,90
+IL0990850,LaSalle,Peru,city,Peru (PWS),5/20/19 15:26,2018,5040,0,5040,2256,0,0,151,0,2532,0,101
+IL1290200,Menard,Petersburg,city,Petersburg (PWS),4/4/19 10:34,2018,1986,2,1984,0,1,0,0,264,1721,0,0
+IL0312490,Cook,Phoenix,village,Phoenix (PWS),6/7/19 15:43,2018,583,0,583,0,583,0,0,0,0,0,0
+IL1194760,Madison,Pierron,village,Pierron (PWS),4/4/19 13:16,2018,746,1,745,0,12,0,0,0,3,0,731
+IL1450150,Perry,Pinckneyville,city,Pinckneyville (PWS),4/30/19 13:01,2018,1820,0,1820,0,0,0,10,770,1000,0,40
+IL0890160,Kane,Pingree Grove,village,Pingree Grove (PWS),4/9/19 15:22,2018,3361,0,3361,0,0,0,0,0,2736,0,625
+IL0530300,Ford,Piper City,village,Piper City (PWS),3/13/19 10:26,2018,380,0,380,9,7,0,149,0,209,0,6
+IL1990600,Williamson,Pittsburg,village,Pittsburg (PWS),3/15/19 8:58,2018,1165,1,1164,0,0,0,0,0,0,0,1165
+IL1490750,Pike,Pittsfield,city,Pittsfield (PWS),4/29/19 9:18,2018,2193,0,2193,50,625,0,45,0,1461,0,12
+IL1970800,Will,Plainfield,village,Plainfield (PWS),4/26/19 15:13,2018,13720,0,13720,223,132,71,13,0,13254,27,0
+IL0010600,Adams,Plainville,village,Plainville (PWS),4/12/19 15:24,2018,156,0,156,0,0,0,0,0,156,0,0
+IL0930200,Kendall,Plano,city,Plano (PWS),3/15/19 12:05,2018,3981,0,3981,0,23,0,0,0,3953,0,5
+IL1490800,Pike,Pleasant Hill,village,Pleasant Hill (PWS),7/9/19 14:16,2018,487,0,487,0,0,0,20,217,100,0,150
+IL1670900,Sangamon,Pleasant Plains,village,Pleasant Plains (PWS),4/1/19 16:27,2018,580,0,580,0,0,0,0,570,0,0,10
+IL0670550,Hancock,Plymouth,village,Plymouth (PWS),3/14/19 16:22,2018,262,0,262,0,0,0,0,0,261,0,1
+IL0050200,Bond,Pocahontas,village,Pocahontas (PWS),4/26/19 14:03,2018,363,0,363,0,362,0,1,0,0,0,0
+IL1410450,Ogle,Polo,city,Polo (PWS),1/4/19 14:52,2018,1077,0,1077,82,694,300,0,0,0,0,1
+IL0070150,Boone,Poplar Grove,village,Poplar Grove (PWS),4/12/19 14:00,2018,445,0,445,0,0,0,0,0,425,0,20
+IL1610550,Rock Island,Port Byron,village,Port Byron (PWS),4/6/19 9:52,2018,498,0,498,0,488,10,0,0,0,0,0
+IL0312520,Cook,Posen,village,Posen (PWS),5/30/19 9:17,2018,1714,0,1714,1199,0,0,0,0,515,0,0
+IL1830650,Vermilion,Potomac,village,Potomac (PWS),4/14/19 16:32,2018,325,0,325,0,6,0,0,0,319,0,0
+IL1090400,McDonough,Prairie City,village,Prairie City (PWS),4/14/19 16:20,2018,246,2,244,0,0,0,0,0,195,2,49
+IL1570400,Randolph,Prairie du Rocher,village,Prairie Du Rocher (PWS),5/30/19 10:53,2018,302,0,302,0,0,0,0,0,216,0,86
+IL0110850,Bureau,Princeton,city,Princeton (PWS),3/27/19 9:12,2018,3795,0,3795,0,3795,0,0,0,0,0,0
+IL1430750,Peoria,Princeville,village,Princeville (PWS),4/3/19 10:45,2018,743,0,743,67,0,533,0,0,0,0,143
+IL1950400,Whiteside,Prophetstown,city,Prophetstown (PWS),4/8/19 23:38,2018,901,0,901,13,355,0,111,1,375,6,40
+IL0312530,Cook,Prospect Heights,city,Prospect Heights (PWS),4/2/19 8:13,2018,1011,0,1011,0,0,0,0,900,111,0,0
+IL1530300,Pulaski,Pulaski,village,Pulaski (PWS),4/1/19 20:32,2018,130,0,130,0,130,0,0,0,0,0,0
+IL0010650,Adams,Quincy,city,Quincy (PWS),4/15/19 14:15,2018,16925,3,16922,9944,0,5096,0,0,1822,0,63
+IL1890450,Washington,Radom,village,Radom (PWS),4/9/19 9:42,2018,101,101,0,0,45,0,0,0,7,0,49
+IL0510200,Fayette,Ramsey,village,Ramsey (PWS),4/15/19 13:52,2018,460,0,460,0,0,0,0,0,260,0,200
+IL1830700,Vermilion,Rankin,village,Rankin (PWS),4/14/19 16:33,2018,215,0,215,0,0,0,0,0,215,0,0
+IL0190650,Champaign,Rantoul,village,Rantoul (PWS),3/13/19 15:37,2018,5020,0,5020,0,0,40,310,20,4571,5,74
+IL1610600,Rock Island,Rapids City,village,Rapids City (PWS),4/12/19 7:25,2018,415,0,415,0,0,0,0,0,389,0,26
+IL0710350,Henderson,Raritan,village,Raritan (PWS),6/26/19 11:07,2018,65,0,65,0,0,0,0,0,0,0,65
+IL1350550,Montgomery,Raymond,village,Raymond (PWS),4/15/19 9:58,2018,485,0,485,0,0,0,0,0,485,0,0
+IL1570450,Randolph,Red Bud,city,Red Bud (PWS),4/12/19 11:34,2018,1868,1,1867,48,0,200,0,0,1000,0,620
+IL0914780,Kankakee,Reddick,village,Reddick (PWS),4/12/19 14:04,2018,96,0,96,0,0,0,0,0,90,0,6
+IL1614800,Rock Island,Reynolds,village,Reynolds (PWS),4/11/19 17:23,2018,259,0,259,0,259,0,0,0,0,0,0
+IL1110750,McHenry,Richmond,village,Richmond (PWS),4/3/19 11:42,2018,732,0,732,80,162,135,40,0,309,0,6
+IL0312550,Cook,Richton Park,village,Richton Park (PWS),3/18/19 13:30,2018,3700,0,3700,148,947,0,0,0,2604,0,1
+IL1890500,Washington,Richview,village,Richview (PWS),4/8/19 11:38,2018,180,0,180,0,89,0,0,0,54,0,37
+IL1830750,Vermilion,Ridge Farm,village,Ridge Farm (PWS),5/6/19 10:41,2018,358,0,358,0,0,0,0,0,358,0,0
+IL0950450,Knox,Rio,village,Rio (PWS),4/12/19 9:24,2018,115,0,115,0,0,0,0,15,20,0,80
+IL0090150,Brown,Ripley,village,Ripley (PWS),4/2/19 10:36,2018,120,0,120,0,0,0,0,0,30,0,90
+IL0312610,Cook,River Forest,village,River Forest (PWS),4/9/19 9:09,2018,3143,0,3143,323,2376,0,22,0,389,20,13
+IL0312640,Cook,River Grove,village,River Grove (PWS),4/9/19 7:36,2018,2620,0,2620,2353,53,131,78,0,0,5,0
+IL0312580,Cook,Riverdale,village,Riverdale (PWS),3/19/19 8:20,2018,3311,0,3311,30,2563,0,0,0,718,0,0
+IL0312670,Cook,Riverside,village,Riverside (PWS),4/26/19 12:59,2018,3000,0,3000,240,2544,0,8,0,208,0,0
+IL1670950,Sangamon,Riverton,village,Riverton (PWS),6/27/19 10:38,2018,1860,0,1860,0,1860,0,0,0,0,0,0
+IL0971450,Lake,Riverwoods,village,Riverwoods (PWS),3/19/19 15:11,2018,841,0,841,0,0,0,0,0,816,0,25
+IL2030550,Woodford,Roanoke,village,Roanoke (PWS),4/2/19 11:31,2018,899,0,899,0,30,0,0,0,269,0,600
+IL0312700,Cook,Robbins,village,Robbins (PWS),3/15/19 8:50,2018,2186,0,2186,0,2186,0,0,0,0,0,0
+IL0530350,Ford,Roberts,village,Roberts (PWS),3/31/19 16:16,2018,195,0,195,2,39,61,31,0,49,0,13
+IL1410500,Ogle,Rochelle,city,Rochelle (PWS),4/3/19 13:13,2018,3675,0,3675,33,3642,0,0,0,0,0,0
+IL1671000,Sangamon,Rochester,village,Rochester (PWS),4/10/19 15:56,2018,1608,0,1608,0,1598,0,0,0,7,0,3
+IL1770500,Stephenson,Rock City,village,Rock City (PWS),3/28/19 5:38,2018,164,0,164,0,20,0,20,0,124,0,0
+IL1950450,Whiteside,Rock Falls,city,Rock Falls (PWS),3/25/19 11:41,2018,4158,1,4157,1,0,3035,118,0,0,0,1004
+IL1610650,Rock Island,Rock Island,city,Rock Island (PWS),4/17/19 7:56,2018,17480,2737,14743,88,17271,115,0,0,0,0,6
+IL0610300,Greene,Rockbridge,village,Rockbridge (PWS),3/20/19 9:40,2018,83,0,83,0,0,0,0,0,83,0,0
+IL1970850,Will,Rockdale,village,Rockdale (PWS),4/10/19 11:39,2018,855,0,855,55,10,160,47,0,568,0,15
+IL2010300,Winnebago,Rockford,city,Rockford (PWS),4/2/19 10:45,2018,67517,0,67517,13927,24647,13303,36,0,7610,7810,184
+IL2010350,Winnebago,Rockton,village,Rockton (PWS),4/8/19 12:41,2018,2944,0,2944,24,15,0,0,0,2845,0,60
+IL0312730,Cook,Rolling Meadows,city,Rolling Meadows (PWS),4/8/19 13:03,2018,6507,0,6507,0,0,4687,0,0,1756,64,0
+IL1970900,Will,Romeoville,village,Romeoville (PWS),4/29/19 14:17,2018,16968,0,16968,0,0,0,0,0,16852,0,116
+IL0610350,Greene,Roodhouse,city,Roodhouse (PWS),5/21/19 11:28,2018,936,3,933,3,154,0,32,0,576,0,171
+IL0434820,DuPage,Roselle,village,Roselle (PWS),1/9/19 11:34,2018,8380,0,8380,238,0,8091,0,0,51,0,0
+IL0312760,Cook,Rosemont,village,Rosemont (PWS),4/16/19 13:43,2018,751,0,751,1,0,505,0,0,0,245,0
+IL1870200,Warren,Roseville,village,Roseville (PWS),3/14/19 7:19,2018,531,0,531,0,0,0,0,0,475,0,56
+IL0690150,Hardin,Rosiclare,city,Rosiclare (PWS),4/3/19 11:07,2018,650,0,650,0,0,0,0,0,100,0,550
+IL1830800,Vermilion,Rossville,village,Rossville (PWS),3/18/19 12:03,2018,648,0,648,0,0,0,293,0,192,0,163
+IL0971500,Lake,Round Lake,village,Round Lake (PWS),4/3/19 9:50,2018,6403,0,6403,0,6403,0,0,0,0,0,0
+IL0971550,Lake,Round Lake Beach,village,Round Lake Beach (PWS),6/5/19 10:35,2018,8336,1,8335,0,833,4363,4,0,3136,0,0
+IL0970260,Lake,Round Lake Heights,village,Round Lake Heights (PWS),4/8/19 18:18,2018,772,0,772,30,40,15,5,0,682,0,0
+IL0971600,Lake,Round Lake Park,village,Round Lake Park (PWS),4/11/19 13:41,2018,1384,0,1384,0,0,214,463,0,707,0,0
+IL1190900,Madison,Roxana,village,Roxana (PWS),3/26/19 10:08,2018,768,11,757,0,0,0,387,314,4,0,63
+IL0190700,Champaign,Royal,village,Royal (PWS),3/29/19 23:38,2018,150,0,150,0,0,0,7,76,20,0,47
+IL1170830,Macoupin,Royal Lakes,village,Royal Lakes (PWS),4/11/19 16:33,2018,150,0,150,0,0,0,0,0,0,0,150
+IL0555030,Franklin,Royalton,village,Royalton (PWS),5/6/19 13:00,2018,560,558,2,0,560,0,0,0,0,0,0
+IL1570550,Randolph,Ruma,village,Ruma (PWS),5/30/19 10:54,2018,140,0,140,0,0,0,0,0,140,0,0
+IL1690200,Schuyler,Rushville,city,Rushville (PWS),4/3/19 10:13,2018,1725,3,1722,0,1308,0,0,0,400,0,17
+IL0991000,LaSalle,Rutland,village,Rutland (PWS),3/18/19 11:26,2018,148,0,148,0,39,17,49,0,0,0,43
+IL1210450,Marion,Salem,city,Salem (PWS),3/28/19 9:30,2018,3593,3,3590,0,0,0,2,3237,222,0,132
+IL1254840,Mason,San Jose,village,San Jose (PWS),3/19/19 18:01,2018,274,0,274,0,0,0,0,96,145,0,33
+IL1210500,Marion,Sandoval,village,Sandoval (PWS),3/21/19 15:56,2018,565,0,565,0,0,0,0,0,282,0,283
+IL0374850,DeKalb,Sandwich,city,Sandwich (PWS),3/29/19 13:20,2018,2670,0,2670,3,60,0,152,60,2375,0,20
+IL0312790,Cook,Sauk Village,village,Sauk (PWS),4/16/19 9:39,2018,3081,2,3079,0,71,0,0,0,3010,0,0
+IL0150250,Carroll,Savanna,city,Savanna (PWS),4/29/19 9:20,2018,1454,0,1454,0,1414,0,0,0,28,5,7
+IL1170850,Macoupin,Sawyerville,village,Sawyerville (PWS),3/27/19 11:05,2018,217,0,217,0,0,0,0,0,163,0,54
+IL1130950,McLean,Saybrook,village,Saybrook (PWS),3/17/19 12:01,2018,375,0,375,0,0,0,50,50,75,50,150
+IL0850400,Jo Daviess,Scales Mound,village,Scales Mound (PWS),4/5/19 11:36,2018,194,1,193,0,50,0,0,0,100,0,44
+IL0314890,Cook,Schaumburg,village,Schaumburg (PWS),3/20/19 10:48,2018,26353,0,26353,0,208,0,0,0,25743,402,0
+IL0312850,Cook,Schiller Park,village,Schiller Park (PWS),4/4/19 14:20,2018,3010,0,3010,200,2705,0,1,0,104,0,0
+IL1350600,Montgomery,Schram City,village,Schram City (PWS),4/4/19 21:01,2018,304,0,304,0,283,0,0,0,1,0,20
+IL1090020,McDonough,Sciota,village,Sciota (PWS),4/14/19 16:24,2018,82,0,82,0,0,0,0,0,79,1,2
+IL1310350,Mercer,Seaton,village,Seaton (PWS),4/13/19 9:15,2018,100,0,100,0,26,0,33,0,4,0,37
+IL0110900,Bureau,Seatonville,village,Seatonville (PWS),4/15/19 13:48,2018,148,0,148,0,0,0,0,0,70,0,78
+IL2030600,Woodford,Secor,village,Secor (PWS),4/2/19 11:34,2018,174,0,174,0,9,5,5,0,0,0,155
+IL0991050,LaSalle,Seneca,village,Seneca (PWS),4/12/19 14:06,2018,898,0,898,0,0,0,0,0,898,0,0
+IL0550450,Franklin,Sesser,city,Sesser (PWS),3/29/19 15:12,2018,1062,0,1062,0,0,211,31,405,415,0,0
+IL0370450,DeKalb,Shabbona,village,Shabbona (PWS),4/12/19 11:46,2018,360,0,360,36,0,0,0,0,317,2,5
+IL0150300,Carroll,Shannon,village,Shannon (PWS),3/18/19 12:37,2018,400,0,400,0,0,0,50,0,280,0,70
+IL0590350,Gallatin,Shawneetown,city,Shawneetown (PWS),4/14/19 10:09,2018,480,0,480,0,130,0,34,0,58,0,258
+IL0110950,Bureau,Sheffield,village,Sheffield (PWS),4/15/19 13:49,2018,460,0,460,8,0,0,0,0,450,0,2
+IL1730300,Shelby,Shelbyville,city,Shelbyville (PWS),5/1/19 9:46,2018,3486,0,3486,0,1236,0,1100,0,600,0,550
+IL0750800,Iroquois,Sheldon,village,Sheldon (PWS),4/14/19 16:33,2018,467,0,467,0,47,0,0,0,420,0,0
+IL1310400,Mercer,Sherrard,village,Sherrard (PWS),5/13/19 9:15,2018,317,317,0,0,150,0,4,0,151,0,12
+IL1170950,Macoupin,Shipman,town,Shipman (PWS),5/26/19 8:41,2018,250,0,250,0,250,0,0,0,0,0,0
+IL1975080,Will,Shorewood,village,Shorewood (PWS),3/14/19 11:12,2018,6237,0,6237,0,0,0,0,0,6160,44,33
+IL0530400,Ford,Sibley,village,Sibley (PWS),3/17/19 16:21,2018,170,0,170,0,160,5,0,0,0,0,5
+IL1830850,Vermilion,Sidell,village,Sidell (PWS),4/26/19 20:59,2018,260,0,260,0,0,0,0,0,260,0,0
+IL0190850,Champaign,Sidney,village,Sidney (PWS),3/13/19 15:24,2018,540,0,540,0,0,0,0,0,200,0,340
+IL1730350,Shelby,Sigel,town,Sigel (PWS),2/7/19 9:50,2018,185,0,185,0,174,0,1,0,5,0,5
+IL1610700,Rock Island,Silvis,city,Silvis (PWS),5/23/19 10:18,2018,2590,0,2590,427,0,670,0,0,1332,27,134
+IL1910400,Wayne,Sims,village,Sims (PWS),4/1/19 20:40,2018,149,0,149,0,137,0,0,0,0,0,12
+IL0312880,Cook,Skokie,village,Skokie (PWS),4/11/19 6:43,2018,17747,0,17747,1239,14808,0,0,0,1700,0,0
+IL0890750,Kane,Sleepy Hollow,village,Sleepy Hollow (PWS),3/15/19 10:46,2018,1015,0,1015,0,0,0,0,0,1015,0,0
+IL0050250,Bond,Smithboro,village,Smithboro (PWS),7/25/19 18:55,2018,72,0,72,0,0,0,0,0,0,0,72
+IL0570850,Fulton,Smithfield,village,Smithfield (PWS),4/14/19 16:31,2018,120,0,120,0,0,0,0,0,98,2,20
+IL1631300,St. Clair,Smithton,village,Smithton (PWS),5/23/19 14:29,2018,1758,0,1758,0,10,0,177,517,703,0,351
+IL0374870,DeKalb,Somonauk,village,Somonauk (PWS),3/25/19 14:17,2018,737,0,737,0,415,0,0,0,315,0,7
+IL0050300,Bond,Sorento,village,Sorento (PWS),4/26/19 13:57,2018,234,0,234,0,228,0,0,0,0,0,6
+IL0312940,Cook,South Chicago Heights,village,South Chicago Heights (PWS),3/18/19 11:57,2018,1611,0,1611,1408,0,0,0,0,203,0,0
+IL0890800,Kane,South Elgin,village,South Elgin (PWS),4/3/19 8:49,2018,8023,0,8023,1,0,2133,28,0,5617,241,3
+IL0312970,Cook,South Holland,village,South Holland (PWS),5/24/19 11:36,2018,8505,2,8503,292,30,0,10,0,8155,18,0
+IL1370400,Morgan,South Jacksonville,village,South Jacksonville (PWS),5/6/19 14:42,2018,1520,4,1516,585,200,200,15,300,200,0,20
+IL1790650,Tazewell,South Pekin,village,South Pekin (PWS),3/25/19 17:58,2018,7,0,7,0,0,0,2,0,4,1,0
+IL1190970,Madison,South Roxana,village,South Roxana (PWS),4/26/19 15:44,2018,800,0,800,0,0,0,1,0,799,0,0
+IL0630650,Grundy,South Wilmington,village,South Wilmington (PWS),4/12/19 11:46,2018,321,0,321,0,321,0,0,0,0,0,0
+IL1230200,Marshall,Sparland,village,Sparland (PWS),4/15/19 17:17,2018,199,0,199,0,199,0,0,0,0,0,0
+IL1570600,Randolph,Sparta,city,Sparta (PWS),3/26/19 11:04,2018,2625,2,2623,0,904,0,0,0,927,0,794
+IL0111000,Bureau,Spring Valley,city,Spring Valley (PWS),4/4/19 14:24,2018,2444,0,2444,0,2087,0,16,0,287,14,40
+IL1930450,White,Springerton,village,Springerton (PWS),4/1/19 20:44,2018,110,0,110,0,0,0,0,0,21,0,89
+IL1671200,Sangamon,Springfield,city,Springfield (PWS),4/9/19 17:40,2018,54843,49,54794,70,14242,0,166,39826,490,5,44
+IL0910700,Kankakee,St. Anne,village,St Anne (PWS),6/11/19 0:00,2018,531,0,531,0,499,0,1,0,0,3,28
+IL0950500,Knox,St. Augustine,village,St Augustine (PWS),5/9/19 13:06,2018,71,0,71,0,0,0,0,0,71,0,0
+IL0894830,Kane,St. Charles,city,St Charles (PWS),4/8/19 12:59,2018,12509,1,12508,454,9219,0,0,0,2836,0,0
+IL0510250,Fayette,St. Elmo,city,St Elmo (PWS),4/3/19 11:42,2018,746,0,746,0,158,0,158,0,112,0,318
+IL1010250,Lawrence,St. Francisville,city,St Francisville (PWS),4/1/19 20:45,2018,334,2,332,0,154,0,80,0,0,0,100
+IL1190950,Madison,St. Jacob,village,St Jacob (PWS),4/9/19 13:16,2018,777,0,777,0,672,0,0,0,0,0,105
+IL1631200,St. Clair,St. Libory,village,St Libory (PWS),3/25/19 14:47,2018,238,0,238,0,1,197,0,0,25,0,15
+IL0510300,Fayette,St. Peter,village,St Peter (PWS),4/6/19 10:06,2018,172,0,172,0,0,0,0,0,0,0,172
+IL1550300,Putnam,Standard,village,Standard (PWS),3/29/19 10:28,2018,115,0,115,0,0,0,0,0,100,0,15
+IL1131000,McLean,Stanford,village,Stanford (PWS),4/14/19 21:23,2018,357,0,357,0,298,0,7,0,32,0,20
+IL1171050,Macoupin,Staunton,city,Staunton (PWS),3/25/19 9:37,2018,3289,0,3289,0,0,0,0,0,1151,0,2138
+IL1570650,Randolph,Steeleville,village,Steeleville (PWS),4/29/19 14:16,2018,951,0,951,0,0,0,0,0,951,0,0
+IL0314860,Cook,Steger,village,Steger (PWS),4/16/19 8:48,2018,3425,270,3155,5,3420,0,0,0,0,0,0
+IL1030450,Lee,Steward,village,Steward (PWS),4/29/19 18:40,2018,111,0,111,0,88,0,23,0,0,0,0
+IL1730400,Shelby,Stewardson,village,Stewardson (PWS),3/28/19 10:35,2018,335,0,335,0,218,0,7,0,50,0,60
+IL0313000,Cook,Stickney,village,Stickney (PWS),3/26/19 9:04,2018,1901,0,1901,1825,0,10,20,0,36,9,1
+IL1410550,Ogle,Stillman Valley,village,Stillman Valley (PWS),5/22/19 14:59,2018,496,0,496,0,0,0,0,0,476,3,17
+IL0850450,Jo Daviess,Stockton,village,Stockton (PWS),4/9/19 14:02,2018,833,0,833,0,0,0,0,0,827,0,6
+IL0313030,Cook,Stone Park,village,Stone Park (PWS),5/3/19 11:26,2018,20,0,20,0,0,0,1,0,19,0,0
+IL1654880,Saline,Stonefort,village,Stonefort (PWS),5/23/19 15:52,2018,123,0,123,0,10,0,0,0,102,0,11
+IL0210550,Christian,Stonington,village,Stonington (PWS),3/29/19 13:40,2018,446,1,445,0,0,0,0,0,420,0,26
+IL1050700,Livingston,Strawn,village,Strawn (PWS),4/12/19 11:34,2018,52,0,52,0,10,0,13,0,10,0,19
+IL0313060,Cook,Streamwood,village,Streamwood (PWS),4/1/19 16:31,2018,13103,0,13103,0,0,0,0,0,13064,39,0
+IL0710400,Henderson,Stronghurst,village,Stronghurst (PWS),5/7/19 9:01,2018,396,0,396,3,138,0,0,0,250,0,5
+IL1030500,Lee,Sublette,village,Sublette (PWS),4/8/19 23:45,2018,246,0,246,2,0,0,0,0,100,0,144
+IL0890850,Kane,Sugar Grove,village,Sugar Grove (PWS),4/12/19 14:53,2018,4245,0,4245,0,0,1450,0,0,2789,6,0
+IL1390300,Moultrie,Sullivan,city,Sullivan (PWS),3/13/19 14:31,2018,2486,243,2243,0,0,0,0,2486,0,0,0
+IL1631350,St. Clair,Summerfield,village,Summerfield (PWS),3/26/19 15:10,2018,194,0,194,0,0,0,0,3,186,0,5
+IL0310060,Cook,Summit,village,Summit (PWS),4/10/19 10:48,2018,2540,0,2540,2331,0,203,0,0,0,6,0
+IL1010300,Lawrence,Sumner,city,Sumner (PWS),5/20/19 13:33,2018,530,0,530,10,120,0,150,0,100,0,150
+IL0370550,DeKalb,Sycamore,city,Sycamore (PWS),4/11/19 10:13,2018,7182,0,7182,111,5815,0,2,21,1204,3,26
+IL0570900,Fulton,Table Grove,village,Table Grove (PWS),4/14/19 16:52,2018,220,0,220,0,100,0,9,0,90,2,19
+IL1290250,Menard,Tallula,village,Tallula (PWS),5/2/19 23:30,2018,393,0,393,0,293,0,0,0,100,0,0
+IL1450250,Perry,Tamaroa,village,Tamaroa (PWS),4/10/19 15:27,2018,995,0,995,0,847,8,4,0,20,0,116
+IL0030100,Alexander,Tamms,village,Tamms (PWS),4/26/19 10:36,2018,255,0,255,0,0,0,0,0,208,0,47
+IL1950550,Whiteside,Tampico,village,Tampico (PWS),4/11/19 11:45,2018,345,345,0,40,15,0,200,0,90,0,0
+IL1350650,Montgomery,Taylor Springs,village,Taylor Springs (PWS),3/14/19 9:36,2018,317,0,317,0,0,0,0,15,240,0,62
+IL0210600,Christian,Taylorville,city,Taylorville (PWS),3/25/19 15:59,2018,5824,2,5822,0,276,0,0,0,5546,0,2
+IL0490450,Effingham,Teutopolis,village,Teutopolis (PWS),3/18/19 11:41,2018,821,0,821,0,0,0,0,0,728,0,93
+IL0750850,Iroquois,Thawville,village,Thawville (PWS),3/18/19 8:08,2018,100,0,100,0,40,0,8,0,45,0,7
+IL1671250,Sangamon,Thayer,village,Thayer (PWS),5/6/19 9:20,2018,400,0,400,0,0,42,96,104,66,0,92
+IL0030150,Alexander,Thebes,village,Thebes (PWS),4/15/19 10:35,2018,168,0,168,0,0,0,0,168,0,0,0
+IL0190950,Champaign,Thomasboro,village,Thomasboro (PWS),4/26/19 13:25,2018,501,0,501,0,17,0,0,0,436,0,48
+IL0550500,Franklin,Thompsonville,village,Thompsonville (PWS),3/29/19 15:35,2018,305,0,305,0,0,39,1,117,18,0,130
+IL0150350,Carroll,Thomson,village,Thomson (PWS),3/21/19 10:37,2018,236,0,236,0,0,0,99,0,137,0,0
+IL0313090,Cook,Thornton,village,Thornton (PWS),3/18/19 10:21,2018,6,0,6,2,0,0,0,0,4,0,0
+IL1570700,Randolph,Tilden,village,Tilden (PWS),4/1/19 20:46,2018,550,0,550,0,455,0,0,0,65,0,30
+IL0314910,Cook,Tinley Park,village,Tinley Park (PWS),5/23/19 10:17,2018,23242,2,23240,23,322,0,243,104,22543,3,4
+IL0111050,Bureau,Tiskilwa,village,Tiskilwa (PWS),4/15/19 13:51,2018,360,0,360,40,80,0,40,0,100,0,100
+IL0350200,Cumberland,Toledo,village,Toledo (PWS),4/11/19 10:17,2018,601,1,600,0,554,0,0,0,40,0,7
+IL0191000,Champaign,Tolono,village,Tolono (PWS),5/28/19 8:04,2018,1304,0,1304,0,303,0,100,0,401,0,500
+IL1230250,Marshall,Toluca,city,Toluca (PWS),3/15/19 14:32,2018,696,0,696,0,246,57,5,0,0,1,387
+IL0991150,LaSalle,Tonica,village,Tonica (PWS),4/5/19 12:44,2018,335,0,335,1,152,0,2,0,170,0,10
+IL1750150,Stark,Toulon,city,Toulon (PWS),4/9/19 15:05,2018,550,0,550,36,483,0,0,0,18,0,13
+IL0210650,Christian,Tovey,village,Tovey (PWS),3/29/19 13:24,2018,207,0,207,0,0,0,0,0,182,0,25
+IL1131050,McLean,Towanda,village,Towanda (PWS),4/11/19 15:09,2018,242,0,242,0,0,66,60,116,0,0,0
+IL1730500,Shelby,Tower Hill,village,Tower Hill (PWS),3/18/19 11:59,2018,265,0,265,0,0,0,0,0,0,0,265
+IL0975010,Lake,Tower Lakes,village,Tower Lakes (PWS),4/9/19 15:09,2018,392,0,392,0,392,0,0,0,0,0,0
+IL1790700,Tazewell,Tremont,village,Tremont (PWS),3/14/19 11:39,2018,1068,0,1068,110,40,100,10,0,750,0,58
+IL0270500,Clinton,Trenton,city,Trenton (PWS),4/12/19 11:28,2018,1341,0,1341,0,1200,0,47,0,47,0,47
+IL1191000,Madison,Troy,city,Troy (PWS),4/11/19 9:27,2018,6324,0,6324,0,64,3765,0,224,1255,15,1001
+IL0415030,Douglas,Tuscola,city,Tuscola (PWS),3/22/19 11:02,2018,2360,1,2359,0,630,0,185,0,1514,0,31
+IL1530350,Pulaski,Ullin,village,Ullin (PWS),4/15/19 13:53,2018,204,0,204,0,154,0,0,0,50,0,0
+IL1110900,McHenry,Union,village,Union (PWS),8/2/19 0:00,2018,257,0,257,0,0,256,0,0,0,0,1
+IL0010700,Adams,Ursa,village,Ursa (PWS),4/12/19 15:25,2018,288,0,288,0,0,0,0,0,116,0,172
+IL0550600,Franklin,Valier,village,Valier (PWS),3/29/19 15:39,2018,593,0,593,0,0,0,10,359,224,0,0
+IL1330250,Monroe,Valmeyer,village,Valmeyer (PWS),3/25/19 10:35,2018,463,0,463,0,0,0,0,0,437,0,26
+IL0510350,Fayette,Vandalia,city,Vandalia (PWS),3/21/19 13:37,2018,2585,0,2585,0,2554,0,5,0,8,0,18
+IL1230300,Marshall,Varna,village,Varna (PWS),4/15/19 13:52,2018,200,0,200,0,0,0,70,0,50,0,80
+IL0770550,Jackson,Vergennes,village,Vergennes (PWS),4/15/19 10:32,2018,309,0,309,0,0,0,0,309,0,0,0
+IL0450400,Edgar,Vermilion,village,Vermilion (PWS),3/29/19 10:07,2018,94,0,94,0,87,0,0,0,0,0,7
+IL0570950,Fulton,Vermont,village,Vermont (PWS),5/8/19 14:35,2018,299,0,299,11,288,0,0,0,0,0,0
+IL1210550,Marion,Vernon,village,Vernon (PWS),4/8/19 11:39,2018,146,0,146,0,85,0,0,0,38,0,23
+IL0971750,Lake,Vernon Hills,village,LCPWD - Vernon Hills (PWS),4/10/19 11:20,2018,8223,0,8223,0,135,0,0,0,8088,0,0
+IL0090200,Brown,Versailles,village,Versailles (PWS),4/2/19 10:37,2018,264,0,264,0,0,0,0,0,264,0,0
+IL0950550,Knox,Victoria,village,Victoria (PWS),4/15/19 21:22,2018,171,0,171,0,0,0,0,0,151,0,20
+IL0870350,Johnson,Vienna,city,Vienna (PWS),4/9/19 9:28,2018,774,0,774,0,555,90,27,0,1,0,101
+IL0410350,Douglas,Villa Grove,city,Villa Grove (PWS),4/9/19 13:36,2018,1101,1,1100,814,0,0,0,0,0,0,287
+IL0430800,DuPage,Villa Park,village,Villa Park (PWS),4/30/19 15:00,2018,7132,0,7132,42,6306,0,13,0,739,32,0
+IL1310450,Mercer,Viola,village,Viola (PWS),4/2/19 13:16,2018,436,0,436,0,0,370,0,0,42,0,24
+IL1171100,Macoupin,Virden,city,Virden (PWS),6/19/19 15:38,2018,1726,0,1726,0,1726,0,0,0,0,0,0
+IL0170250,Cass,Virginia,city,Virginia (PWS),3/14/19 13:29,2018,822,3,819,0,0,0,410,159,150,0,103
+IL0971770,Lake,Volo,village,Volo (PWS),4/10/19 11:14,2018,2200,0,2200,0,0,0,0,0,2200,0,0
+IL1350700,Montgomery,Waggoner,village,Waggoner (PWS),4/15/19 12:14,2018,94,0,94,0,0,0,0,27,38,0,29
+IL0111100,Bureau,Walnut,village,Walnut (PWS),5/23/19 19:55,2018,633,0,633,0,633,0,0,0,0,0,0
+IL1210600,Marion,Walnut Hill,village,Walnut Hill (PWS),4/26/19 14:20,2018,517,0,517,0,349,0,0,0,11,0,157
+IL0810400,Jefferson,Waltonville,village,Waltonville (PWS),3/21/19 10:06,2018,763,0,763,0,5,0,0,0,0,0,758
+IL1214920,Marion,Wamac,city,Wamac (PWS),4/8/19 11:40,2018,709,0,709,0,559,0,0,0,97,0,53
+IL0390250,DeWitt,Wapella,village,Wapella (PWS),3/14/19 15:57,2018,260,0,260,0,0,0,0,0,255,0,5
+IL0850500,Jo Daviess,Warren,village,Warren (PWS),4/26/19 14:04,2018,737,0,737,0,0,15,8,0,595,4,115
+IL1150500,Macon,Warrensburg,village,Warrensburg (PWS),3/15/19 8:38,2018,440,0,440,0,0,0,0,2,428,0,10
+IL0430833,DuPage,Warrenville,city,Warrenville (PWS),4/5/19 8:20,2018,4639,0,4639,0,0,0,0,0,4600,0,39
+IL0670650,Hancock,Warsaw,city,Warsaw (PWS),3/20/19 9:42,2018,849,0,849,1,98,0,300,0,350,0,100
+IL2034940,Woodford,Washburn,village,Washburn (PWS),5/9/19 6:38,2018,511,0,511,0,166,210,15,0,50,0,70
+IL1790750,Tazewell,Washington,city,Washington (PWS),4/11/19 9:50,2018,5457,0,5457,5,1726,2223,209,0,0,0,1294
+IL0950600,Knox,Wataga,village,Wataga (PWS),4/3/19 12:47,2018,382,0,382,0,0,20,0,212,0,0,150
+IL1330300,Monroe,Waterloo,city,Waterloo (PWS),4/15/19 11:27,2018,4621,0,4621,0,1571,0,0,0,3000,0,50
+IL0370600,DeKalb,Waterman,village,Waterman (PWS),4/12/19 14:07,2018,530,0,530,0,0,0,20,0,510,0,0
+IL0750900,Iroquois,Watseka,city,Watseka (PWS),4/15/19 18:49,2018,2233,0,2233,0,2218,0,0,0,10,0,5
+IL0490500,Effingham,Watson,village,Watson (PWS),3/18/19 12:01,2018,299,0,299,0,0,0,0,0,0,0,299
+IL0971850,Lake,Wauconda,village,Wauconda (PWS),4/26/19 13:43,2018,5797,0,5797,142,0,219,0,0,5241,195,0
+IL0971900,Lake,Waukegan,city,Waukegan (PWS),4/16/19 10:13,2018,20654,4,20650,7965,2000,6000,0,0,4082,607,0
+IL1370450,Morgan,Waverly,city,Waverly (PWS),4/10/19 13:46,2018,749,1,748,0,103,0,203,0,385,0,58
+IL1910450,Wayne,Wayne City,village,Wayne City (PWS),4/11/19 13:13,2018,602,0,602,0,423,0,18,0,42,0,119
+IL0390300,DeWitt,Waynesville,village,Waynesville (PWS),5/24/19 7:51,2018,200,0,200,0,0,0,0,150,20,0,30
+IL0390350,DeWitt,Weldon,village,Weldon (PWS),4/11/19 14:33,2018,212,0,212,0,181,0,0,0,0,0,31
+IL0750950,Iroquois,Wellington,village,Wellington (PWS),3/20/19 5:16,2018,123,0,123,0,0,11,4,102,0,0,6
+IL1234950,Marshall,Wenona,city,Wenona (PWS),4/10/19 12:01,2018,525,0,525,5,372,88,24,0,0,0,36
+IL1030550,Lee,West Brooklyn,village,West Brooklyn (PWS),3/18/19 8:54,2018,72,0,72,0,72,0,0,0,0,0,0
+IL0430900,DuPage,West Chicago,city,West Chicago (PWS),3/14/19 8:11,2018,7237,1,7236,106,352,0,774,0,6005,0,0
+IL0550650,Franklin,West City,village,West City (PWS),3/21/19 11:13,2018,330,0,330,0,0,0,0,0,300,0,30
+IL0890950,Kane,West Dundee,village,West Dundee (PWS),4/15/19 10:28,2018,2209,0,2209,612,0,215,27,0,1355,0,0
+IL0550700,Franklin,West Frankfort,city,West Frankfort (PWS),3/19/19 12:46,2018,3881,2,3879,0,0,123,179,1028,1119,0,1432
+IL0670700,Hancock,West Point,village,West Point (PWS),4/2/19 14:07,2018,100,0,100,0,0,0,0,0,0,0,100
+IL0470200,Edwards,West Salem,village,West Salem (PWS),3/25/19 8:34,2018,441,0,441,0,298,119,0,0,0,0,24
+IL0313150,Cook,Westchester,village,Westchester (PWS),7/15/19 9:55,2018,7182,0,7182,3717,0,0,0,0,3465,0,0
+IL0313180,Cook,Western Springs,village,Western Springs (PWS),5/3/19 14:01,2018,4542,0,4542,282,1474,0,0,0,2786,0,0
+IL0230200,Clark,Westfield,village,Westfield (PWS),7/8/19 13:45,2018,332,0,332,0,136,0,2,0,5,0,189
+IL0430950,DuPage,Westmont,village,Westmont (PWS),5/20/19 7:06,2018,6990,6990,0,142,1312,3635,52,8,1841,0,0
+IL1830950,Vermilion,Westville,village,Westville (PWS),5/2/19 10:43,2018,1801,0,1801,0,0,1789,0,0,0,0,12
+IL0431050,DuPage,Wheaton,city,Wheaton (PWS),4/12/19 11:32,2018,16652,0,16652,270,2432,0,32,0,13102,816,0
+IL0314970,Cook,Wheeling,village,Wheeling (PWS),4/9/19 11:16,2018,8242,0,8242,105,0,0,0,0,7395,742,0
+IL1171150,Macoupin,White City,village,White City (PWS),3/26/19 11:05,2018,146,1,145,0,0,0,0,0,0,0,146
+IL0610400,Greene,White Hall,city,White Hall (PWS),7/26/19 7:58,2018,1114,0,1114,20,888,0,46,0,7,0,153
+IL0950650,Knox,Williamsfield,village,Williamsfield (PWS),5/9/19 13:12,2018,275,0,275,0,0,0,0,0,263,0,12
+IL1671300,Sangamon,Williamsville,village,Williamsville (PWS),3/27/19 9:30,2018,2606,0,2606,0,6,2320,0,0,280,0,0
+IL1450300,Perry,Willisville,village,Willisville (PWS),4/28/19 13:09,2018,400,0,400,0,352,0,2,0,21,0,25
+IL0790300,Jasper,Willow Hill,village,Willow Hill (PWS),4/26/19 13:35,2018,128,0,128,2,0,5,63,25,5,0,28
+IL0431100,DuPage,Willowbrook,village,Willowbrook (PWS),4/4/19 9:51,2018,2144,0,2144,0,3,2092,2,0,47,0,0
+IL1977870,Will,Willowbrook CDP,CDP,Aqua Illinois - Willowbrook (PWS),5/13/2019 11:04:47 AM,2018,802,0,802,0,526,0,0,0,265,11,0
+IL0313300,Cook,Wilmette,village,Wilmette (PWS),4/12/19 8:24,2018,8554,4,8550,613,5896,0,35,0,2006,4,0
+IL1971100,Will,Wilmington,city,Wilmington (PWS),4/9/19 11:29,2018,2287,1,2286,0,486,0,0,0,1799,2,0
+IL1171200,Macoupin,Wilsonville,village,Wilsonville (PWS),3/27/19 11:08,2018,238,0,238,0,0,83,25,2,25,0,103
+IL1710350,Scott,Winchester,city,Winchester (PWS),4/11/19 8:14,2018,777,2,775,50,29,0,354,0,158,0,186
+IL1730550,Shelby,Windsor,city,Windsor (PWS),4/9/19 8:18,2018,565,0,565,0,565,0,0,0,0,0,0
+IL0431150,DuPage,Winfield,village,Winfield (PWS),4/2/19 11:11,2018,3776,1,3775,2,0,0,0,0,3774,0,0
+IL2010500,Winnebago,Winnebago,village,Winnebago (PWS),4/10/19 11:16,2018,1360,0,1360,0,0,0,0,0,1270,15,75
+IL0313330,Cook,Winnetka,village,Winnetka (PWS),4/2/19 8:08,2018,4616,3,4613,1506,40,118,0,1,2793,158,0
+IL1770550,Stephenson,Winslow,village,Winslow (PWS),9/24/19 16:03,2018,149,0,149,36,37,39,0,37,0,0,0
+IL0971950,Lake,Winthrop Harbor,village,Winthrop Harbor (PWS),3/18/19 13:07,2018,2172,0,2172,577,577,0,0,0,1018,0,0
+IL1350850,Montgomery,Witt,city,Witt (PWS),4/26/19 14:00,2018,307,2,305,0,300,0,0,0,0,2,5
+IL0431200,DuPage,Wood Dale,city,Wood Dale (PWS),4/1/19 9:37,2018,4998,0,4998,0,0,0,0,0,4994,0,4
+IL1191150,Madison,Wood River,city,Wood River (PWS),6/3/19 13:48,2018,5394,0,5394,0,206,0,2977,281,793,0,1137
+IL0730750,Henry,Woodhull,village,Woodhull (PWS),3/15/19 7:25,2018,404,0,404,0,104,0,50,0,100,0,150
+IL0751000,Iroquois,Woodland,village,Woodland (PWS),4/14/19 16:34,2018,130,0,130,1,9,0,0,0,120,0,0
+IL0810450,Jefferson,Woodlawn,village,Woodlawn (PWS),4/26/19 14:46,2018,1425,0,1425,0,347,0,0,0,0,0,1078
+IL0431250,DuPage,Woodridge,village,Woodridge (PWS),4/12/19 14:11,2018,9697,0,9697,0,6167,0,0,0,3513,17,0
+IL1110950,McHenry,Woodstock,city,Woodstock (PWS),4/29/19 13:52,2018,8645,0,8645,12,5186,0,26,0,3421,0,0
+IL1191200,Madison,Worden,village,Worden (PWS),3/19/19 11:14,2018,151,0,151,0,77,33,3,0,0,0,38
+IL0313360,Cook,Worth,village,Worth (PWS),3/14/19 8:40,2018,2807,0,2807,0,0,0,0,0,2807,0,0
+IL0111150,Bureau,Wyanet,village,Wyanet (PWS),4/15/19 13:52,2018,426,0,426,256,0,0,0,0,85,0,85
+IL1750200,Stark,Wyoming,city,Wyoming (PWS),4/5/19 12:23,2018,700,0,700,0,0,0,0,0,0,0,700
+IL0250300,Clay,Xenia,village,Xenia (PWS),3/27/19 9:27,2018,264,0,264,0,0,0,32,0,200,0,32
+IL0950700,Knox,Yates City,village,Yates City (PWS),4/4/19 9:27,2018,332,0,332,0,0,0,2,322,0,0,8
+IL0930250,Kendall,Yorkville,city,Yorkville (PWS),5/30/19 8:52,2018,7068,0,7068,10,30,0,0,0,6818,0,210
+IL0550750,Franklin,Zeigler,city,Zeigler (PWS),7/30/19 12:36,2018,932,0,932,0,27,0,0,0,423,0,482
+IL0972000,Lake,Zion,city,Zion (PWS),3/26/19 14:17,2018,7073,0,7073,0,7073,0,0,0,0,0,0

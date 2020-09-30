@@ -1,0 +1,485 @@
+---
+title: "LSL-mapping"
+author: "Tara Jagadeesh"
+date: "9/14/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = FALSE, message = FALSE, results = FALSE, warning = FALSE, include = FALSE}
+#Setup 
+
+#Load packages
+library(tidyverse) #Data wrangling
+library(sf) #Shapefiles
+library(here) #Loading data
+library(rgdal)
+
+
+```
+
+```{r}
+#Get data in form for mapping
+############################# Data Wrangling ############################# 
+
+#Data for LSL inventory
+# Load
+SL <- read_csv("ServiceLineMaterialInventoryReports.csv")
+# Clean
+LSL <- SL %>% 
+  filter(ReportingYear == "2018") %>%  #Filter for 2018 data
+  mutate(NAME = str_replace(FacilityName, " \\(.*\\)", "")) %>% #Remove parenthesis from facility
+  mutate(NAME = str_remove(NAME, pattern = "MHP" )) %>% #Remove "MHP" from facility
+  mutate(NAME = str_remove(NAME, pattern = "PWD" )) %>%  #Remove "PWD" from facility
+  mutate(NAME = str_remove(NAME, pattern = "Illinois American - " )) %>% 
+  mutate(NAME = str_remove(NAME, pattern = "Aqua Illinois - " )) %>% 
+  mutate(NAME = str_remove(NAME, pattern = "Aqua Illinois-" )) %>% 
+  mutate(NAME = str_remove(NAME, pattern = "Util Inc - " ))
+  
+
+#Data for IL boundaries PRELIMINARY
+## Data for municipalities does not have facility ID, so must use a different dataset which contains both municipality and the associated water distributor to more easily join the two layers. Unfortunately this data only exists for 2012, so must do some manual wrangling in excel
+
+# Load data
+IL_boundaries_prelim <-read_sf(dsn = here("Map-Data","Illinois_Municipal_Water_Use_2012"), layer = "ISWS_Municipal_Water_Use_2012") %>% 
+  rename(FacilityId = FAC_ID)
+
+st_crs(IL_boundaries_prelim) <- 4267
+
+
+# Join to LSL data
+LSL_municip_prelim <- merge(LSL, IL_boundaries_prelim, by= "FacilityId")
+
+# Export as .csv
+st_write(LSL_municip_prelim, "LSL_municip_join.csv", layer_options = "GEOMETRY=AS_XY")
+
+##Now we must do some manual editing in excel. Notes of manual edits: Willowbrook (divided into village and CDP), La Fayette (assign new facility id), Powers Water Co, Inc. (PWS) (delete), Illinois American - West Suburban (PWS) (delete duplicate), Auburn (assign diff facility id)
+
+#Data for IL boundaries FINAL
+# Load
+IL_boundaries <- read_sf(dsn = here("Map-Data","IL-boundaries"), layer = "tl_2018_17_place") %>% 
+  rename(Place = NAME) %>% 
+  arrange(Place) 
+IL_boundaries[1337, 5] = "Willowbrook CDP" #Manually change Willowbrook CDP name
+IL_boundaries[1343, 5] = "New Windsor"
+
+LSL_municip_prelim_edit <- read_csv("LSL_municip_join_to_boundaries.csv")
+
+# Merge with the manually edited LSL_municip_prelim
+LSL_windsor <- LSL %>% 
+  filter(FacilityName == "New Windsor (PWS)") %>% 
+  rename(Place = NAME)
+IL_bound_windsor <- IL_boundaries %>% 
+  filter(Place == "New Windsor") 
+windsor <- merge(LSL_windsor, IL_bound_windsor, by = "Place") %>% 
+  mutate(Class = "village")
+
+LSL_municip <- merge(LSL_municip_prelim_edit, IL_boundaries, by= "Place") %>% 
+  filter(GEOID != 1728950) %>% 
+  rbind(., windsor) %>% 
+  mutate(potential_lead = ServicesLead + ServicesUnknownMaterial) %>% 
+  mutate(perc_lead = ServicesLead/TotalServiceConnections*100) %>% 
+  mutate(perc_potential = (ServicesLead + ServicesUnknownMaterial)/TotalServiceConnections*100)
+
+st_write(LSL_municip, dsn = here("Map-Data","LSL-municip"), layer="LSL-municip", driver="ESRI Shapefile")
+
+
+# Create a function to find the non-overlapping characters
+outersect <- function(x, y) {
+  sort(c(setdiff(x, y),
+         setdiff(y, x)))
+}
+# Find the non-overlapping characters 
+outersect(LSL_municip$Place, IL_boundaries$Place)
+
+
+## Left off at line 57
+
+```
+
+```{r}
+############################# Demographics Data ############################# 
+
+demographics_municip_raw <- read_csv(here("Map-Data","Demographics", "demographics-municip", "demographics-municip-filter2.csv")) 
+
+demographics_municip <- demographics_municip_raw %>% 
+  separate(., GEOID, c("x","GEOID"), sep = "US") %>% 
+  select(-x) 
+
+municip_shp <- LSL_municip %>% 
+  select(GEOID, Place, geometry)
+
+demographics_municip_shp <- merge(municip_shp, demographics_municip, by = "GEOID") %>% 
+  select(-name) %>% 
+  mutate(latino_total_perc = as.numeric(latino_total_perc),
+         latino_mexican_perc = as.numeric(latino_mexican_perc),
+         latino_PR_perc = as.numeric(latino_PR_perc),
+         latino_cuban_perc = as.numeric(latino_cuban_perc),
+         latino_other_perc = as.numeric(latino_other_perc),
+         notlatino_total_perc = as.numeric(notlatino_total_perc),
+         notlatino_white_perc = as.numeric(notlatino_white_perc),
+         notlatino_black_perc = as.numeric(notlatino_black_perc),
+         notlatino_native_perc = as.numeric(notlatino_native_perc),
+         notlatino_asian_perc = as.numeric(notlatino_asian_perc),
+         notlatino_PI_perc = as.numeric(notlatino_PI_perc),
+         notlatino_other_perc = as.numeric(notlatino_other_perc))
+
+st_write(demographics_municip_shp, dsn = here("Map-Data","Demographics", "demographics-municip-final"),layer="demographics-municip-final", driver="ESRI Shapefile")
+```
+
+Black Caucus Data Analysis
+```{r}
+
+############################# Data Wrangling ethnicity ############################# 
+
+#Demographics data
+demographics_raceandethnicity <- demographics_municip_shp %>% 
+  select(GEOID, total, notlatino_white, notlatino_white_perc, notlatino_black, notlatino_black_perc) 
+
+demographics_municip_all2 <- merge(demographics_municip_all, demographics_municip_black_final, by = "GEOID")
+
+
+
+#LSL data by municip
+municip_shp <- LSL_municip %>% 
+  select(GEOID, Place, geometry)
+
+LSL_municip_add2 <- read_csv("LSL_municip_join_to_boundaries3.csv") %>% 
+  drop_na()
+  select(GEOID, FacilityId, FacilityName, Place, NAME, County, total, onerace_white, onerace_white_perc, onerace_black, onerace_black_perc, TotalServiceConnections, ServicesLead, ServicesUnknownMaterial) %>% 
+  mutate(onerace_white_perc = as.numeric(onerace_white_perc),
+         onerace_black_perc = as.numeric(onerace_black_perc)) %>% 
+  mutate(potential_lead = ServicesLead + ServicesUnknownMaterial) %>% 
+  mutate(perc_lead = ServicesLead/TotalServiceConnections*100) %>% 
+  mutate(perc_potential = (ServicesLead + ServicesUnknownMaterial)/TotalServiceConnections*100)
+
+#All data for municipality, black population, and LSL
+demographics_municip_black_1 <- merge(municip_shp, demographics_municip_black, by = "GEOID") %>% 
+  merge(LSL_municip) %>% 
+  select(-geometry) %>% 
+  select(GEOID, FacilityId, FacilityName, Place, NAME, County, total, onerace_white, onerace_white_perc, onerace_black, onerace_black_perc, TotalServiceConnections, ServicesLead, ServicesUnknownMaterial, potential_lead, perc_lead, perc_potential) %>% 
+  mutate(onerace_white_perc = as.numeric(onerace_white_perc),
+         onerace_black_perc = as.numeric(onerace_black_perc))
+
+demographics_municip_black_final <- rbind(demographics_municip_black_1, LSL_municip_add)
+
+############################# Data Wrangling ############################# 
+
+#Demographics data
+demographics_municip_raw_black <- read_csv(here("Map-Data","Demographics", "demographics-municip", "demographics-municip-black.csv")) 
+
+demographics_municip_black <- demographics_municip_raw_black %>% 
+  separate(., GEOID, c("x","GEOID"), sep = "US") %>% 
+  select(-x)
+
+#LSL data by municip
+municip_shp <- LSL_municip %>% 
+  select(GEOID, Place, geometry)
+
+LSL_municip_add <- read_csv("LSL_municip_join_to_boundaries3.csv") 
+  merge(demographics_municip_black,  by = "GEOID") %>% 
+  select(GEOID, FacilityId, FacilityName, Place, NAME, County, total, onerace_white, onerace_white_perc, onerace_black, onerace_black_perc, TotalServiceConnections, ServicesLead, ServicesUnknownMaterial) %>% 
+  mutate(onerace_white_perc = as.numeric(onerace_white_perc),
+         onerace_black_perc = as.numeric(onerace_black_perc)) %>% 
+  mutate(potential_lead = ServicesLead + ServicesUnknownMaterial) %>% 
+  mutate(perc_lead = ServicesLead/TotalServiceConnections*100) %>% 
+  mutate(perc_potential = (ServicesLead + ServicesUnknownMaterial)/TotalServiceConnections*100)
+
+#All data for municipality, black population, and LSL
+demographics_municip_black_1 <- merge(municip_shp, demographics_municip_black, by = "GEOID") %>% 
+  merge(LSL_municip) %>% 
+  select(-geometry) %>% 
+  select(GEOID, FacilityId, FacilityName, Place, NAME, County, total, onerace_white, onerace_white_perc, onerace_black, onerace_black_perc, TotalServiceConnections, ServicesLead, ServicesUnknownMaterial, potential_lead, perc_lead, perc_potential) %>% 
+  mutate(onerace_white_perc = as.numeric(onerace_white_perc),
+         onerace_black_perc = as.numeric(onerace_black_perc))
+
+demographics_municip_black_final <- rbind(demographics_municip_black_1, LSL_municip_add)
+
+
+############################# Basic Statistics ############################# 
+
+#Total # of LSLs
+# TOTAL lines
+sum(LSL$TotalServiceConnections) #3842374
+# Known lead
+sum(LSL$ServicesLead) #686259
+# Potentially lead
+sum(LSL$ServicesLead + LSL$ServicesUnknownMaterial) #1753908
+
+#Total # of black residents
+sum(demographics_municip_black$onerace_black) #1,780,806
+
+#% of state population that is black
+sum(demographics_municip_black$onerace_black)/sum(demographics_municip_black$total)*100 #15.8%
+
+
+############################# Top 50 Table ############################# 
+#Tables:
+# Table of top 50 by percent black
+demographics_top50_percblack <- demographics_municip_black_final %>% 
+  arrange(desc(onerace_black_perc)) %>% 
+  head(50) %>% 
+  select(Place, onerace_black, onerace_black_perc, ServicesLead, ServicesUnknownMaterial, potential_lead, perc_lead, perc_potential)
+
+# Table of top 50 by # black
+demographics_top50_black <- demographics_municip_black_final %>% 
+  arrange(desc(onerace_black)) %>% 
+  head(50) %>% 
+  select(Place, onerace_black, onerace_black_perc, ServicesLead, ServicesUnknownMaterial, potential_lead, perc_lead, perc_potential)
+
+sum(demographics_top50_black$onerace_black) #1444700
+sum(demographics_top50_black$onerace_black)/sum(demographics_municip_black$onerace_black)*100 #81%
+
+# Table of top 50 by % potential lead lines
+demographics_top50_percpotential <- demographics_municip_black_final %>% 
+  arrange(desc(perc_potential), desc(onerace_black_perc)) %>% 
+  head(50) %>% 
+  select(GEOID, FacilityId, FacilityName, Place, NAME, County, total, onerace_black, onerace_black_perc, TotalServiceConnections, ServicesLead, ServicesUnknownMaterial, potential_lead, perc_lead, perc_potential) %>% 
+  select(Place, onerace_black, onerace_black_perc, ServicesLead, ServicesUnknownMaterial, potential_lead, perc_lead, perc_potential)
+
+# Table of top 50 by # potential lead lines
+demographics_top50_potential <- demographics_municip_black_final %>% 
+  arrange(desc(potential_lead), desc(perc_potential)) %>% 
+  head(50) %>% 
+  select(GEOID, FacilityId, FacilityName, Place, NAME, County, total, onerace_black, onerace_black_perc, TotalServiceConnections, ServicesLead, ServicesUnknownMaterial, potential_lead, perc_lead, perc_potential) %>% 
+  select(Place, onerace_black, onerace_black_perc, ServicesLead, ServicesUnknownMaterial, potential_lead, perc_lead, perc_potential)
+
+#Stats
+# % of black population in top 50
+sum(demographics_top50_percblack$onerace_black) #1,184,714
+sum(demographics_top50_percblack$onerace_black)/sum(demographics_municip_black$onerace_black)*100 #66%
+
+# with what % of potential LSLs?
+sum(demographics_top50_percblack$potential_lead) #680239
+sum(demographics_top50_percblack$potential_lead)/sum(LSL$ServicesLead + LSL$ServicesUnknownMaterial)*100 #39%
+
+# with what % of known LSLS?
+sum(demographics_top50_percblack$ServicesLead) #427374
+sum(demographics_top50_percblack$ServicesLead)/sum(LSL$ServicesLead)*100 #62%
+
+# 66% of black population lives with 62% of known LSLs
+
+############################# Top 100 Table ############################# 
+#Tables
+# Table of top 100 by percent black
+demographics_top100_percblack <- demographics_municip_black_final %>% 
+  arrange(desc(onerace_black_perc)) %>% 
+  head(100) 
+# Table of top 100 by # black
+demographics_top100_black <- demographics_municip_black_final %>% 
+  arrange(desc(onerace_black)) %>% 
+  head(100) 
+
+# Table of top 100 by percent white
+demographics_top100_percwhite <- demographics_municip_black_final %>% 
+  arrange(desc(onerace_white_perc)) %>% 
+  head(100) 
+
+# Table of top 100 by # white
+demographics_top100_white <- demographics_municip_black_final %>% 
+  arrange(desc(onerace_white)) %>% 
+  head(100) 
+
+#Stats
+# % of black population in top 100
+sum(demographics_top100_black$onerace_black) #1,591,248
+sum(demographics_top100_black$onerace_black)/sum(demographics_municip_black$onerace_black)*100 #89.4% of black pop
+sum(demographics_top100_black$onerace_black)/sum(demographics_municip_black$total)*100 #14% of entire state pop
+  
+# with what % of known LSLs?
+sum(demographics_top100_black$ServicesLead) #590,193
+sum(demographics_top100_black$ServicesLead)/sum(LSL$ServicesLead)*100 #86%
+#  89% of the state's black population lives in municipalities which contain 86% of known lead service lines
+
+# with what % of potential LSLs?
+sum(demographics_top100_black$potential_lead) #1,158,373
+sum(demographics_top100_black$potential_lead)/sum(LSL$ServicesLead + LSL$ServicesUnknownMaterial)*100 #66%
+#  89% of the state's black population lives in municipalities which contain 66% of potential lead service lines
+
+#Stats - white
+# % of white population in top 100
+sum(demographics_top100_white$onerace_white) #372,667
+sum(demographics_top100_white$onerace_white)/sum(demographics_municip_black$onerace_white)*100 #60% of white pop
+  
+# with what % of known LSLs?
+sum(demographics_top100_white$ServicesLead) 
+sum(demographics_top100_white$ServicesLead)/sum(LSL$ServicesLead)*100 #83%
+#  60% of the state's white population lives in municipalities which contain 83% of known lead service lines
+
+############################# All Table ############################# 
+#Tables
+# Table of top 100 by percent black
+demographics_all_percblack <- demographics_municip_black_final %>% 
+  arrange(desc(onerace_black)) %>% 
+  head(723) %>% 
+  select(Place, onerace_black, onerace_black_perc, ServicesLead, ServicesUnknownMaterial, potential_lead, perc_lead, perc_potential)
+
+# Table of top 100 by # black
+demographics_all_black <- demographics_municip_black_final %>% 
+  arrange(desc(onerace_black)) %>% 
+  head(723) %>% 
+  select(Place, onerace_black, onerace_black_perc, ServicesLead, ServicesUnknownMaterial, potential_lead, perc_lead, perc_potential)
+
+#Stats
+# % of black population in top 100
+sum(demographics_all_black$onerace_black) 
+sum(demographics_all_black$onerace_black)/sum(demographics_municip_black$onerace_black)*100  
+sum(demographics_all_black$onerace_black)/sum(demographics_municip_black$total)*100 
+  
+# with what % of known LSLs?
+sum(demographics_all_black$ServicesLead) #684266
+sum(demographics_all_black$ServicesLead)/sum(LSL$ServicesLead)*100 #99.70958
+#  96% of the state's black population lives in municipalities which contain 86% of known lead service lines
+
+# with what % of potential LSLs?
+sum(demographics_top100_black$potential_lead) #1,158,373
+sum(demographics_top100_black$potential_lead)/sum(LSL$ServicesLead + LSL$ServicesUnknownMaterial)*100 #66%
+#  89% of the state's black population lives in municipalities which contain 66% of potential lead service lines
+
+
+#Black people occupy x % of state but have x% of LSLs
+#Top 100 municip by # black residents - get close to 90% of state's black pop? 
+#what % of state pop does that rep
+#how many LSLs do those municip have (known and potential)
+#what % states known and potential LSLs are there
+```
+
+```{r}
+########### Cutoffs
+#What % of black population lives in municipalities where over 25% of lines are potentially lead?
+demographics_25_perclead <- demographics_municip_black_final %>% 
+  arrange(desc(perc_lead), desc(ServicesLead)) %>% 
+  filter(perc_lead >= 25) %>% 
+  select(Place, County, total, onerace_black, onerace_black_perc, TotalServiceConnections, ServicesLead, ServicesUnknownMaterial, potential_lead, perc_lead, perc_potential)
+
+sum(demographics_25_perclead$onerace_black) #1062003
+sum(demographics_25_perclead$onerace_black)/sum(demographics_municip_black$onerace_black)*100 #59.6%
+# 60% of the state's black population lives in municipalities where over 25% of lines are lead
+
+#What % of black population lives in municipalities where over 50% of lines are potentially lead?
+demographics_50_perclead <- demographics_municip_black_final %>% 
+  arrange(desc(perc_lead), desc(ServicesLead)) %>% 
+  filter(perc_lead >= 50) %>% 
+  select(GEOID, FacilityId, FacilityName, Place, NAME, County, total, onerace_black, onerace_black_perc, TotalServiceConnections, ServicesLead, ServicesUnknownMaterial, potential_lead, perc_lead, perc_potential) 
+sum(demographics_50_perclead$onerace_black) #926688
+sum(demographics_50_perclead$onerace_black)/sum(demographics_municip_black$onerace_black)*100 #52%
+# 52% of the state's black population lives in municipalities where over 50% of lines are lead
+
+
+#What % of black population lives in municipalities where over 75% of lines are lead?
+demographics_75_perclead <- demographics_municip_black_final %>% 
+  arrange(desc(perc_lead), desc(ServicesLead)) %>% 
+  filter(perc_lead >= 75) %>% 
+  select(GEOID, FacilityId, FacilityName, Place, NAME, County, total, onerace_black, onerace_black_perc, TotalServiceConnections, ServicesLead, ServicesUnknownMaterial, potential_lead, perc_lead, perc_potential) 
+sum(demographics_75_perclead$onerace_black) #879376
+sum(demographics_75_perclead$onerace_black)/sum(demographics_municip_black$onerace_black)*100 #49%
+# 49% of the state's black population lives in municipalities where over 75% of lines are lead
+
+
+
+
+
+```
+
+
+```{r}
+############################# Top 100 Table by Municipal Size ############################# 
+#Tables
+# Table of top 100 by municip size
+municip_top100 <- demographics_municip_black_final %>% 
+  arrange(desc(total)) %>% 
+  head(100) 
+
+#Stats
+# % of black population in top 100
+sum(demographics_top100_black$onerace_black) #1,591,248
+sum(demographics_top100_black$onerace_black)/sum(demographics_municip_black$onerace_black)*100 #89.4% of black pop
+sum(demographics_top100_black$onerace_black)/sum(demographics_municip_black$total)*100 #14% of entire state pop
+  
+# with what % of known LSLs?
+sum(demographics_top100_black$ServicesLead) #590,193
+sum(demographics_top100_black$ServicesLead)/sum(LSL$ServicesLead)*100 #86%
+#  89% of the state's black population lives in municipalities which contain 86% of known lead service lines
+
+# with what % of potential LSLs?
+sum(demographics_top100_black$potential_lead) #1,158,373
+sum(demographics_top100_black$potential_lead)/sum(LSL$ServicesLead + LSL$ServicesUnknownMaterial)*100 #66%
+#  89% of the state's black population lives in municipalities which contain 66% of potential lead service lines
+
+#Stats - white
+# % of white population in top 100
+sum(demographics_top100_white$onerace_white) #372,667
+sum(demographics_top100_white$onerace_white)/sum(demographics_municip_black$onerace_white)*100 #60% of white pop
+  
+# with what % of known LSLs?
+sum(demographics_top100_white$ServicesLead) 
+sum(demographics_top100_white$ServicesLead)/sum(LSL$ServicesLead)*100 #83%
+#  60% of the state's white population lives in municipalities which contain 83% of known lead service lines
+
+```
+
+```{r}
+#Regression
+# % black pop by % known lead and % potential
+# also # of known and # potential
+#run too with white 
+
+demographics_municip_black_final2 <- demographics_municip_black_final %>% 
+  filter(Place != "Chicago")
+
+#Black
+ggplot(demographics_municip_black_final2, aes(x = onerace_black_perc, y = ServicesLead)) +
+  geom_point()+
+  geom_smooth(method=lm)
+lm1 <- lm(onerace_black_perc ~ ServicesLead, data = demographics_municip_black_final)
+summary(lm1)
+
+ggplot(demographics_municip_black_final2, aes(x = onerace_black_perc, y = potential_lead)) +
+  geom_point()+
+  geom_smooth(method=lm)
+lm2 <- lm(onerace_black_perc ~ potential_lead, data = demographics_municip_black_final)
+summary(lm2)
+
+ggplot(demographics_municip_black_final2, aes(x = onerace_black, y = perc_lead)) +
+  geom_point()+
+  geom_smooth(method=lm)
+lm3 <- lm(onerace_black ~ perc_lead, data = demographics_municip_black_final)
+summary(lm3)
+
+ggplot(demographics_municip_black_final2, aes(x = onerace_black_perc, y = perc_potential)) +
+  geom_point()+
+  geom_smooth(method=lm)
+lm4 <- lm(onerace_black_perc ~ perc_potential, data = demographics_municip_black_final)
+summary(lm4)
+
+#White
+ggplot(demographics_municip_black_final2, aes(x = onerace_white_perc, y = ServicesLead)) +
+  geom_point()+
+  geom_smooth(method=lm)
+lm5 <- lm(onerace_white_perc ~ ServicesLead, data = demographics_municip_black_final)
+summary(lm5)
+
+ggplot(demographics_municip_black_final2, aes(x = onerace_white_perc, y = potential_lead)) +
+  geom_point()+
+  geom_smooth(method=lm)
+lm6 <- lm(onerace_white_perc ~ potential_lead, data = demographics_municip_black_final)
+summary(lm6)
+
+ggplot(demographics_municip_black_final2, aes(x = onerace_white_perc, y = perc_lead)) +
+  geom_point()+
+  geom_smooth(method=lm)
+lm7 <- lm(onerace_white_perc ~ perc_lead, data = demographics_municip_black_final)
+summary(lm7)
+
+ggplot(demographics_municip_black_final2, aes(x = onerace_white_perc, y = perc_potential)) +
+  geom_point()+
+  geom_smooth(method=lm)
+lm8 <- lm(onerace_white_perc ~ perc_potential, data = demographics_municip_black_final)
+summary(lm8)
+
+
+```
+
