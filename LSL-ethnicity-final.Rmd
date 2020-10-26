@@ -1,7 +1,7 @@
 ---
-title: "LSL-ethnicity"
+title: "LSL-ethnicity-final"
 author: "Tara Jagadeesh"
-date: "9/29/2020"
+date: "10/2/2020"
 output: html_document
 ---
 
@@ -43,10 +43,10 @@ LSL <- SL %>%
   mutate(NAME = str_remove(NAME, pattern = "Util Inc - " ))
   
 
-#Data for IL boundaries PRELIMINARY
-## Data for municipalities does not have facility ID, so must use a different dataset which contains both municipality and the associated water distributor to more easily join the two layers. Unfortunately this data only exists for 2012, so must do some manual wrangling in excel
+#Combining LSL data with municipality data
+## Data for municipalities does not have facility ID, so must use a different dataset which contains both municipality and the associated water distributor to more easily join the two layers. Unfortunately this data only exists for 2012, so must do some manual wrangling in excel. Output of this editing is "LSL_municip_join_to_boundaries.csv"
 
-# Load data
+# Load ISWS 2012 municipality data
 IL_boundaries_prelim <-read_sf(dsn = here("Map-Data","Illinois_Municipal_Water_Use_2012"), layer = "ISWS_Municipal_Water_Use_2012") %>% 
   rename(FacilityId = FAC_ID)
 
@@ -58,20 +58,17 @@ LSL_municip_prelim <- merge(LSL, IL_boundaries_prelim, by= "FacilityId")
 # Export as .csv
 # st_write(LSL_municip_prelim, "LSL_municip_join.csv", layer_options = "GEOMETRY=AS_XY")
 
-##Now we must do some manual editing in excel. Notes of manual edits: Willowbrook (divided into village and CDP), La Fayette (assign new facility id), Powers Water Co, Inc. (PWS) (delete), Illinois American - West Suburban (PWS) (delete duplicate), Auburn (assign diff facility id)
+##Now we must do some manual editing in excel to account for the changes between 2012 and 2018. Notes of manual edits: Willowbrook (divided into village and CDP), La Fayette (assign new facility id), Powers Water Co, Inc. (PWS) (delete), Illinois American - West Suburban (PWS) (delete duplicate), Auburn (assign diff facility id)
 
 #LSL Data + Municipality 
-# Load
+# Load 2018 municipality data
 IL_boundaries <- read_sf(dsn = here("Map-Data","IL-boundaries"), layer = "tl_2018_17_place") %>% 
   rename(Place = NAME) %>% 
   arrange(Place) 
 IL_boundaries[1337, 5] = "Willowbrook CDP" #Manually change Willowbrook CDP name
 IL_boundaries[1343, 5] = "New Windsor"
 
-LSL_municip_prelim_edit <- read_csv("LSL_municip_join_to_boundaries.csv")
-
-# Merge with the manually edited LSL_municip_prelim
-
+# Manually add New Windsor
 LSL_windsor <- LSL %>% 
   filter(FacilityName == "New Windsor (PWS)") %>% 
   rename(Place = NAME)
@@ -80,11 +77,12 @@ IL_bound_windsor <- IL_boundaries %>%
 windsor <- merge(LSL_windsor, IL_bound_windsor, by = "Place") %>% 
   mutate(Class = "village")
 
+# Merge with the manually edited LSL_municip_prelim (to get updated boundaries)
+LSL_municip_prelim_edit <- read_csv("LSL_municip_join_to_boundaries.csv")
 LSL_municip <- merge(LSL_municip_prelim_edit, IL_boundaries, by= "Place") %>% 
   filter(GEOID != 1728950) %>% 
-  rbind(., windsor) %>% 
+  rbind(., windsor) %>% #Add New Windsor data point
   select(-Class, -geometry)
-
 
 # Merge with the added municipalities
 LSL_municip_add <- read_csv("LSL_municip_join_to_boundaries3.csv") %>% 
@@ -96,17 +94,18 @@ LSL_municip_final <- rbind(LSL_municip, LSL_municip_add) %>%
   mutate(potential = ServicesLead + ServicesUnknownMaterial,
          perc_lead = ServicesLead/TotalServiceConnections*100,
          perc_potential = (ServicesLead + ServicesUnknownMaterial)/TotalServiceConnections*100,
-         perc_UK = ServicesUnknownMaterial/TotalServiceConnections*100)
+         perc_UK = ServicesUnknownMaterial/TotalServiceConnections*100,
+         Place = gsub("\u00A0", " ", Place, fixed = TRUE)) #Fix the spaces (some were different lengths from excel)
+  
 
-# Find the non-overlapping characters 
+# Find the non-overlapping municipalities (AKA which municips will be missing from the final analysis) 
 outersect <- function(x, y) {
   sort(c(setdiff(x, y),
          setdiff(y, x)))
 }
 
-outersect(LSL_municip_final$Place, IL_boundaries$Place)
+missing_municip <- data.frame("Place" = outersect(LSL_municip_final$Place, IL_boundaries$Place))
 
-  
 # st_write(LSL_municip, dsn = here("Map-Data","LSL-municip"), layer="LSL-municip", driver="ESRI Shapefile")
 
 
@@ -114,10 +113,11 @@ outersect(LSL_municip_final$Place, IL_boundaries$Place)
 
 ```{r}
 ############################# Demographics Data ############################# 
+#Load ethnicity data (data from IL Census Bureau, American Community Survey 2018. Edited in excel to keep only the ethnicity columns)
 ethnicity <- read_csv(here("Map-Data","Demographics", "demographics-municip", "demographics-ethnicity-final.csv")) %>% 
   separate(., GEOID, c("x","GEOID"), sep = "US") %>% 
   select(-x) %>% 
-  mutate(total_hispanic_perc = as.numeric(total_hispanic_perc),
+  mutate(total_hispanic_perc = as.numeric(total_hispanic_perc), 
          mexican_perc = as.numeric(mexican_perc),
          PR_perc = as.numeric(PR_perc),
          cuban_perc = as.numeric(cuban_perc),
@@ -127,14 +127,20 @@ ethnicity <- read_csv(here("Map-Data","Demographics", "demographics-municip", "d
          black_perc = as.numeric(black_perc),
          native_perc = as.numeric(native_perc),
          asian_perc = as.numeric(asian_perc),
-         PI_perc = as.numeric(PI_perc)) 
+         PI_perc = as.numeric(PI_perc)) #Convert percentages from character to numeric
 
 #Combine with LSL data
 LSL_ethnicity <- merge(LSL_municip_final,ethnicity, by = "GEOID")
 
 #Select for columns of interest
 LSL_ethnicity_filter <- LSL_ethnicity %>% 
-  select(GEOID, Place, County, FacilityId, TotalServiceConnections, ServicesLead, ServicesUnknownMaterial, potential, perc_lead, perc_potential, perc_UK, total, white, white_perc, black, black_perc, hispanic = total_hispanic, hispanic_perc = total_hispanic_perc) %>% 
+  select(GEOID, Place, County, FacilityId, TotalServiceConnections, ServicesLead, ServicesUnknownMaterial, potential, perc_lead, perc_potential, perc_UK, total, 
+         white, 
+         white_perc, 
+         black, 
+         black_perc, 
+         hispanic = total_hispanic,
+         hispanic_perc = total_hispanic_perc) %>% 
   filter(GEOID != 1777005) #Remove Urbana Champaign (# lines is too small to match pop size)
 
 ```
