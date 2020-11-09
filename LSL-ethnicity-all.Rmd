@@ -729,19 +729,6 @@ top50_LSL_K <- LSL_ethnicity_filter %>%
       sum(top50_LSL_K$PI) #851
       sum(top50_LSL_K$PI)/sum(ethnicity$PI)*100 #30%
       
-    # LSL per capita 
-      # White 
-      sum(top50_LSL_K$ServicesLead)/sum(top50_LSL_K$white) #0.3288655
-      # Black 
-      sum(top50_LSL_K$ServicesLead)/sum(top50_LSL_K$black) #0.5615634
-      # Latinx 
-      sum(top50_LSL_K$ServicesLead)/sum(top50_LSL_K$latinx) #0.4794823
-      # Asian 
-      sum(top50_LSL_K$ServicesLead)/sum(top50_LSL_K$asian) #2.370452
-      # Native 
-      sum(top50_LSL_K$ServicesLead)/sum(top50_LSL_K$native) #117.1041
-      # PI 
-      sum(top50_LSL_K$ServicesLead)/sum(top50_LSL_K$PI) #754.5029
       
     #Demographic breakdown
       # White 
@@ -756,6 +743,56 @@ top50_LSL_K <- LSL_ethnicity_filter %>%
       sum(top50_LSL_K$native)/sum(top50_LSL_K$total)*100 #0.1139005%
       # PI 
       sum(top50_LSL_K$PI)/sum(top50_LSL_K$total)*100 #0.01767815%
+      
+#Top 50 known LSLs - without Chicago
+top50_LSL_K_noChi <- LSL_ethnicity_filter %>% 
+  arrange(desc(ServicesLead)) %>% 
+  filter(Place != "Chicago") %>% 
+  head(50) 
+
+  #Stats
+    # % of overall LSLs
+    sum(top50_LSL_K_noChi$ServicesLead)/sum(LSL$ServicesLead)*100 #94%
+    
+    # % of state pop
+      # White
+      sum(top50_LSL_K_noChi$white) 
+      sum(top50_LSL_K_noChi$white)/sum(ethnicity_noChi$white)*100 #18.86136
+    
+      # Black
+      sum(top50_LSL_K_noChi$black) 
+      sum(top50_LSL_K_noChi$black)/sum(ethnicity_noChi$black)*100 #35.48308
+      
+      # Latinx
+      sum(top50_LSL_K_noChi$latinx) 
+      sum(top50_LSL_K_noChi$latinx)/sum(ethnicity_noChi$total_hispanic)*100 #42.86394
+      
+      # Asian
+      sum(top50_LSL_K_noChi$asian)
+      sum(top50_LSL_K_noChi$asian)/sum(ethnicity_noChi$asian)*100 #20.57633
+      
+      # Native
+      sum(top50_LSL_K_noChi$native) 
+      sum(top50_LSL_K_noChi$native)/sum(ethnicity_noChi$native)*100 #23.66822
+      
+      # PI
+      sum(top50_LSL_K_noChi$PI) 
+      sum(top50_LSL_K_noChi$PI)/sum(ethnicity_noChi$PI)*100 #18.43827
+      
+      
+    #Demographic breakdown
+      # White 
+      sum(top50_LSL_K_noChi$white)/sum(top50_LSL_K_noChi$total)*100 #50.84123
+      # Black 
+      sum(top50_LSL_K_noChi$black)/sum(top50_LSL_K_noChi$total)*100 #15.91356
+      # Latinx 
+      sum(top50_LSL_K_noChi$latinx)/sum(top50_LSL_K_noChi$total)*100 #26.14748
+      # Asian 
+      sum(top50_LSL_K_noChi$asian)/sum(top50_LSL_K_noChi$total)*100 #4.662586
+      # Native 
+      sum(top50_LSL_K_noChi$native)/sum(top50_LSL_K_noChi$total)*100 #0.1108547
+      # PI 
+      sum(top50_LSL_K_noChi$PI)/sum(top50_LSL_K_noChi$total)*100 #0.02139301
 
 #Top 50 unknown LSLs 
 top50_LSL_UK <- LSL_ethnicity_filter %>% 
@@ -895,7 +932,9 @@ top50_UK_high <- LSL_ethnicity_filter_UK %>%
 
   #Stats
     # % of overall LSLs
-
+      sum(top50_UK_high$UK_high)/(sum(LSL$ServicesLead)+sum(LSL$ServicesUnknownMaterial))*100 #67%
+      sum(top50_UK_high$ServicesLead)/sum(LSL$ServicesLead)*100
+      
     # % of state pop
       # White
       sum(top50_UK_high$white) #2223871
@@ -942,6 +981,7 @@ top50_UK_med <- LSL_ethnicity_filter_UK %>%
 
   #Stats
     # % of overall LSLs
+      sum(top50_UK_med$UK_med)/(sum(LSL$ServicesLead)+0.5*sum(LSL$ServicesUnknownMaterial))*100 #72%
     
     # % of state pop
       # White
@@ -989,6 +1029,7 @@ top50_UK_low <- LSL_ethnicity_filter_UK %>%
 
 #Stats
     # % of overall LSLs
+    sum(top50_UK_low$UK_low)/(sum(LSL$ServicesLead)+0.18*sum(LSL$ServicesUnknownMaterial))*100 #81%
     
     # % of state pop
       # White
@@ -1028,4 +1069,162 @@ top50_UK_low <- LSL_ethnicity_filter_UK %>%
       sum(top50_UK_low$native)/sum(top50_UK_low$total)*100 #0.1209274
       # PI 
       sum(top50_UK_low$PI)/sum(top50_UK_low$total)*100 #0.01860421
+```
+# Unknown Analysis with cutoff of 94% LSLs
+```{r}
+
+sum(LSL_ethnicity_filter$ServicesUnknownMaterial)/sum(LSL$ServicesUnknownMaterial)*100 #67%
+# A lot of UK is in the municipalities we dont have data for
+
+LSL_ethnicity_filter_UK <- LSL_ethnicity_filter %>% 
+  mutate(
+    UK_high = ServicesLead + ServicesUnknownMaterial,
+    UK_med = ServicesLead + 0.5*ServicesUnknownMaterial,
+    UK_low = ServicesLead + 0.18*ServicesUnknownMaterial
+  )
+
+#High
+top94_UK_high <- LSL_ethnicity_filter_UK %>% 
+  arrange(desc(UK_high)) %>% 
+  head(565) 
+
+  #Stats
+    # % of overall LSLs
+      sum(top94_UK_high$UK_high)/(sum(LSL$ServicesLead)+sum(LSL$ServicesUnknownMaterial))*100 #93.51619
+      sum(top94_UK_high$ServicesLead)/sum(LSL$ServicesLead)*100
+
+    # % of state pop
+      # White
+      sum(top94_UK_high$white) #
+      sum(top94_UK_high$white)/sum(ethnicity$white)*100 #
+    
+      # Black
+      sum(top94_UK_high$black) #
+      sum(top94_UK_high$black)/sum(ethnicity$black)*100 #
+      
+      # Latinx
+      sum(top94_UK_high$latinx) #
+      sum(top94_UK_high$latinx)/sum(ethnicity$total_hispanic)*100 #
+      
+      # Asian
+      sum(top94_UK_high$asian) #
+      sum(top94_UK_high$asian)/sum(ethnicity$asian)*100 #
+      
+      # Native
+      sum(top94_UK_high$native) #
+      sum(top94_UK_high$native)/sum(ethnicity$native)*100 #
+      
+      # PI
+      sum(top94_UK_high$PI) #
+      sum(top94_UK_high$PI)/sum(ethnicity$PI)*100 #
+    
+    #Demographic breakdown
+      # White 
+      sum(top94_UK_high$white)/sum(top94_UK_high$total)*100 #54.1442
+      # Black 
+      sum(top94_UK_high$black)/sum(top94_UK_high$total)*100 #17.52208
+      # Latinx 
+      sum(top94_UK_high$latinx)/sum(top94_UK_high$total)*100 #20.14826
+      # Asian 
+      sum(top94_UK_high$asian)/sum(top94_UK_high$total)*100 #5.931995
+      # Native 
+      sum(top94_UK_high$native)/sum(top94_UK_high$total)*100 #0.1179981
+      # PI 
+      sum(top94_UK_high$PI)/sum(top94_UK_high$total)*100 #0.02308393
+  
+#Medium
+top94_UK_med <- LSL_ethnicity_filter_UK %>% 
+  arrange(desc(UK_med)) %>% 
+  head(335) 
+
+  #Stats
+    # % of overall LSLs
+      sum(top94_UK_med$UK_med)/(sum(LSL$ServicesLead)+0.5*sum(LSL$ServicesUnknownMaterial))*100 #93.56179
+    
+    # % of state pop
+      # White
+      sum(top94_UK_med$white) #
+      sum(top94_UK_med$white)/sum(ethnicity$white)*100 #
+    
+      # Black
+      sum(top94_UK_med$black) #
+      sum(top94_UK_med$black)/sum(ethnicity$black)*100 #
+      
+      # Latinx
+      sum(top94_UK_med$latinx) #
+      sum(top94_UK_med$latinx)/sum(ethnicity$total_hispanic)*100 #
+      
+      # Asian
+      sum(top94_UK_med$asian) #
+      sum(top94_UK_med$asian)/sum(ethnicity$asian)*100 #
+      
+      # Native
+      sum(top94_UK_med$native) #
+      sum(top94_UK_med$native)/sum(ethnicity$native)*100 #
+      
+      # PI
+      sum(top94_UK_med$PI) #
+      sum(top94_UK_med$PI)/sum(ethnicity$PI)*100 #
+    
+    #Demographic breakdown
+      # White 
+      sum(top94_UK_med$white)/sum(top94_UK_med$total)*100 #52.476
+      # Black 
+      sum(top94_UK_med$black)/sum(top94_UK_med$total)*100 #18.44829
+      # Latinx 
+      sum(top94_UK_med$latinx)/sum(top94_UK_med$total)*100 #20.98586
+      # Asian 
+      sum(top94_UK_med$asian)/sum(top94_UK_med$total)*100 #5.812067
+      # Native 
+      sum(top94_UK_med$native)/sum(top94_UK_med$total)*100 #0.1166152
+      # PI 
+      sum(top94_UK_med$PI)/sum(top94_UK_med$total)*100 #0.02138185
+
+#Low
+top94_UK_low <- LSL_ethnicity_filter_UK %>% 
+  arrange(desc(UK_low)) %>% 
+  head(175) 
+
+#Stats
+    # % of overall LSLs
+    sum(top94_UK_low$UK_low)/(sum(LSL$ServicesLead)+0.18*sum(LSL$ServicesUnknownMaterial))*100 #93.57625
+    
+    # % of state pop
+      # White
+      sum(top94_UK_low$white) #
+      sum(top94_UK_low$white)/sum(ethnicity$white)*100 #
+    
+      # Black
+      sum(top94_UK_low$black) #
+      sum(top94_UK_low$black)/sum(ethnicity$black)*100 #
+      
+      # Latinx
+      sum(top94_UK_low$latinx) #
+      sum(top94_UK_low$latinx)/sum(ethnicity$total_hispanic)*100 #
+      
+      # Asian
+      sum(top94_UK_low$asian) #
+      sum(top94_UK_low$asian)/sum(ethnicity$asian)*100 #
+      
+      # Native
+      sum(top94_UK_low$native) #
+      sum(top94_UK_low$native)/sum(ethnicity$native)*100 #
+      
+      # PI
+      sum(top94_UK_low$PI) #
+      sum(top94_UK_low$PI)/sum(ethnicity$PI)*100 #
+    
+    #Demographic breakdown
+      # White 
+      sum(top94_UK_low$white)/sum(top94_UK_low$total)*100 #49.63349
+      # Black 
+      sum(top94_UK_low$black)/sum(top94_UK_low$total)*100 #19.83538
+      # Latinx 
+      sum(top94_UK_low$latinx)/sum(top94_UK_low$total)*100 #22.19474
+      # Asian 
+      sum(top94_UK_low$asian)/sum(top94_UK_low$total)*100 #5.997731
+      # Native 
+      sum(top94_UK_low$native)/sum(top94_UK_low$total)*100 #0.1205747
+      # PI 
+      sum(top94_UK_low$PI)/sum(top94_UK_low$total)*100 #0.01814724
 ```

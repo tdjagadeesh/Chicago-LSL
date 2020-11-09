@@ -1,7 +1,7 @@
 ---
-title: "LSL-ethnicity-all"
+title: "LSL-unemployment"
 author: "Tara Jagadeesh"
-date: "10/13/2020"
+date: "10/26/2020"
 output: html_document
 ---
 
@@ -10,8 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 Limitations: 
--LSL is mapped 1:1 to municipality (thus, some municips are excluded, boundary lines may not overlap exactly, etc etc)
--Missing from LSL_ethnicity are some big municips: Urbana, Belleville, Danville, Burbank, Homer glen village, Machesney park, Bourbonnais, Godfrey, Fairview Heights, Swansea, Shiloh, Justice, campton hills, Roscoe  (all are >10,000 people)
+
 
 
 
@@ -21,144 +20,144 @@ library(tidyverse) #Data wrangling
 library(sf) #Shapefiles
 library(here) #Loading data
 library(rgdal)
+library(stringr)
 
 ```
 
 ```{r}
-#Get data in form for mapping
 ############################# Data Wrangling ############################# 
 
-#Data for LSL inventory
-# Load
+#Load data for LSL inventory
 SL <- read_csv("ServiceLineMaterialInventoryReports.csv")
-# Clean
-LSL <- SL %>% 
-  filter(ReportingYear == "2018") %>%  #Filter for 2018 data
-  mutate(NAME = str_replace(FacilityName, " \\(.*\\)", "")) %>% #Remove parenthesis from facility
-  mutate(NAME = str_remove(NAME, pattern = "MHP" )) %>% #Remove "MHP" from facility
-  mutate(NAME = str_remove(NAME, pattern = "PWD" )) %>%  #Remove "PWD" from facility
-  mutate(NAME = str_remove(NAME, pattern = "Illinois American - " )) %>% 
-  mutate(NAME = str_remove(NAME, pattern = "Aqua Illinois - " )) %>% 
-  mutate(NAME = str_remove(NAME, pattern = "Aqua Illinois-" )) %>% 
-  mutate(NAME = str_remove(NAME, pattern = "Util Inc - " ))
+
+LSL_county <- SL %>% 
+  filter(ReportingYear == "2018") %>%  #Keep only year 2018
+  group_by(County) %>% #Summarize data with county totals
+  summarize(TotalServiceConnections = sum(TotalServiceConnections), 
+            ServicesLead = sum(ServicesLead),
+            ServicesUnknownMaterial = sum(ServicesUnknownMaterial)) %>% 
+  mutate(potential = ServicesLead + ServicesUnknownMaterial, #Add column for potential LSLs
+         invest = potential*8000, # $$ to be invested (at a rate of $8000 per line)
+         output_econ = invest*1.64, #Economic output using Quinn et al. (2014) figure
+         output_jobs_total = invest/1000000*16, #Jobs output using Quinn et al. (2014) figure
+         output_jobs_yearly = output_jobs_total/20 ) #Divided over 20 years
   
 
-#Combining LSL data with municipality data
-## Data for municipalities does not have facility ID, so must use a different dataset which contains both municipality and the associated water distributor to more easily join the two layers. Unfortunately this data only exists for 2012, so must do some manual wrangling in excel. Output of this editing is "LSL_municip_join_to_boundaries.csv"
+#Load data for unemployment rate in Illinois by county 
+unemployment_raw<-read_csv(here("Map-Data","Unemployment","laucntycur14.csv"))
 
-# Load ISWS 2012 municipality data
-IL_boundaries_prelim <-read_sf(dsn = here("Map-Data","Illinois_Municipal_Water_Use_2012"), layer = "ISWS_Municipal_Water_Use_2012") %>% 
-  rename(FacilityId = FAC_ID)
+# Wrangle data into useable format
+names(unemployment_raw) <- unemployment_raw[4,] #Reassign header row
+unemployment_raw <- unemployment_raw[-c(1:5),] #Remove excess rows
 
-st_crs(IL_boundaries_prelim) <- 4267
+colnames(unemployment_raw) <- make.unique(names(unemployment_raw)) #Give each column a unique name
 
-# Join to LSL data
-LSL_municip_prelim <- merge(LSL, IL_boundaries_prelim, by= "FacilityId")
-
-# Export as .csv
-# st_write(LSL_municip_prelim, "LSL_municip_join.csv", layer_options = "GEOMETRY=AS_XY")
-
-##Now we must do some manual editing in excel to account for the changes between 2012 and 2018. Notes of manual edits: Willowbrook (divided into village and CDP), La Fayette (assign new facility id), Powers Water Co, Inc. (PWS) (delete), Illinois American - West Suburban (PWS) (delete duplicate), Auburn (assign diff facility id)
-
-#LSL Data + Municipality 
-# Load 2018 municipality data
-IL_boundaries <- read_sf(dsn = here("Map-Data","IL-boundaries"), layer = "tl_2018_17_place") %>% 
-  rename(Place = NAME) %>% 
-  arrange(Place) 
-IL_boundaries[1337, 5] = "Willowbrook CDP" #Manually change Willowbrook CDP name
-IL_boundaries[1343, 5] = "New Windsor"
-
-# Manually add New Windsor
-LSL_windsor <- LSL %>% 
-  filter(FacilityName == "New Windsor (PWS)") %>% 
-  rename(Place = NAME)
-IL_bound_windsor <- IL_boundaries %>% 
-  filter(Place == "New Windsor") 
-windsor <- merge(LSL_windsor, IL_bound_windsor, by = "Place") %>% 
-  mutate(Class = "village")
-
-# Merge with the manually edited LSL_municip_prelim (to get updated boundaries)
-LSL_municip_prelim_edit <- read_csv("LSL_municip_join_to_boundaries.csv")
-LSL_municip <- merge(LSL_municip_prelim_edit, IL_boundaries, by= "Place") %>% 
-  filter(GEOID != 1728950) %>% 
-  rbind(., windsor) %>% #Add New Windsor data point
-  select(-Class, -geometry)
-
-# Merge with the added municipalities
-LSL_municip_add <- read_csv("LSL_municip_join_to_boundaries3.csv") %>% 
-  drop_na() %>% 
-  select(-Place) %>% 
-  rename(Place = Place_1) 
-
-LSL_municip_final <- rbind(LSL_municip, LSL_municip_add) %>% 
-  mutate(potential = ServicesLead + ServicesUnknownMaterial,
-         perc_lead = ServicesLead/TotalServiceConnections*100,
-         perc_potential = (ServicesLead + ServicesUnknownMaterial)/TotalServiceConnections*100,
-         perc_UK = ServicesUnknownMaterial/TotalServiceConnections*100,
-         Place = gsub("\u00A0", " ", Place, fixed = TRUE)) #Fix the spaces (some were different lengths from excel)
-  
-
-# Find the non-overlapping municipalities (AKA which municips will be missing from the final analysis) 
-outersect <- function(x, y) {
-  sort(c(setdiff(x, y),
-         setdiff(y, x)))
-}
-
-missing_municip <- data.frame("Place" = outersect(LSL_municip_final$Place, IL_boundaries$Place))
-
-# st_write(LSL_municip, dsn = here("Map-Data","LSL-municip"), layer="LSL-municip", driver="ESRI Shapefile")
-
-
-```
-
-```{r}
-############################# Demographics Data ############################# 
-#Load ethnicity data (data from IL Census Bureau, American Community Survey 2018. Edited in excel to keep only the ethnicity columns)
-ethnicity <- read_csv(here("Map-Data","Demographics", "demographics-municip", "demographics-ethnicity-final.csv")) %>% 
-  separate(., GEOID, c("x","GEOID"), sep = "US") %>% 
+unemployment_county <- unemployment_raw %>% 
+  separate(., `County Name/State Abbreviation`, c("County","State"), sep = ", ") %>% #Separate County and State
+  separate(., County, c("County","x"), sep = " County") %>% #Remove the word "County" to match LSL data
+  separate(., County, c("County","x"), sep = " County") %>% 
   select(-x) %>% 
-  mutate(total_hispanic_perc = as.numeric(total_hispanic_perc), 
-         mexican_perc = as.numeric(mexican_perc),
-         PR_perc = as.numeric(PR_perc),
-         cuban_perc = as.numeric(cuban_perc),
-         hispanic_other_perc = as.numeric(hispanic_other_perc),
-         total_nothisp_perc = as.numeric(total_nothisp_perc),
-         white_perc = as.numeric(white_perc),
-         black_perc = as.numeric(black_perc),
-         native_perc = as.numeric(native_perc),
-         asian_perc = as.numeric(asian_perc),
-         PI_perc = as.numeric(PI_perc)) #Convert percentages from character to numeric
+  rename(LAUS_code = "LAUS Code", #Rename columns
+         FIPS_State = Code,
+         FIPS_County = Code.1,
+         State = State,
+         LaborForce = Force,
+         UR = "(%)") %>% 
+  mutate(LaborForce = as.numeric(gsub(",", "", LaborForce)), #Convert to numeric without commas
+         Employed = as.numeric(gsub(",", "", Employed)),
+         Unemployed = as.numeric(gsub(",", "", Unemployed)),
+         UR = as.numeric(UR)) %>% 
+  filter(State == "IL", #Keep only data for IL 
+         Period == "Aug-20") 
 
-#Combine with LSL data
-LSL_ethnicity <- merge(LSL_municip_final, ethnicity, by = "GEOID")
+#Join LSL and unemployment data
+LSL_unemployment <- merge(LSL_county, unemployment_county, by = "County") %>% 
+  select(-LAUS_code, -FIPS_State, -State, -Period, UR) %>% 
+  mutate(UR = Unemployed/LaborForce*100,
+         perc_potentialEmployed = output_jobs_yearly/Unemployed*100,
+         new_Unemployed = Unemployed - output_jobs_yearly,
+         new_UR = new_Unemployed/LaborForce*100,
+         change_UR = new_UR-UR)
 
-#Select for columns of interest
-LSL_ethnicity_filter <- LSL_ethnicity %>% 
-  select(GEOID, Place, County, FacilityId, TotalServiceConnections, ServicesLead, ServicesUnknownMaterial, potential, perc_lead, perc_potential, perc_UK, total, 
-         white, 
-         white_perc, 
-         black, 
-         black_perc, 
-         latinx = total_hispanic,
-         latinx_perc = total_hispanic_perc,
-         asian,
-         asian_perc,
-         native,
-         native_perc,
-         PI,
-         PI_perc) %>% 
-  filter(GEOID != 1777005) #Remove Urbana Champaign (# lines is too small to match pop size)
+```
+
+
+```{r}
+############################# Stats ############################# 
+
+#Potential Employment (% of unemployed that could be employed)
+  # Overall
+    #Total number of people unemployed 
+    sum(LSL_unemployment$Unemployed) #699,268 people
+    
+    #Total number of potential jobs
+    sum(LSL_unemployment$output_jobs_yearly) #11222.55 jobs
+    
+    #Total percent of potential employment?
+    sum(LSL_unemployment$output_jobs_yearly)/sum(LSL_unemployment$Unemployed)*100 #1.6%
+    
+    #Total $$$ invested
+    sum(LSL_unemployment$invest) # $14,028,184,000
+  
+  # By County 
+    #Histogram
+    hist(LSL_unemployment$perc_potentialEmployed)
+    
+    #Mean percent of potential employment
+    mean(LSL_unemployment$perc_potentialEmployed) #2.381589
+    
+    #Median percent of potential employment
+    median(LSL_unemployment$perc_potentialEmployed) #1.91619
+
+#Potential Change in UR 
+  # Overall
+    #UR
+    UR <- sum(LSL_unemployment$Unemployed)/sum(LSL_unemployment$LaborForce)*100 #11.06469
+    
+    #New UR 
+    new_UR <- sum(LSL_unemployment$new_Unemployed)/sum(LSL_unemployment$LaborForce)*100 #10.88711
+    
+    #Overall change in UR
+    new_UR-UR #-0.1775771
+    
+    # Investing in LSL replacement could decrease the unemployment rate in IL by 0.18%
+    
+  # By County 
+    #Histogram
+    hist(LSL_unemployment$change_UR)
+    
+    #Mean percent of potential change in UR
+    mean(LSL_unemployment$change_UR) #-0.1848287
+    
+    #Median percent of potential change in UR
+    median(LSL_unemployment$change_UR) #-0.1614763
+    
+    # Investing in LSL replacement could decrease the unemployment rate in IL counties by an average of 0.18%
+```
+
+
+
+
+
+
+
+
+```{r}
+############################# Mapping ############################# 
+#Load county data
+
+
+  
 
 ```
 
 ```{r}
 
-############################# Basic Statistics ############################# 
+############################# LSL Statistics ############################# 
 
 #Total # of LSLs
   #Total service lines
   sum(LSL$TotalServiceConnections) #3,842,374
-
 
   #Known lead
   sum(LSL$ServicesLead) #686,259
@@ -174,858 +173,54 @@ LSL_ethnicity_filter <- LSL_ethnicity %>%
   sum(LSL$ServicesLead + LSL$ServicesUnknownMaterial)/sum(LSL$TotalServiceConnections)*100 #45.6%
   
 #Total # of residents
-  #Total
-  sum(ethnicity$total) #11,303,628
-  
-  #White
-  sum(ethnicity$white) #6,574,931
-  
-  #Black
-  sum(ethnicity$black) #1,753,641
-  
-  #Latinx
-  sum(ethnicity$total_hispanic) #2,074,144
-  
-  #Asian
-  sum(ethnicity$asian) #650,700
-  
-  #Native
-  sum(ethnicity$native) #13,034
-  
-  #PI
-  sum(ethnicity$PI) #2,846
+  sum(unemployment$total_pop)
 
 #% of state population 
-  #White
-  sum(ethnicity$white)/sum(ethnicity$total)*100 #58.2%
   
-  #Black
-  sum(ethnicity$black)/sum(ethnicity$total)*100 #15.5%
-  
-  #Latinx
-  sum(ethnicity$total_hispanic)/sum(ethnicity$total)*100 #18.3%
-  
-  #Asian
-  sum(ethnicity$asian)/sum(ethnicity$total)*100 #5.8%
-  
-  #Native
-  sum(ethnicity$native)/sum(ethnicity$total)*100 #0.12%
-  
-  #PI
-  sum(ethnicity$PI)/sum(ethnicity$total)*100 #0.03%
 
 ```
 
-# Analysis 1 - Correlation between race and LSL
+# Analysis 1 - Correlation between unemployment and LSL
 ```{r}
 ############################# Correlations (Known LSLs)  ############################# 
 
-######### With Chicago ######### 
-#White + Known LSL
-  # (%White by %LSL known)
-  ggplot(LSL_ethnicity_filter, aes(x = white_perc, y = perc_lead)) +
+######### Labor Force Participation ######### 
+
+  ggplot(LSL_unemployment_filter, aes(x = LFPR, y = perc_lead)) +
     geom_point()+
     geom_smooth(method=lm)+
-    labs(title="Occurence of Lead Service Lines in White Communities Across Illinois (2018)",
-       x ="Municipal White Population (%)", y = "Municipal Service Lines Made of Lead (%)")
-  lm_percW_percLSL_K <- lm(white_perc ~ perc_lead, data = LSL_ethnicity_filter)
-  summary(lm_percW_percLSL_K)
+    labs(title="",
+       x ="Labor Force Participation Rate (%)", y = "Municipal Service Lines Made of Lead (%)")
+
+  lm_LFPR_percLSL_K <- lm(LFPR ~ perc_lead, data = LSL_unemployment_filter)
+  summary(lm_LFPR_percLSL_K)
+
   
-#Black + Known LSL
-  # (%Black by %LSL known)
-  ggplot(LSL_ethnicity_filter, aes(x = black_perc, y = perc_lead)) +
+######### Employment/Population ######### 
+
+  ggplot(LSL_unemployment_filter, aes(x = EPR, y = perc_lead)) +
     geom_point()+
     geom_smooth(method=lm)+
-    labs(title="Occurence of Lead Service Lines in Black Communities Across Illinois (2018)",
-       x ="Municipal Black Population (%)", y = "Municipal Service Lines Made of Lead (%)")
-  lm_percB_percLSL_K <- lm(black_perc ~ perc_lead, data = LSL_ethnicity_filter)
-  summary(lm_percB_percLSL_K)
+    labs(title="",
+       x ="Employment/Population Rate (%)", y = "Municipal Service Lines Made of Lead (%)")
 
-#Latinx + Known LSL
-  # (%Latinx by %LSL known)
-  ggplot(LSL_ethnicity_filter, aes(x = latinx_perc, y = perc_lead)) +
+  lm_EPR_percLSL_K <- lm(EPR ~ perc_lead, data = LSL_unemployment_filter)
+  summary(lm_EPR_percLSL_K)
+
+######### Unemployment Rate ######### 
+
+  ggplot(LSL_unemployment_filter, aes(x = UR, y = perc_lead)) +
     geom_point()+
     geom_smooth(method=lm)+
-    labs(title="Occurence of Lead Service Lines in Latinx Communities Across Illinois (2018)",
-       x ="Municipal Latinx Population (%)", y = "Municipal Service Lines Made of Lead (%)")
-  lm_percL_percLSL_K <- lm(latinx_perc ~ perc_lead, data = LSL_ethnicity_filter)
-  summary(lm_percL_percLSL_K)
-  
-#Asian + Known LSL
-  # (%Asian by %LSL known)
-  ggplot(LSL_ethnicity_filter, aes(x = asian_perc, y = perc_lead)) +
-    geom_point()+
-    geom_smooth(method=lm)+
-    labs(title="Occurence of Lead Service Lines in Asian Communities Across Illinois (2018)",
-       x ="Municipal Asian Population (%)", y = "Municipal Service Lines Made of Lead (%)")
-  lm_percA_percLSL_K <- lm(asian_perc ~ perc_lead, data = LSL_ethnicity_filter)
-  summary(lm_percA_percLSL_K)
+    labs(title="",
+       x ="Unemployment Rate (%)", y = "Municipal Service Lines Made of Lead (%)")
 
-#Native + Known LSL
-  # (%Native by %LSL known)
-  ggplot(LSL_ethnicity_filter, aes(x = native_perc, y = perc_lead)) +
-    geom_point()+
-    geom_smooth(method=lm)+
-    labs(title="Occurence of Lead Service Lines in Native American Communities Across Illinois (2018)",
-       x ="Municipal Native American Population (%)", y = "Municipal Service Lines Made of Lead (%)")
-  lm_percN_percLSL_K <- lm(native_perc ~ perc_lead, data = LSL_ethnicity_filter)
-  summary(lm_percN_percLSL_K)
+  lm_UR_percLSL_K <- lm(UR ~ perc_lead, data = LSL_unemployment_filter)
+  summary(lm_UR_percLSL_K)
   
-#PI + Known LSL
-  # (%PI by %LSL known)
-  ggplot(LSL_ethnicity_filter, aes(x = PI_perc, y = perc_lead)) +
-    geom_point()+
-    geom_smooth(method=lm)+
-    labs(title="Occurence of Lead Service Lines in Pacific Islander Communities Across Illinois (2018)",
-       x ="Municipal Pacific Islander Population (%)", y = "Municipal Service Lines Made of Lead (%)")
-  lm_percP_percLSL_K <- lm(PI_perc ~ perc_lead, data = LSL_ethnicity_filter)
-  summary(lm_percP_percLSL_K)
-```
 
-```{r}
-######### Without Chicago ######### 
-
-LSL_ethnicity_noChi <- LSL_ethnicity_filter %>% 
-  filter(Place != "Chicago")
-
-#Black + Known LSL
-  # (%Black by %LSL known)
-  ggplot(LSL_ethnicity_noChi, aes(x = black_perc, y = perc_lead)) +
-    geom_point()+
-    geom_smooth(method=lm)+
-    labs(title="Occurence of Lead Service Lines in Black Communities Across Illinois (2018) (*Chicago omitted)",
-       x ="Municipal Black Population (%)", y = "Municipal Service Lines Made of Lead (%)")
-  lm_percB_percLSL_K_noChi <- lm(black_perc ~ perc_lead, data = LSL_ethnicity_noChi)
-  summary(lm_percB_percLSL_K_noChi)
-
-#White + Known LSL
-  # (%White by %LSL known)
-  ggplot(LSL_ethnicity_noChi, aes(x = white_perc, y = perc_lead)) +
-    geom_point()+
-    geom_smooth(method=lm)+
-    labs(title="Occurence of Lead Service Lines in White Communities Across Illinois (2018) (*Chicago omitted)",
-       x ="Municipal White Population (%)", y = "Municipal Service Lines Made of Lead (%)")
-  lm_percW_percLSL_K_noChi <- lm(white_perc ~ perc_lead, data = LSL_ethnicity_noChi)
-  summary(lm_percW_percLSL_K_noChi)
   
-#Latinx + Known LSL
-  # (%Latinx by %LSL known)
-  ggplot(LSL_ethnicity_noChi, aes(x = latinx_perc, y = perc_lead)) +
-    geom_point()+
-    geom_smooth(method=lm)+
-    labs(title="Occurence of Lead Service Lines in Latinx Communities Across Illinois (2018) (*Chicago omitted)",
-       x ="Municipal Latinx Population (%)", y = "Municipal Service Lines Made of Lead (%)")
-  lm_percL_percLSL_K_noChi <- lm(latinx_perc ~ perc_lead, data = LSL_ethnicity_noChi)
-  summary(lm_percL_percLSL_K_noChi)
-  
-```
-
-```{r}
-######### Summary stats ######### 
-#Known LSL with Chicago
-  #White
-  round(summary(lm_percW_percLSL_K)$coefficients[2], 2)
-  round(summary(lm_percW_percLSL_K)$coefficients[1], 2)
-  round(summary(lm_percW_percLSL_K)$r.square, 2)
-  
-  #Black
-  round(summary(lm_percB_percLSL_K)$coefficients[2], 2)
-  round(summary(lm_percB_percLSL_K)$coefficients[1], 2)
-  round(summary(lm_percB_percLSL_K)$r.square, 2)
-  
-  #Latinx
-  round(summary(lm_percL_percLSL_K)$coefficients[2], 2)
-  round(summary(lm_percL_percLSL_K)$coefficients[1], 2)
-  round(summary(lm_percL_percLSL_K)$r.square, 2)
-  
-  #Asian
-  round(summary(lm_percA_percLSL_K)$coefficients[2], 2)
-  round(summary(lm_percA_percLSL_K)$coefficients[1], 2)
-  round(summary(lm_percA_percLSL_K)$r.square, 2)
-  
-  #Native
-  round(summary(lm_percN_percLSL_K)$coefficients[2], 3)
-  round(summary(lm_percN_percLSL_K)$coefficients[1], 2)
-  round(summary(lm_percN_percLSL_K)$r.square, 3)
-  
-  #PI
-  round(summary(lm_percP_percLSL_K)$coefficients[2], 2)
-  round(summary(lm_percP_percLSL_K)$coefficients[1], 2)
-  round(summary(lm_percP_percLSL_K)$r.square, 2)
-
-
-
-#Known LSL without chicago
-  #Black
-  round(summary(lm_percB_percLSL_K_noChi)$coefficients[2], 2)
-  round(summary(lm_percB_percLSL_K_noChi)$coefficients[1], 2)
-  round(summary(lm_percB_percLSL_K_noChi)$r.square, 2)
-  
-  #White 
-  round(summary(lm_percW_percLSL_K_noChi)$coefficients[2], 2)
-  round(summary(lm_percW_percLSL_K_noChi)$coefficients[1], 2)
-  round(summary(lm_percW_percLSL_K_noChi)$r.square, 2)
-  
-  #Latinx 
-  round(summary(lm_percL_percLSL_K_noChi)$coefficients[2], 2)
-  round(summary(lm_percL_percLSL_K_noChi)$coefficients[1], 2)
-  round(summary(lm_percL_percLSL_K_noChi)$r.square, 2)
 
 
 ```
-
-```{r}
-############################# Correlations (Potential LSLs)  ############################# 
-
-######### With Chicago ######### 
-#Black + Potential LSL
-  # (%Black by %LSL Potential)
-  ggplot(LSL_ethnicity_filter, aes(x = black_perc, y = perc_potential)) +
-    geom_point()+
-    geom_smooth(method=lm)
-  lm_percB_percLSL_P <- lm(black_perc ~ perc_potential, data = LSL_ethnicity_filter)
-  summary(lm_percB_percLSL_P)
-
-#White + Potential LSL
-  # (%White by %LSL Potential)
-  ggplot(LSL_ethnicity_filter, aes(x = white_perc, y = perc_potential)) +
-    geom_point()+
-    geom_smooth(method=lm)
-  lm_percW_percLSL_P <- lm(white_perc ~ perc_potential, data = LSL_ethnicity_filter)
-  summary(lm_percW_percLSL_P)
-
-
-######### Without Chicago ######### 
-
-LSL_ethnicity_noChi <- LSL_ethnicity_filter %>% 
-  filter(Place != "Chicago")
-
-#Black + Potential LSL
-  # (%Black by %LSL Potential)
-  ggplot(LSL_ethnicity_noChi, aes(x = black_perc, y = perc_potential)) +
-    geom_point()+
-    geom_smooth(method=lm)
-  lm_percB_percLSL_P_noChi <- lm(black_perc ~ perc_potential, data = LSL_ethnicity_noChi)
-  summary(lm_percB_percLSL_P_noChi)
-
-#White + Potential LSL
-  # (%White by %LSL Potential)
-  ggplot(LSL_ethnicity_noChi, aes(x = white_perc, y = perc_potential)) +
-    geom_point()+
-    geom_smooth(method=lm)
-  lm_percW_percLSL_P_noChi <- lm(white_perc ~ perc_potential, data = LSL_ethnicity_noChi)
-  summary(lm_percW_percLSL_P_noChi)
-
-
-```
-
-# Analysis 2 - LSLs in 50 Largest Communities by Ethnicity
-```{r}
-############################# Top 50 Blackest ############################# 
-#50 blackest communities (by #)
-top50_black <- LSL_ethnicity_filter %>% 
-  arrange(desc(black)) %>% 
-  head(50) 
-
-  #Stats
-  # % of state black population in top 50
-  sum(top50_black$black) #1,423,877
-  sum(top50_black$black)/sum(ethnicity$black)*100 #81%
-  
-  # % of ENTIRE state population in top 50
-  sum(top50_black$black) #1,423,877
-  sum(top50_black$black)/sum(ethnicity$total)*100 #13%
-  
-  # with what % of known LSLs?
-  sum(top50_black$ServicesLead) #533,598
-  sum(top50_black$ServicesLead)/sum(LSL$ServicesLead)*100 #78%
-  
-  # with what % of unknown LSLs?
-  sum(top50_black$ServicesUnknownMaterial) #488,953
-  sum(top50_black$ServicesUnknownMaterial)/sum(LSL$ServicesUnknownMaterial)*100 #46%
-  
-  # with what % of potential LSLs?
-  sum(top50_black$potential) #1,022,551
-  sum(top50_black$potential)/sum(LSL$ServicesLead + LSL$ServicesUnknownMaterial)*100 #58%
-  
-  # LSL per capita
-  sum(top50_black$ServicesLead)/sum(top50_black$black) #0.3747501
-  sum(LSL$ServicesLead)/sum(ethnicity$black) #0.39
-  
-  
-
-############################# Top 50 Whitest ############################# 
-# Filter for the 50 whitest communities (by #)
-top50_white <- LSL_ethnicity_filter %>% 
-  arrange(desc(white)) %>% 
-  head(50) 
-  
-  #Stats
-  # % of state white population in top 50
-  sum(top50_white$white) #2,876,429
-  sum(top50_white$white)/sum(ethnicity$white)*100 #44%
-        #When comparing to black data, this tells us that the state's black population is concentrated          in a few municipalities while the white population is more spread out
-  
-  # % of ENTIRE state population in top 50
-  sum(top50_white$white) #2,876,429
-  sum(top50_white$white)/sum(ethnicity$total)*100 #25%
-  
-  # with what % of known LSLs?
-  sum(top50_white$ServicesLead) #533,598
-  sum(top50_white$ServicesLead)/sum(LSL$ServicesLead)*100 #77%
-  
-  # with what % of unknown LSLs?
-  sum(top50_white$ServicesUnknownMaterial) #414,782
-  sum(top50_white$ServicesUnknownMaterial)/sum(LSL$ServicesUnknownMaterial)*100 #39%
-  
-  # with what % of potential LSLs?
-  sum(top50_white$potential) #946,142
-  sum(top50_white$potential)/sum(LSL$ServicesLead + LSL$ServicesUnknownMaterial)*100 #54%
-  
-  # LSL per capita
-  sum(top50_white$ServicesLead)/sum(top50_white$white) #0.1847291
-  sum(LSL$ServicesLead)/sum(ethnicity$white) #0.10
-  
-  #25% of the state lives with 78% of known LSLs
-
-############################# Top 50 Latinx ############################# 
-# Filter for the 50 latinx communities (by #)
-top50_latinx <- LSL_ethnicity_filter %>% 
-  arrange(desc(latinx)) %>% 
-  head(50) 
-  
-  #Stats
-  # % of state latinx population in top 50
-  sum(top50_latinx$latinx) #1,572,327
-  sum(top50_latinx$latinx)/sum(ethnicity$total_hispanic)*100 #75.8%
-        
-  # % of ENTIRE state population in top 50
-  sum(top50_latinx$latinx) #1,572,327
-  sum(top50_latinx$latinx)/sum(ethnicity$total)*100 #13.9%
-  
-  # with what % of known LSLs?
-  sum(top50_latinx$ServicesLead) #544,567
-  sum(top50_latinx$ServicesLead)/sum(LSL$ServicesLead)*100 #79.4%
-  
-  # with what % of unknown LSLs?
-  sum(top50_latinx$ServicesUnknownMaterial) #301,029
-  sum(top50_latinx$ServicesUnknownMaterial)/sum(LSL$ServicesUnknownMaterial)*100 #28.2%
-  
-  # with what % of potential LSLs?
-  sum(top50_latinx$potential) #845,596
-  sum(top50_latinx$potential)/sum(LSL$ServicesLead + LSL$ServicesUnknownMaterial)*100 #48.2%
-  
-  # LSL per capita
-  sum(top50_latinx$ServicesLead)/sum(top50_latinx$latinx) #0.35
-  sum(LSL$ServicesLead)/sum(ethnicity$total_hispanic) #0.33
-  
-############################# Top 50 Asian ############################# 
-# Filter for the 50 asian communities (by #)
-top50_asian <- LSL_ethnicity_filter %>% 
-  arrange(desc(asian)) %>% 
-  head(50) 
-  
-  #Stats
-  # % of state asian population in top 50
-  sum(top50_asian$asian) #498,750
-  sum(top50_asian$asian)/sum(ethnicity$asian)*100 #76.6%
-        
-  # % of ENTIRE state population in top 50
-  sum(top50_asian$asian) #498,750
-  sum(top50_asian$asian)/sum(ethnicity$total)*100 #4.4%
-  
-  # with what % of known LSLs?
-  sum(top50_asian$ServicesLead) #507,432
-  sum(top50_asian$ServicesLead)/sum(LSL$ServicesLead)*100 #74%
-  
-  # with what % of unknown LSLs?
-  sum(top50_asian$ServicesUnknownMaterial) #377,051
-  sum(top50_asian$ServicesUnknownMaterial)/sum(LSL$ServicesUnknownMaterial)*100 #35%
-  
-  # with what % of potential LSLs?
-  sum(top50_asian$potential) #884,483
-  sum(top50_asian$potential)/sum(LSL$ServicesLead + LSL$ServicesUnknownMaterial)*100 #50%
-  
-  # LSL per capita
-  sum(top50_asian$ServicesLead)/sum(top50_asian$asian) #1.01
-  sum(LSL$ServicesLead)/sum(ethnicity$asian) #1.05
-
-  
-############################# Top 50 Native ############################# 
-# Filter for the 50 native communities (by #)
-top50_native <- LSL_ethnicity_filter %>% 
-  arrange(desc(native)) %>% 
-  head(50) 
-  
-  #Stats
-  # % of state native population in top 50
-  sum(top50_native$native) #8,424
-  sum(top50_native$native)/sum(ethnicity$native)*100 #65%
-        
-  # % of ENTIRE state population in top 50
-  sum(top50_native$native) #8,424
-  sum(top50_native$native)/sum(ethnicity$total)*100 #0.07%
-  
-  # with what % of known LSLs?
-  sum(top50_native$ServicesLead) #519,435
-  sum(top50_native$ServicesLead)/sum(LSL$ServicesLead)*100 #76%
-  
-  # with what % of unknown LSLs?
-  sum(top50_native$ServicesUnknownMaterial) #503,178
-  sum(top50_native$ServicesUnknownMaterial)/sum(LSL$ServicesUnknownMaterial)*100 #47%
-  
-  # with what % of potential LSLs?
-  sum(top50_native$potential) #1022613
-  sum(top50_native$potential)/sum(LSL$ServicesLead + LSL$ServicesUnknownMaterial)*100 #58%
-  
-  # LSL per capita
-  sum(top50_native$ServicesLead)/sum(top50_native$native) #62
-  sum(LSL$ServicesLead)/sum(ethnicity$native) #53
-  
-  
-############################# Top 50 PI ############################# 
-# Filter for the 50 PI communities (by #)
-top50_PI <- LSL_ethnicity_filter %>% 
-  arrange(desc(PI)) %>% 
-  head(50) 
-  
-  #Stats
-  # % of state PI population in top 50
-  sum(top50_PI$PI) #2,477
-  sum(top50_PI$PI)/sum(ethnicity$PI)*100 #87%
-        
-  # % of ENTIRE state population in top 50
-  sum(top50_PI$PI) #2,477
-  sum(top50_PI$PI)/sum(ethnicity$total)*100 #0.02%
-  
-  # with what % of known LSLs?
-  sum(top50_PI$ServicesLead) #453,035
-  sum(top50_PI$ServicesLead)/sum(LSL$ServicesLead)*100 #66%
-  
-  # with what % of unknown LSLs?
-  sum(top50_PI$ServicesUnknownMaterial) #245,964
-  sum(top50_PI$ServicesUnknownMaterial)/sum(LSL$ServicesUnknownMaterial)*100 #23%
-  
-  # with what % of potential LSLs?
-  sum(top50_PI$potential) #698,999
-  sum(top50_PI$potential)/sum(LSL$ServicesLead + LSL$ServicesUnknownMaterial)*100 #40%
-  
-  # LSL per capita
-  sum(top50_PI$ServicesLead)/sum(top50_PI$PI) #183
-  sum(LSL$ServicesLead)/sum(ethnicity$PI) #241
-
-```
-
-
-```{r}
-############################# Top 50 Blackest - w/o Chicago ############################# 
-ethnicity_noChi <- ethnicity %>% 
-  filter(GEOID != "1714000")
-
-LSL_noChi <- LSL %>% 
-  filter(FacilityId != "IL0316000")
-
-#50 blackest communities (by #)
-top50_black_noChi <- LSL_ethnicity_filter %>% 
-  arrange(desc(black)) %>% 
-  filter(Place != "Chicago") %>% 
-  head(50) 
-
-  #Stats
-  # % of state black population in top 50
-  sum(top50_black_noChi$black) #620,573
-  sum(top50_black_noChi$black)/sum(ethnicity_noChi$black)*100 #65%
-  
-  # % of ENTIRE state population in top 50
-  sum(top50_black_noChi$black) #620,573
-  sum(top50_black_noChi$black)/sum(ethnicity_noChi$total)*100 #7%
-  
-  # with what % of known LSLs?
-  sum(top50_black_noChi$ServicesLead) #147,650
-  sum(top50_black_noChi$ServicesLead)/sum(LSL_noChi$ServicesLead)*100 #50%
-  
-  # with what % of unknown LSLs?
-  sum(top50_black_noChi$ServicesUnknownMaterial) #368,193
-  sum(top50_black_noChi$ServicesUnknownMaterial)/sum(LSL_noChi$ServicesUnknownMaterial)*100 #39%
-  
-  # with what % of potential LSLs?
-  sum(top50_black_noChi$potential) #515,843
-  sum(top50_black_noChi$potential)/sum(LSL_noChi$ServicesLead + LSL_noChi$ServicesUnknownMaterial)*100 #42%
-  
-  # LSL per capita
-  sum(top50_black_noChi$ServicesLead)/sum(top50_black_noChi$black) #0.2379253
-  
-
-############################# Top 50 Whitest - w/o Chicago ############################# 
-# Filter for the 50 whitest communities (by #)
-top50_white_noChi <- LSL_ethnicity_filter %>% 
-  arrange(desc(white)) %>% 
-  filter(Place != "Chicago") %>% 
-  head(50) 
-  
-  #Stats
-  # % of state white population in top 50
-  sum(top50_white_noChi$white) #2,006,985
-  sum(top50_white_noChi$white)/sum(ethnicity_noChi$white)*100 #35%
-        #When comparing to black data, this tells us that the state's black population is concentrated          in a few municipalities while the white population is more spread out
-  
-  # % of ENTIRE state population in top 50
-  sum(top50_white_noChi$white) #2,006,985
-  sum(top50_white_noChi$white)/sum(ethnicity_noChi$total)*100 #23%
-  
-  # with what % of known LSLs?
-  sum(top50_white_noChi$ServicesLead) #138,746
-  sum(top50_white_noChi$ServicesLead)/sum(LSL_noChi$ServicesLead)*100 #47%
-  
-  # with what % of unknown LSLs?
-  sum(top50_white_noChi$ServicesUnknownMaterial) #295,449
-  sum(top50_white_noChi$ServicesUnknownMaterial)/sum(LSL_noChi$ServicesUnknownMaterial)*100 #31%
-  
-  # with what % of potential LSLs?
-  sum(top50_white_noChi$potential) #434,195
-  sum(top50_white_noChi$potential)/sum(LSL_noChi$ServicesLead + LSL_noChi$ServicesUnknownMaterial)*100 #35%
-  
-  # LSL per capita
-  sum(top50_white_noChi$ServicesLead)/sum(top50_white_noChi$white) #0.06913156
-
-
-```
-
-# Analysis 3 - Top 50 LSL Communities
-```{r}
-############################# Top 50 LSLs ############################# 
-#Top 50 known LSLs 
-top50_LSL_K <- LSL_ethnicity_filter %>% 
-  arrange(desc(ServicesLead)) %>% 
-  head(50) 
-
-  #Stats
-
-    # % of overall LSLs
-    sum(top50_LSL_K$ServicesLead)/sum(LSL$ServicesLead)*100 #94%
-    
-    # % of state pop
-      # White
-      sum(top50_LSL_K$white) #1,952,415
-      sum(top50_LSL_K$white)/sum(ethnicity$white)*100 #30%
-    
-      # Black
-      sum(top50_LSL_K$black) #1,143,383
-      sum(top50_LSL_K$black)/sum(ethnicity$black)*100 #65%
-      
-      # Latinx
-      sum(top50_LSL_K$latinx) #1,339,115
-      sum(top50_LSL_K$latinx)/sum(ethnicity$total_hispanic)*100 #65%
-      
-      # Asian
-      sum(top50_LSL_K$asian) #270,869
-      sum(top50_LSL_K$asian)/sum(ethnicity$asian)*100 #42%
-      
-      # Native
-      sum(top50_LSL_K$native) #5,483
-      sum(top50_LSL_K$native)/sum(ethnicity$native)*100 #42%
-      
-      # PI
-      sum(top50_LSL_K$PI) #851
-      sum(top50_LSL_K$PI)/sum(ethnicity$PI)*100 #30%
-      
-    # LSL per capita 
-      # White 
-      sum(top50_LSL_K$ServicesLead)/sum(top50_LSL_K$white) #0.3288655
-      # Black 
-      sum(top50_LSL_K$ServicesLead)/sum(top50_LSL_K$black) #0.5615634
-      # Latinx 
-      sum(top50_LSL_K$ServicesLead)/sum(top50_LSL_K$latinx) #0.4794823
-      # Asian 
-      sum(top50_LSL_K$ServicesLead)/sum(top50_LSL_K$asian) #2.370452
-      # Native 
-      sum(top50_LSL_K$ServicesLead)/sum(top50_LSL_K$native) #117.1041
-      # PI 
-      sum(top50_LSL_K$ServicesLead)/sum(top50_LSL_K$PI) #754.5029
-      
-    #Demographic breakdown
-      # White 
-      sum(top50_LSL_K$white)/sum(top50_LSL_K$total)*100 #40.55828%
-      # Black 
-      sum(top50_LSL_K$black)/sum(top50_LSL_K$total)*100 #23.75194%
-      # Latinx 
-      sum(top50_LSL_K$latinx)/sum(top50_LSL_K$total)*100 #27.81796%
-      # Asian 
-      sum(top50_LSL_K$asian)/sum(top50_LSL_K$total)*100 #5.626867%
-      # Native 
-      sum(top50_LSL_K$native)/sum(top50_LSL_K$total)*100 #0.1139005%
-      # PI 
-      sum(top50_LSL_K$PI)/sum(top50_LSL_K$total)*100 #0.01767815%
-
-#Top 50 unknown LSLs 
-top50_LSL_UK <- LSL_ethnicity_filter %>% 
-  arrange(desc(ServicesUnknownMaterial)) %>% 
-  head(50) 
-
-  #Stats
-    # % of overall LSLs
-    sum(top50_LSL_UK$ServicesUnknownMaterial)/sum(LSL$ServicesUnknownMaterial)*100 #63%
-    
-    # % of state pop
-      # White
-      sum(top50_LSL_UK$white) #2,009,575
-      sum(top50_LSL_UK$white)/sum(ethnicity$white)*100 #31%
-    
-      # Black
-      sum(top50_LSL_UK$black) #1,094,688
-      sum(top50_LSL_UK$black)/sum(ethnicity$black)*100 #62%
-      
-      # Latinx
-      sum(top50_LSL_UK$latinx) #1,049,219
-      sum(top50_LSL_UK$latinx)/sum(ethnicity$total_hispanic)*100 #51%
-      
-      # Asian
-      sum(top50_LSL_UK$asian) #291,039
-      sum(top50_LSL_UK$asian)/sum(ethnicity$asian)*100 #45%
-      
-      # Native
-      sum(top50_LSL_UK$native) #5,992
-      sum(top50_LSL_UK$native)/sum(ethnicity$native)*100 #46%
-      
-      # PI
-      sum(top50_LSL_UK$PI) #724
-      sum(top50_LSL_UK$PI)/sum(ethnicity$PI)*100 #25%
-    
-   # LSL per capita 
-      # White 
-      sum(top50_LSL_UK$ServicesLead)/sum(top50_LSL_UK$white) #0.2197878
-      # Black 
-      sum(top50_LSL_UK$ServicesLead)/sum(top50_LSL_UK$black) #0.4034757
-      # Latinx 
-      sum(top50_LSL_UK$ServicesLead)/sum(top50_LSL_UK$latinx) #0.4209607
-      # Asian 
-      sum(top50_LSL_UK$ServicesLead)/sum(top50_LSL_UK$asian) #1.517597
-      # Native 
-      sum(top50_LSL_UK$ServicesLead)/sum(top50_LSL_UK$native) #73.71162
-      # PI 
-      sum(top50_LSL_UK$ServicesLead)/sum(top50_LSL_UK$PI) #610.0552
-      
-    #Demographic breakdown
-      # White 
-      sum(top50_LSL_UK$white)/sum(top50_LSL_UK$total)*100 #44.11195%
-      # Black 
-      sum(top50_LSL_UK$black)/sum(top50_LSL_UK$total)*100 #24.02937%
-      # Latinx 
-      sum(top50_LSL_UK$latinx)/sum(top50_LSL_UK$total)*100 #23.03129%
-      # Asian 
-      sum(top50_LSL_UK$asian)/sum(top50_LSL_UK$total)*100 #6.388564%
-      # Native 
-      sum(top50_LSL_UK$native)/sum(top50_LSL_UK$total)*100 #0.1315297%
-      # PI 
-      sum(top50_LSL_UK$PI)/sum(top50_LSL_UK$total)*100 #0.01589244%
-    
-    
-#Top 50 potential LSLs 
-top50_LSL_P <- LSL_ethnicity_filter %>% 
-  arrange(desc(potential)) %>% 
-  head(50) 
-
-  # % of state pop
-      # White
-      sum(top50_LSL_P$white) #2,223,871
-      sum(top50_LSL_P$white)/sum(ethnicity$white)*100 #34%
-    
-      # Black
-      sum(top50_LSL_P$black) #1,191,107
-      sum(top50_LSL_P$black)/sum(ethnicity$black)*100 #68%
-      
-      # Latinx
-      sum(top50_LSL_P$latinx) #1,305,381
-      sum(top50_LSL_P$latinx)/sum(ethnicity$total_hispanic)*100 #63%
-      
-      # Asian
-      sum(top50_LSL_P$asian) #325,079
-      sum(top50_LSL_P$asian)/sum(ethnicity$asian)*100 #50%
-      
-      # Native
-      sum(top50_LSL_P$native) #6,471
-      sum(top50_LSL_P$native)/sum(ethnicity$native)*100 #50%
-      
-      # PI
-      sum(top50_LSL_P$PI) #947
-      sum(top50_LSL_P$PI)/sum(ethnicity$PI)*100 #33%
-    
-   # LSL per capita 
-      # White 
-      sum(top50_LSL_P$ServicesLead)/sum(top50_LSL_P$white) #0.2507524
-      # Black 
-      sum(top50_LSL_P$ServicesLead)/sum(top50_LSL_P$black) #0.4681704
-      # Latinx 
-      sum(top50_LSL_P$ServicesLead)/sum(top50_LSL_P$latinx) #0.4271864
-      # Asian 
-      sum(top50_LSL_P$ServicesLead)/sum(top50_LSL_P$asian) #1.715401
-      # Native 
-      sum(top50_LSL_P$ServicesLead)/sum(top50_LSL_P$native) #86.1754
-      # PI 
-      sum(top50_LSL_P$ServicesLead)/sum(top50_LSL_P$PI) #588.8501
-      
-    #Demographic breakdown
-      # White 
-      sum(top50_LSL_P$white)/sum(top50_LSL_P$total)*100 #43.02666
-      # Black 
-      sum(top50_LSL_P$black)/sum(top50_LSL_P$total)*100 #23.04511
-      # Latinx 
-      sum(top50_LSL_P$latinx)/sum(top50_LSL_P$total)*100 #25.25605
-      # Asian 
-      sum(top50_LSL_P$asian)/sum(top50_LSL_P$total)*100 #6.289513
-      # Native 
-      sum(top50_LSL_P$native)/sum(top50_LSL_P$total)*100 #0.1251986
-      # PI 
-      sum(top50_LSL_P$PI)/sum(top50_LSL_P$total)*100 #0.01832222
-```
-
-# Unknown Scenarios
-```{r}
-LSL_ethnicity_filter_UK <- LSL_ethnicity_filter %>% 
-  mutate(
-    UK_high = ServicesLead + ServicesUnknownMaterial,
-    UK_med = ServicesLead + 0.5*ServicesUnknownMaterial,
-    UK_low = ServicesLead + 0.18*ServicesUnknownMaterial
-  )
-
-#High
-top50_UK_high <- LSL_ethnicity_filter_UK %>% 
-  arrange(desc(UK_high)) %>% 
-  head(50) 
-
-  #Stats
-    # % of overall LSLs
-
-    # % of state pop
-      # White
-      sum(top50_UK_high$white) #2223871
-      sum(top50_UK_high$white)/sum(ethnicity$white)*100 #33.82349
-    
-      # Black
-      sum(top50_UK_high$black) #1191107
-      sum(top50_UK_high$black)/sum(ethnicity$black)*100 #67.92194
-      
-      # Latinx
-      sum(top50_UK_high$latinx) #1305381
-      sum(top50_UK_high$latinx)/sum(ethnicity$total_hispanic)*100 #62.93589
-      
-      # Asian
-      sum(top50_UK_high$asian) #325079
-      sum(top50_UK_high$asian)/sum(ethnicity$asian)*100 #49.95835
-      
-      # Native
-      sum(top50_UK_high$native) #6471
-      sum(top50_UK_high$native)/sum(ethnicity$native)*100 #49.64708
-      
-      # PI
-      sum(top50_UK_high$PI) #947
-      sum(top50_UK_high$PI)/sum(ethnicity$PI)*100 #33.27477
-    
-    #Demographic breakdown
-      # White 
-      sum(top50_UK_high$white)/sum(top50_UK_high$total)*100 #43.02666
-      # Black 
-      sum(top50_UK_high$black)/sum(top50_UK_high$total)*100 #23.04511
-      # Latinx 
-      sum(top50_UK_high$latinx)/sum(top50_UK_high$total)*100 #25.25605
-      # Asian 
-      sum(top50_UK_high$asian)/sum(top50_UK_high$total)*100 #6.289513
-      # Native 
-      sum(top50_UK_high$native)/sum(top50_UK_high$total)*100 #0.1251986
-      # PI 
-      sum(top50_UK_high$PI)/sum(top50_UK_high$total)*100 #0.01832222
-  
-#Medium
-top50_UK_med <- LSL_ethnicity_filter_UK %>% 
-  arrange(desc(UK_med)) %>% 
-  head(50) 
-
-  #Stats
-    # % of overall LSLs
-    
-    # % of state pop
-      # White
-      sum(top50_UK_med$white) #2245534
-      sum(top50_UK_med$white)/sum(ethnicity$white)*100 #34.15297
-    
-      # Black
-      sum(top50_UK_med$black) #1252004
-      sum(top50_UK_med$black)/sum(ethnicity$black)*100 #71.39454
-      
-      # Latinx
-      sum(top50_UK_med$latinx) #1326489
-      sum(top50_UK_med$latinx)/sum(ethnicity$total_hispanic)*100 #63.95356
-      
-      # Asian
-      sum(top50_UK_med$asian) #320644
-      sum(top50_UK_med$asian)/sum(ethnicity$asian)*100 #49.27678
-      
-      # Native
-      sum(top50_UK_med$native) #6541
-      sum(top50_UK_med$native)/sum(ethnicity$native)*100 #50.18413
-      
-      # PI
-      sum(top50_UK_med$PI) #1026
-      sum(top50_UK_med$PI)/sum(ethnicity$PI)*100 #36.0506
-    
-    #Demographic breakdown
-      # White 
-      sum(top50_UK_med$white)/sum(top50_UK_med$total)*100 #42.60107
-      # Black 
-      sum(top50_UK_med$black)/sum(top50_UK_med$total)*100 #23.75235
-      # Latinx 
-      sum(top50_UK_med$latinx)/sum(top50_UK_med$total)*100 #25.16544
-      # Asian 
-      sum(top50_UK_med$asian)/sum(top50_UK_med$total)*100 #6.083087
-      # Native 
-      sum(top50_UK_med$native)/sum(top50_UK_med$total)*100 #0.1240924
-      # PI 
-      sum(top50_UK_med$PI)/sum(top50_UK_med$total)*100 #0.01946472
-
-#Low
-top50_UK_low <- LSL_ethnicity_filter_UK %>% 
-  arrange(desc(UK_low)) %>% 
-  head(50) 
-
-#Stats
-    # % of overall LSLs
-    
-    # % of state pop
-      # White
-      sum(top50_UK_low$white) #2155718
-      sum(top50_UK_low$white)/sum(ethnicity$white)*100 #32.78693
-    
-      # Black
-      sum(top50_UK_low$black) #1245521
-      sum(top50_UK_low$black)/sum(ethnicity$black)*100 #71.02486
-      
-      # Latinx
-      sum(top50_UK_low$latinx) #1363670
-      sum(top50_UK_low$latinx)/sum(ethnicity$total_hispanic)*100 #65.74616
-      
-      # Asian
-      sum(top50_UK_low$asian) #314491
-      sum(top50_UK_low$asian)/sum(ethnicity$asian)*100 #48.33118
-      
-      # Native
-      sum(top50_UK_low$native) #6292
-      sum(top50_UK_low$native)/sum(ethnicity$native)*100 #48.27375
-      
-      # PI
-      sum(top50_UK_low$PI) #968
-      sum(top50_UK_low$PI)/sum(ethnicity$PI)*100 #34.01265
-    
-    #Demographic breakdown
-      # White 
-      sum(top50_UK_low$white)/sum(top50_UK_low$total)*100 #41.43123
-      # Black 
-      sum(top50_UK_low$black)/sum(top50_UK_low$total)*100 #23.93795
-      # Latinx 
-      sum(top50_UK_low$latinx)/sum(top50_UK_low$total)*100 #26.20868
-      # Asian 
-      sum(top50_UK_low$asian)/sum(top50_UK_low$total)*100 #6.044274
-      # Native 
-      sum(top50_UK_low$native)/sum(top50_UK_low$total)*100 #0.1209274
-      # PI 
-      sum(top50_UK_low$PI)/sum(top50_UK_low$total)*100 #0.01860421
-```
+End here
